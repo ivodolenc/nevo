@@ -1,0 +1,83 @@
+@use 'sass:map';
+@use '../config';
+
+@mixin grid(
+  $cols: null,
+  $rows: null,
+  $gap: null,
+  $gap-x: null,
+  $gap-y: null,
+  $auto-flow: null,
+  $auto-col: null,
+  $auto-row: null
+) {
+  display: grid;
+
+  @if $cols {
+    grid-template-columns: repeat($cols, minmax(0, 1fr));
+  }
+
+  @if $rows {
+    grid-template-rows: repeat($rows, minmax(0, 1fr));
+  }
+
+  @if $gap {
+    gap: map.get(config.$config, 'theme', 'spacing', $gap);
+  }
+
+  @if $gap-x {
+    column-gap: map.get(config.$config, 'theme', 'spacing', $gap-x);
+  }
+
+  @if $gap-y {
+    row-gap: map.get(config.$config, 'theme', 'spacing', $gap-y);
+  }
+
+  @if $auto-flow {
+    grid-auto-flow: $auto-flow;
+  }
+
+  @if $auto-col {
+    grid-auto-columns: $auto-col;
+  }
+
+  @if $auto-row {
+    grid-auto-rows: $auto-row;
+  }
+}
+
+@mixin grid-col($span: null, $start: null, $end: null) {
+  @if $span {
+    grid-column: span $span / span $span;
+  } @else if $span == auto {
+    grid-column: auto;
+  } @else if $span == full {
+    grid-column: 1 / -1;
+  }
+
+  @if $start {
+    grid-column-start: $start;
+  }
+
+  @if $end {
+    grid-column-end: $end;
+  }
+}
+
+@mixin grid-row($span: null, $start: null, $end: null) {
+  @if $span {
+    grid-row: span $span / span $span;
+  } @else if $span == auto {
+    grid-row: auto;
+  } @else if $span == full {
+    grid-row: 1 / -1;
+  }
+
+  @if $start {
+    grid-row-start: $start;
+  }
+
+  @if $end {
+    grid-row-end: $end;
+  }
+}

@@ -1,0 +1,43 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+$u-object-position: () !default;
+$u-object-position: map.deep-merge(
+  (
+    'object-bottom': (
+      'object-position': bottom
+    ),
+    'object-center': (
+      'object-position': center
+    ),
+    'object-left': (
+      'object-position': left
+    ),
+    'object-left-bottom': (
+      'object-position': left bottom
+    ),
+    'object-left-top': (
+      'object-position': left top
+    ),
+    'object-right': (
+      'object-position': right
+    ),
+    'object-right-bottom': (
+      'object-position': right bottom
+    ),
+    'object-right-top': (
+      'object-position': right top
+    ),
+    'object-top': (
+      'object-position': top
+    )
+  ),
+  $u-object-position
+);
+
+@include mixins.generate-utilities(
+  $map: $u-object-position,
+  $variants: map.get(config.$config, 'variants', 'object-position'),
+  $include: map.get(config.$config, 'utilities', 'object-position')
+);

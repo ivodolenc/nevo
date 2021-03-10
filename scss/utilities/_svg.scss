@@ -1,0 +1,31 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+$u-svg: () !default;
+$u-svg: map.deep-merge(
+  (
+    'fill-current': (
+      'fill': currentColor
+    ),
+    'stroke-current': (
+      'stroke': currentColor
+    ),
+    'stroke-0': (
+      'stroke-width': 0
+    ),
+    'stroke-1': (
+      'stroke-width': 1
+    ),
+    'stroke-2': (
+      'stroke-width': 2
+    )
+  ),
+  $u-svg
+);
+
+@include mixins.generate-utilities(
+  $map: $u-svg,
+  $variants: map.get(config.$config, 'variants', 'svg'),
+  $include: map.get(config.$config, 'utilities', 'svg')
+);

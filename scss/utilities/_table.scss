@@ -1,0 +1,28 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+$u-table: () !default;
+$u-table: map.deep-merge(
+  (
+    'border-collapse': (
+      'border-collapse': collapse
+    ),
+    'border-separate': (
+      'border-collapse': separate
+    ),
+    'table-auto': (
+      'table-layout': auto
+    ),
+    'table-fixed': (
+      'table-layout': fixed
+    )
+  ),
+  $u-table
+);
+
+@include mixins.generate-utilities(
+  $map: $u-table,
+  $variants: map.get(config.$config, 'variants', 'table'),
+  $include: map.get(config.$config, 'utilities', 'table')
+);

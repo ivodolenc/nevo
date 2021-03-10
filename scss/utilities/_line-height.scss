@@ -1,0 +1,11 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+@include mixins.generate-theme(
+  $map: map.get(config.$config, 'theme', 'leading'),
+  $class-name: 'leading',
+  $property: 'line-height',
+  $variants: map.get(config.$config, 'variants', 'line-height'),
+  $include: map.get(config.$config, 'utilities', 'line-height')
+);

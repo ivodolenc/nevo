@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+$u-flex-wrap: () !default;
+$u-flex-wrap: map.deep-merge(
+  (
+    'flex-wrap': (
+      'flex-wrap': wrap
+    ),
+    'flex-wrap-reverse': (
+      'flex-wrap': wrap-reverse
+    ),
+    'flex-nowrap': (
+      'flex-wrap': nowrap
+    )
+  ),
+  $u-flex-wrap
+);
+
+@include mixins.generate-utilities(
+  $map: $u-flex-wrap,
+  $variants: map.get(config.$config, 'variants', 'flex-wrap'),
+  $include: map.get(config.$config, 'utilities', 'flex-wrap')
+);

@@ -1,0 +1,30 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+$u-font-smoothing: () !default;
+$u-font-smoothing: map.deep-merge(
+  (
+    'antialiased': (
+      '-webkit-font-smoothing': antialiased,
+      '-moz-osx-font-smoothing': grayscale
+    ),
+    'subpixel-antialiased': (
+      '-webkit-font-smoothing': auto,
+      '-moz-osx-font-smoothing': auto
+    ),
+    'italic': (
+      'font-style': italic
+    ),
+    'non-italic': (
+      'font-style': normal
+    )
+  ),
+  $u-font-smoothing
+);
+
+@include mixins.generate-utilities(
+  $map: $u-font-smoothing,
+  $variants: map.get(config.$config, 'variants', 'font-smoothing'),
+  $include: map.get(config.$config, 'utilities', 'font-smoothing')
+);

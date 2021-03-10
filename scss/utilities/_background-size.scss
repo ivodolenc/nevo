@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+$u-background-size: () !default;
+$u-background-size: map.deep-merge(
+  (
+    'bg-auto': (
+      'background-size': auto
+    ),
+    'bg-cover': (
+      'background-size': cover
+    ),
+    'bg-contain': (
+      'background-size': contain
+    )
+  ),
+  $u-background-size
+);
+
+@include mixins.generate-utilities(
+  $map: $u-background-size,
+  $variants: map.get(config.$config, 'variants', 'background-size'),
+  $include: map.get(config.$config, 'utilities', 'background-size')
+);

@@ -1,0 +1,43 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+$u-overscroll: () !default;
+$u-overscroll: map.deep-merge(
+  (
+    'overscroll-auto': (
+      'overscroll-behavior': auto
+    ),
+    'overscroll-contain': (
+      'overscroll-behavior': contain
+    ),
+    'overscroll-none': (
+      'overscroll-behavior': none
+    ),
+    'overscroll-x-auto': (
+      'overscroll-behavior-x': auto
+    ),
+    'overscroll-x-contain': (
+      'overscroll-behavior-x': contain
+    ),
+    'overscroll-x-none': (
+      'overscroll-behavior-x': none
+    ),
+    'overscroll-y-auto': (
+      'overscroll-behavior-y': auto
+    ),
+    'overscroll-y-contain': (
+      'overscroll-behavior-y': contain
+    ),
+    'overscroll-y-none': (
+      'overscroll-behavior-y': none
+    )
+  ),
+  $u-overscroll
+);
+
+@include mixins.generate-utilities(
+  $map: $u-overscroll,
+  $variants: map.get(config.$config, 'variants', 'overscroll'),
+  $include: map.get(config.$config, 'utilities', 'overscroll')
+);

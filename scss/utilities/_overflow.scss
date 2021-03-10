@@ -1,0 +1,52 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+$u-overflow: () !default;
+$u-overflow: map.deep-merge(
+  (
+    'overflow-auto': (
+      'overflow': auto
+    ),
+    'overflow-hidden': (
+      'overflow': hidden
+    ),
+    'overflow-visible': (
+      'overflow': visible
+    ),
+    'overflow-scroll': (
+      'overflow': scroll
+    ),
+    'overflow-x-auto': (
+      'overflow-x': auto
+    ),
+    'overflow-y-auto': (
+      'overflow-y': auto
+    ),
+    'overflow-x-hidden': (
+      'overflow-x': hidden
+    ),
+    'overflow-y-hidden': (
+      'overflow-y': hidden
+    ),
+    'overflow-x-visible': (
+      'overflow-x': visible
+    ),
+    'overflow-y-visible': (
+      'overflow-y': visible
+    ),
+    'overflow-x-scroll': (
+      'overflow-x': scroll
+    ),
+    'overflow-y-scroll': (
+      'overflow-y': scroll
+    )
+  ),
+  $u-overflow
+);
+
+@include mixins.generate-utilities(
+  $map: $u-overflow,
+  $variants: map.get(config.$config, 'variants', 'overflow'),
+  $include: map.get(config.$config, 'utilities', 'overflow')
+);

@@ -1,0 +1,31 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+$u-object-fit: () !default;
+$u-object-fit: map.deep-merge(
+  (
+    'object-contain': (
+      'object-fit': contain
+    ),
+    'object-cover': (
+      'object-fit': cover
+    ),
+    'object-fill': (
+      'object-fit': fill
+    ),
+    'object-none': (
+      'object-fit': none
+    ),
+    'object-scale-down': (
+      'object-fit': scale-down
+    )
+  ),
+  $u-object-fit
+);
+
+@include mixins.generate-utilities(
+  $map: $u-object-fit,
+  $variants: map.get(config.$config, 'variants', 'object-fit'),
+  $include: map.get(config.$config, 'utilities', 'object-fit')
+);

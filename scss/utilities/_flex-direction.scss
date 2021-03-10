@@ -1,0 +1,28 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+$u-flex-direction: () !default;
+$u-flex-direction: map.deep-merge(
+  (
+    'flex-row': (
+      'flex-direction': row
+    ),
+    'flex-row-reverse': (
+      'flex-direction': row-reverse
+    ),
+    'flex-col': (
+      'flex-direction': column
+    ),
+    'flex-col-reverse': (
+      'flex-direction': column-reverse
+    )
+  ),
+  $u-flex-direction
+);
+
+@include mixins.generate-utilities(
+  $map: $u-flex-direction,
+  $variants: map.get(config.$config, 'variants', 'flex-direction'),
+  $include: map.get(config.$config, 'utilities', 'flex-direction')
+);

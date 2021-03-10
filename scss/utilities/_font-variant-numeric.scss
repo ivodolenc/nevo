@@ -1,0 +1,43 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+$u-font-variant-numeric: () !default;
+$u-font-variant-numeric: map.deep-merge(
+  (
+    'normal-nums': (
+      'font-variant-numeric': normal
+    ),
+    'ordinal': (
+      'font-variant-numeric': ordinal
+    ),
+    'slashed-zero': (
+      'font-variant-numeric': slashed-zero
+    ),
+    'lining-nums': (
+      'font-variant-numeric': lining-nums
+    ),
+    'oldstyle-nums': (
+      'font-variant-numeric': oldstyle-nums
+    ),
+    'proportional-nums': (
+      'font-variant-numeric': proportional-nums
+    ),
+    'tabular-nums': (
+      'font-variant-numeric': tabular-nums
+    ),
+    'diagonal-fractions': (
+      'font-variant-numeric': diagonal-fractions
+    ),
+    'stacked-fractions': (
+      'font-variant-numeric': stacked-fractions
+    )
+  ),
+  $u-font-variant-numeric
+);
+
+@include mixins.generate-utilities(
+  $map: $u-font-variant-numeric,
+  $variants: map.get(config.$config, 'variants', 'font-variant-numeric'),
+  $include: map.get(config.$config, 'utilities', 'font-variant-numeric')
+);

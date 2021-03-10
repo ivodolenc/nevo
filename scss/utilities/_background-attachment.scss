@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+$u-background-attachment: () !default;
+$u-background-attachment: map.deep-merge(
+  (
+    'bg-fixed': (
+      'background-attachment': fixed
+    ),
+    'bg-local': (
+      'background-attachment': local
+    ),
+    'bg-scroll': (
+      'background-attachment': scroll
+    )
+  ),
+  $u-background-attachment
+);
+
+@include mixins.generate-utilities(
+  $map: $u-background-attachment,
+  $variants: map.get(config.$config, 'variants', 'background-attachment'),
+  $include: map.get(config.$config, 'utilities', 'background-attachment')
+);

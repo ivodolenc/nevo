@@ -1,0 +1,28 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+$u-resize: () !default;
+$u-resize: map.deep-merge(
+  (
+    'resize-none': (
+      'resize': none
+    ),
+    'resize-y': (
+      'resize': vertical
+    ),
+    'resize-x': (
+      'resize': horizontal
+    ),
+    'resize': (
+      'resize': both
+    )
+  ),
+  $u-resize
+);
+
+@include mixins.generate-utilities(
+  $map: $u-resize,
+  $variants: map.get(config.$config, 'variants', 'resize'),
+  $include: map.get(config.$config, 'utilities', 'resize')
+);

@@ -1,0 +1,49 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+$u-letter-spacing: () !default;
+$u-letter-spacing: map.deep-merge(
+  (
+    '-tracking-5': (
+      'letter-spacing': map.get(config.$config, 'theme', 'tracking', '-5')
+    ),
+    '-tracking-4': (
+      'letter-spacing': map.get(config.$config, 'theme', 'tracking', '-4')
+    ),
+    '-tracking-3': (
+      'letter-spacing': map.get(config.$config, 'theme', 'tracking', '-3')
+    ),
+    '-tracking-2': (
+      'letter-spacing': map.get(config.$config, 'theme', 'tracking', '-2')
+    ),
+    '-tracking-1': (
+      'letter-spacing': map.get(config.$config, 'theme', 'tracking', '-1')
+    ),
+    'tracking-0': (
+      'letter-spacing': map.get(config.$config, 'theme', 'tracking', '0')
+    ),
+    'tracking-1': (
+      'letter-spacing': map.get(config.$config, 'theme', 'tracking', '1')
+    ),
+    'tracking-2': (
+      'letter-spacing': map.get(config.$config, 'theme', 'tracking', '2')
+    ),
+    'tracking-3': (
+      'letter-spacing': map.get(config.$config, 'theme', 'tracking', '3')
+    ),
+    'tracking-4': (
+      'letter-spacing': map.get(config.$config, 'theme', 'tracking', '4')
+    ),
+    'tracking-5': (
+      'letter-spacing': map.get(config.$config, 'theme', 'tracking', '5')
+    )
+  ),
+  $u-letter-spacing
+);
+
+@include mixins.generate-utilities(
+  $map: $u-letter-spacing,
+  $variants: map.get(config.$config, 'variants', 'letter-spacing'),
+  $include: map.get(config.$config, 'utilities', 'letter-spacing')
+);

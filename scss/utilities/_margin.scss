@@ -1,0 +1,88 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+$u-margin: () !default;
+$u-margin: map.deep-merge(
+  (
+    'm-auto': (
+      'margin': auto
+    ),
+    'mt-auto': (
+      'margin-top': auto
+    ),
+    'mr-auto': (
+      'margin-right': auto
+    ),
+    'mb-auto': (
+      'margin-bottom': auto
+    ),
+    'ml-auto': (
+      'margin-left': auto
+    ),
+    'mx-auto': (
+      'margin-left': auto,
+      'margin-right': auto
+    ),
+    'my-auto': (
+      'margin-top': auto,
+      'margin-bottom': auto
+    )
+  ),
+  $u-margin
+);
+
+@include mixins.generate-utilities(
+  $map: $u-margin,
+  $variants: map.get(config.$config, 'variants', 'margin'),
+  $include: map.get(config.$config, 'utilities', 'margin')
+);
+
+@include mixins.generate-spacing(
+  $class-name: 'm',
+  $property: 'margin',
+  $variants: map.get(config.$config, 'variants', 'margin'),
+  $include: map.get(config.$config, 'utilities', 'margin')
+);
+
+@include mixins.generate-spacing(
+  $class-name: 'mt',
+  $property: 'margin-top',
+  $variants: map.get(config.$config, 'variants', 'margin'),
+  $include: map.get(config.$config, 'utilities', 'margin')
+);
+
+@include mixins.generate-spacing(
+  $class-name: 'mr',
+  $property: 'margin-right',
+  $variants: map.get(config.$config, 'variants', 'margin'),
+  $include: map.get(config.$config, 'utilities', 'margin')
+);
+
+@include mixins.generate-spacing(
+  $class-name: 'mb',
+  $property: 'margin-bottom',
+  $variants: map.get(config.$config, 'variants', 'margin'),
+  $include: map.get(config.$config, 'utilities', 'margin')
+);
+
+@include mixins.generate-spacing(
+  $class-name: 'ml',
+  $property: 'margin-left',
+  $variants: map.get(config.$config, 'variants', 'margin'),
+  $include: map.get(config.$config, 'utilities', 'margin')
+);
+
+@include mixins.generate-spacing(
+  $class-name: 'mx',
+  $property: margin-right margin-left,
+  $variants: map.get(config.$config, 'variants', 'margin'),
+  $include: map.get(config.$config, 'utilities', 'margin')
+);
+
+@include mixins.generate-spacing(
+  $class-name: 'my',
+  $property: margin-top margin-bottom,
+  $variants: map.get(config.$config, 'variants', 'margin'),
+  $include: map.get(config.$config, 'utilities', 'margin')
+);

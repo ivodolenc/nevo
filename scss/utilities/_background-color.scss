@@ -1,0 +1,19 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+@include mixins.generate-colors(
+  $class-name: 'bg',
+  $property: 'background-color',
+  $custom-property: '--bg-opacity',
+  $variants: map.get(config.$config, 'variants', 'background-color'),
+  $include: map.get(config.$config, 'utilities', 'background-color')
+);
+
+@include mixins.generate-colors(
+  $map: map.get(config.$config, 'theme', 'colors', 'special'),
+  $class-name: 'bg',
+  $property: 'background-color',
+  $variants: map.get(config.$config, 'variants', 'background-color'),
+  $include: map.get(config.$config, 'utilities', 'background-color')
+);

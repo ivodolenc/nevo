@@ -1,0 +1,31 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+$u-white-space: () !default;
+$u-white-space: map.deep-merge(
+  (
+    'whitespace-normal': (
+      'white-space': normal
+    ),
+    'whitespace-nowrap': (
+      'white-space': nowrap
+    ),
+    'whitespace-pre': (
+      'white-space': pre
+    ),
+    'whitespace-pre-line': (
+      'white-space': pre-line
+    ),
+    'whitespace-pre-wrap': (
+      'white-space': pre-wrap
+    )
+  ),
+  $u-white-space
+);
+
+@include mixins.generate-utilities(
+  $map: $u-white-space,
+  $variants: map.get(config.$config, 'variants', 'white-space'),
+  $include: map.get(config.$config, 'utilities', 'white-space')
+);

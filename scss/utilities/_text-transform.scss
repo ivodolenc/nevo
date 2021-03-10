@@ -1,0 +1,28 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+$u-text-transform: () !default;
+$u-text-transform: map.deep-merge(
+  (
+    'uppercase': (
+      'text-transform': uppercase
+    ),
+    'lowercase': (
+      'text-transform': lowercase
+    ),
+    'capitalize': (
+      'text-transform': capitalize
+    ),
+    'normal-case': (
+      'text-transform': none
+    )
+  ),
+  $u-text-transform
+);
+
+@include mixins.generate-utilities(
+  $map: $u-text-transform,
+  $variants: map.get(config.$config, 'variants', 'text-transform'),
+  $include: map.get(config.$config, 'utilities', 'text-transform')
+);

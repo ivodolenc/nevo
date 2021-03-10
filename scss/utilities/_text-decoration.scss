@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+$u-text-decoration: () !default;
+$u-text-decoration: map.deep-merge(
+  (
+    'underline': (
+      'text-decoration': underline
+    ),
+    'line-through': (
+      'text-decoration': line-through
+    ),
+    'no-underline': (
+      'text-decoration': none
+    )
+  ),
+  $u-text-decoration
+);
+
+@include mixins.generate-utilities(
+  $map: $u-text-decoration,
+  $variants: map.get(config.$config, 'variants', 'text-decoration'),
+  $include: map.get(config.$config, 'utilities', 'text-decoration')
+);

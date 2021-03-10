@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+$u-min-height: () !default;
+$u-min-height: map.deep-merge(
+  (
+    'min-h-0': (
+      'min-height': 0
+    ),
+    'min-h-full': (
+      'min-height': 100%
+    ),
+    'min-h-screen': (
+      'min-height': 100vh
+    )
+  ),
+  $u-min-height
+);
+
+@include mixins.generate-utilities(
+  $map: $u-min-height,
+  $variants: map.get(config.$config, 'variants', 'min-height'),
+  $include: map.get(config.$config, 'utilities', 'min-height')
+);

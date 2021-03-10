@@ -1,0 +1,31 @@
+@use 'sass:map';
+@use '../config';
+@use '../mixins';
+
+$u-position: () !default;
+$u-position: map.deep-merge(
+  (
+    'static': (
+      'position': static
+    ),
+    'fixed': (
+      'position': fixed
+    ),
+    'absolute': (
+      'position': absolute
+    ),
+    'relative': (
+      'position': relative
+    ),
+    'sticky': (
+      'position': sticky
+    )
+  ),
+  $u-position
+);
+
+@include mixins.generate-utilities(
+  $map: $u-position,
+  $variants: map.get(config.$config, 'variants', 'position'),
+  $include: map.get(config.$config, 'utilities', 'position')
+);
