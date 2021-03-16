@@ -1,7 +1,7 @@
 {
   "name": "nevo",
   "version": "0.0.2",
-  "description": "A modern SASS framework.",
+  "description": "A modern SASS framework for building responsive user interfaces.",
   "author": "Ivo Dolenc",
   "license": "MIT",
   "contributors": [
