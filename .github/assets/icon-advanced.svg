@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 500 500" style="enable-background:new 0 0 500 500;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#F6F6F6;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#171717;}
+	.st2{fill-rule:evenodd;clip-rule:evenodd;fill:#F6F6F6;}
+</style>
+<path class="st0" d="M399,499H101C46.1,499,1,454,1,399V101C1,46.1,46,1,101,1h298c54.9,0,100,45,100,100v298
+	C499,454,454,499,399,499z"/>
+<g>
+	<ellipse class="st1" cx="250" cy="250" rx="152.5" ry="152.5"/>
+	<circle class="st2" cx="250" cy="250" r="112.6"/>
+	<path class="st1" d="M179.6,250c0-38.8,31.4-70.4,70.4-70.4s70.4,31.4,70.4,70.4s-31.4,70.4-70.4,70.4S179.6,288.8,179.6,250z"/>
+</g>
+</svg>
