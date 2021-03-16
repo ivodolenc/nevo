@@ -1,5 +1,5 @@
 <p align="center">
-    <img src=".github/assets/nevo-logo.svg" width="170">
+    <img src=".github/assets/icon-nevo.svg" width="170">
 </p>
 
 <h1 align="center">nevo</h1>
