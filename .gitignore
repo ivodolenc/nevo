@@ -20,4 +20,5 @@ package-lock.json
 # VScode
 .vscode
 
+css/
 /*.html
