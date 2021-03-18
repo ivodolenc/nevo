@@ -3,14 +3,14 @@
 @use '../config';
 
 @mixin media(
-  $breakpoints: map.get(config.$config, 'theme', 'breakpoints'),
+  $map: map.get(config.$config, 'theme', 'breakpoints'),
   $type: map.get(config.$config, 'breakpoints-media-type'),
   $and: map.get(config.$config, 'breakpoints-media-and'),
   $from: null,
   $until: null
 ) {
   @if $from and not $until {
-    $min-width: map.get(config.$config, 'theme', 'breakpoints', $from);
+    $min-width: map.get($map, $from);
     $media-query: '(min-width: #{$min-width})';
 
     @if $type {
@@ -27,7 +27,7 @@
   }
 
   @if $until and not $from {
-    $max-width: map.get(config.$config, 'theme', 'breakpoints', $until) - 0.01;
+    $max-width: map.get($map, $until) - 0.01;
     $media-query: '(max-width: #{$max-width})';
 
     @if $type {
@@ -44,8 +44,8 @@
   }
 
   @if $from and $until {
-    $min-width: map.get(config.$config, 'theme', 'breakpoints', $from);
-    $max-width: map.get(config.$config, 'theme', 'breakpoints', $until) - 0.01;
+    $min-width: map.get($map, $from);
+    $max-width: map.get($map, $until) - 0.01;
     $media-query: '(min-width: #{$min-width}) and (max-width: #{$max-width})';
 
     @if $type {
