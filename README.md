@@ -76,6 +76,12 @@ Full documentation in progress. 🚧
 
 If you're familiar with `SASS/SCSS`, feel free to try `nevo`.
 
+## Additional info
+
+Nevo is inspired by Tailwind CSS, so the naming convention for utilities and development experience in HTML are very similar.
+
+Nevo is a `SASS-powered` framework.
+
 ## License
 
 **nevo framework**
