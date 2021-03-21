@@ -1,0 +1,11 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+@include mixins.generate-theme(
+  $map: map.get(config.$theme, 'rounded'),
+  $class-name: 'rounded',
+  $property: 'border-radius',
+  $variants: map.get(config.$variants, 'borders', 'border-radius'),
+  $include: map.get(config.$utilities, 'borders', 'border-radius')
+);

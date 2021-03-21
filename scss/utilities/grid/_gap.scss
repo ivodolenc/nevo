@@ -1,0 +1,27 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+@include mixins.generate-spacing(
+  $class-name: 'gap',
+  $property: 'gap',
+  $negative: false,
+  $variants: map.get(config.$variants, 'grid', 'gap'),
+  $include: map.get(config.$utilities, 'grid', 'gap')
+);
+
+@include mixins.generate-spacing(
+  $class-name: 'gap-x',
+  $property: 'column-gap',
+  $negative: false,
+  $variants: map.get(config.$variants, 'grid', 'gap'),
+  $include: map.get(config.$utilities, 'grid', 'gap')
+);
+
+@include mixins.generate-spacing(
+  $class-name: 'gap-y',
+  $property: 'row-gap',
+  $negative: false,
+  $variants: map.get(config.$variants, 'grid', 'gap'),
+  $include: map.get(config.$utilities, 'grid', 'gap')
+);

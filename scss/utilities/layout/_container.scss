@@ -1,0 +1,29 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-container: () !default;
+$u-container: map.deep-merge(
+  (
+    'container': (
+      'width': 100%
+    )
+  ),
+  $u-container
+);
+
+@include mixins.generate-utilities(
+  $map: $u-container,
+  $variants: map.get(config.$variants, 'layout', 'container'),
+  $include: map.get(config.$utilities, 'layout', 'container')
+);
+
+@if map.get(config.$utilities, 'layout', 'container') {
+  @each $key, $value in map.get(config.$theme, 'breakpoints') {
+    @include mixins.media($from: $key) {
+      .container {
+        max-width: $value;
+      }
+    }
+  }
+}

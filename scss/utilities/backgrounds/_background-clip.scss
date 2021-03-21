@@ -1,0 +1,28 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-background-clip: () !default;
+$u-background-clip: map.deep-merge(
+  (
+    'bg-clip-border': (
+      'background-clip': border-box
+    ),
+    'bg-clip-padding': (
+      'background-clip': padding-box
+    ),
+    'bg-clip-content': (
+      'background-clip': content-box
+    ),
+    'bg-clip-text': (
+      'background-clip': text
+    )
+  ),
+  $u-background-clip
+);
+
+@include mixins.generate-utilities(
+  $map: $u-background-clip,
+  $variants: map.get(config.$variants, 'backgrounds', 'background-clip'),
+  $include: map.get(config.$utilities, 'backgrounds', 'background-clip')
+);

@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '../config';
+@use '../config/theme';
 
 @mixin flex(
   $direction: null,
@@ -24,34 +24,34 @@
   }
 
   @if $gap and $wrap {
-    margin-left: -#{map.get(config.$config, 'theme', 'spacing', $gap)};
-    margin-bottom: -#{map.get(config.$config, 'theme', 'spacing', $gap)};
+    margin-left: -#{map.get(theme.$theme, 'spacing', $gap)};
+    margin-bottom: -#{map.get(theme.$theme, 'spacing', $gap)};
 
     div {
-      padding-left: #{map.get(config.$config, 'theme', 'spacing', $gap)};
-      padding-bottom: #{map.get(config.$config, 'theme', 'spacing', $gap)};
+      padding-left: #{map.get(theme.$theme, 'spacing', $gap)};
+      padding-bottom: #{map.get(theme.$theme, 'spacing', $gap)};
     }
   } @else if $gap and $wrap == null {
-    margin-left: -#{map.get(config.$config, 'theme', 'spacing', $gap)};
+    margin-left: -#{map.get(theme.$theme, 'spacing', $gap)};
 
     div {
-      padding-left: #{map.get(config.$config, 'theme', 'spacing', $gap)};
+      padding-left: #{map.get(theme.$theme, 'spacing', $gap)};
     }
   }
 
   @if $gap-x {
-    margin-left: -#{map.get(config.$config, 'theme', 'spacing', $gap-x)};
+    margin-left: -#{map.get(theme.$theme, 'spacing', $gap-x)};
 
     div {
-      padding-left: #{map.get(config.$config, 'theme', 'spacing', $gap-x)};
+      padding-left: #{map.get(theme.$theme, 'spacing', $gap-x)};
     }
   }
 
   @if $gap-y {
-    margin-bottom: -#{map.get(config.$config, 'theme', 'spacing', $gap-y)};
+    margin-bottom: -#{map.get(theme.$theme, 'spacing', $gap-y)};
 
     div {
-      padding-bottom: #{map.get(config.$config, 'theme', 'spacing', $gap-y)};
+      padding-bottom: #{map.get(theme.$theme, 'spacing', $gap-y)};
     }
   }
 }

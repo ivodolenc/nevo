@@ -1,0 +1,125 @@
+@use 'sass:map';
+
+$variants: () !default;
+$variants: map.deep-merge(
+  (
+    'accessibility': (
+      'screen-readers': responsive
+    ),
+    'backgrounds': (
+      'background-attachment': responsive,
+      'background-clip': responsive,
+      'background-color': responsive focus hover,
+      'background-opacity': responsive focus hover,
+      'background-position': responsive,
+      'background-repeat': responsive,
+      'background-size': responsive
+    ),
+    'borders': (
+      'border-color': responsive focus hover,
+      'border-opacity': responsive focus hover,
+      'border-radius': responsive,
+      'border-style': responsive,
+      'border-width': responsive focus hover
+    ),
+    'box-alignment': (
+      'align-content': responsive,
+      'align-items': responsive,
+      'align-self': responsive,
+      'justify-content': responsive,
+      'justify-items': responsive,
+      'justify-self': responsive,
+      'place-content': responsive,
+      'place-items': responsive,
+      'place-self': responsive
+    ),
+    'effects': (
+      'opacity': responsive focus hover
+    ),
+    'flexbox': (
+      'flex-direction': responsive,
+      'flex-grow': responsive,
+      'flex-shrink': responsive,
+      'flex-wrap': responsive,
+      'flex': responsive,
+      'order': responsive
+    ),
+    'grid': (
+      'gap': responsive,
+      'grid-auto-columns': responsive,
+      'grid-auto-flow': responsive,
+      'grid-auto-rows': responsive,
+      'grid-column-end': responsive,
+      'grid-column-span': responsive,
+      'grid-column-start': responsive,
+      'grid-row-end': responsive,
+      'grid-row-span': responsive,
+      'grid-row-start': responsive,
+      'grid-template-columns': responsive,
+      'grid-template-rows': responsive
+    ),
+    'interactivity': (
+      'appearance': responsive,
+      'cursor': responsive,
+      'outline': responsive focus,
+      'pointer-events': responsive,
+      'resize': responsive,
+      'user-select': responsive
+    ),
+    'layout': (
+      'container': responsive,
+      'display': responsive,
+      'object-fit': responsive,
+      'object-position': responsive,
+      'overflow': responsive,
+      'overscroll': responsive,
+      'position-coordinates': responsive,
+      'position': responsive,
+      'visibility': responsive,
+      'z-index': responsive focus
+    ),
+    'sizing': (
+      'height': responsive,
+      'max-height': responsive,
+      'max-width': responsive,
+      'min-height': responsive,
+      'min-width': responsive,
+      'width': responsive
+    ),
+    'spacing': (
+      'margin': responsive,
+      'padding': responsive
+    ),
+    'svg': (
+      'fill': responsive,
+      'stroke-width': responsive,
+      'stroke': responsive
+    ),
+    'tables': (
+      'border-collapse': responsive,
+      'table-layout': responsive
+    ),
+    'typography': (
+      'font-family': responsive,
+      'font-size': responsive,
+      'font-smoothing': responsive,
+      'font-style': responsive,
+      'font-variant-numeric': responsive,
+      'font-weight': responsive,
+      'letter-spacing': responsive,
+      'line-height': responsive,
+      'list-style-position': responsive,
+      'list-style-type': responsive,
+      'text-align': responsive,
+      'text-color': responsive focus hover,
+      'text-decoration': responsive focus hover,
+      'text-opacity': responsive focus hover,
+      'text-overflow': responsive,
+      'text-transform': responsive,
+      'vertical-align': responsive,
+      'white-space': responsive,
+      'word-break': responsive
+    )
+  ),
+  $variants
+);

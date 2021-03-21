@@ -1,0 +1,34 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-align-content: () !default;
+$u-align-content: map.deep-merge(
+  (
+    'content-center': (
+      'align-content': center
+    ),
+    'content-start': (
+      'align-content': flex-start
+    ),
+    'content-end': (
+      'align-content': flex-end
+    ),
+    'content-between': (
+      'align-content': space-between
+    ),
+    'content-around': (
+      'align-content': space-around
+    ),
+    'content-evenly': (
+      'align-content': space-evenly
+    )
+  ),
+  $u-align-content
+);
+
+@include mixins.generate-utilities(
+  $map: $u-align-content,
+  $variants: map.get(config.$variants, 'box-alignment', 'align-content'),
+  $include: map.get(config.$utilities, 'box-alignment', 'align-content')
+);

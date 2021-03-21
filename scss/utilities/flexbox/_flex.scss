@@ -1,0 +1,28 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-flex: () !default;
+$u-flex: map.deep-merge(
+  (
+    'flex-1': (
+      'flex': 1 1 0%
+    ),
+    'flex-auto': (
+      'flex': 1 1 auto
+    ),
+    'flex-initial': (
+      'flex': 0 1 auto
+    ),
+    'flex-none': (
+      'flex': none
+    )
+  ),
+  $u-flex
+);
+
+@include mixins.generate-utilities(
+  $map: $u-flex,
+  $variants: map.get(config.$variants, 'flexbox', 'flex'),
+  $include: map.get(config.$utilities, 'flexbox', 'flex')
+);

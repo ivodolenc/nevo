@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-border-collapse: () !default;
+$u-border-collapse: map.deep-merge(
+  (
+    'border-collapse': (
+      'border-collapse': collapse
+    ),
+    'border-separate': (
+      'border-collapse': separate
+    )
+  ),
+  $u-border-collapse
+);
+
+@include mixins.generate-utilities(
+  $map: $u-border-collapse,
+  $variants: map.get(config.$variants, 'tables', 'border-collapse'),
+  $include: map.get(config.$utilities, 'tables', 'border-collapse')
+);

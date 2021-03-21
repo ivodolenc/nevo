@@ -1,0 +1,125 @@
+@use 'sass:map';
+
+$utilities: () !default;
+$utilities: map.deep-merge(
+  (
+    'accessibility': (
+      'screen-readers': true
+    ),
+    'backgrounds': (
+      'background-attachment': true,
+      'background-clip': true,
+      'background-color': true,
+      'background-opacity': true,
+      'background-position': true,
+      'background-repeat': true,
+      'background-size': true
+    ),
+    'borders': (
+      'border-color': true,
+      'border-opacity': true,
+      'border-radius': true,
+      'border-style': true,
+      'border-width': true
+    ),
+    'box-alignment': (
+      'align-content': true,
+      'align-items': true,
+      'align-self': true,
+      'justify-content': true,
+      'justify-items': true,
+      'justify-self': true,
+      'place-content': true,
+      'place-items': true,
+      'place-self': true
+    ),
+    'effects': (
+      'opacity': true
+    ),
+    'flexbox': (
+      'flex-direction': true,
+      'flex-grow': true,
+      'flex-shrink': true,
+      'flex-wrap': true,
+      'flex': true,
+      'order': true
+    ),
+    'grid': (
+      'gap': true,
+      'grid-auto-columns': true,
+      'grid-auto-flow': true,
+      'grid-auto-rows': true,
+      'grid-column-end': true,
+      'grid-column-span': true,
+      'grid-column-start': true,
+      'grid-row-end': true,
+      'grid-row-span': true,
+      'grid-row-start': true,
+      'grid-template-columns': true,
+      'grid-template-rows': true
+    ),
+    'interactivity': (
+      'appearance': true,
+      'cursor': true,
+      'outline': true,
+      'pointer-events': true,
+      'resize': true,
+      'user-select': true
+    ),
+    'layout': (
+      'container': true,
+      'display': true,
+      'object-fit': true,
+      'object-position': true,
+      'overflow': true,
+      'overscroll': true,
+      'position-coordinates': true,
+      'position': true,
+      'visibility': true,
+      'z-index': true
+    ),
+    'sizing': (
+      'height': true,
+      'max-height': true,
+      'max-width': true,
+      'min-height': true,
+      'min-width': true,
+      'width': true
+    ),
+    'spacing': (
+      'margin': true,
+      'padding': true
+    ),
+    'svg': (
+      'fill': true,
+      'stroke-width': true,
+      'stroke': true
+    ),
+    'tables': (
+      'border-collapse': true,
+      'table-layout': true
+    ),
+    'typography': (
+      'font-family': true,
+      'font-size': true,
+      'font-smoothing': true,
+      'font-style': true,
+      'font-variant-numeric': true,
+      'font-weight': true,
+      'letter-spacing': true,
+      'line-height': true,
+      'list-style-position': true,
+      'list-style-type': true,
+      'text-align': true,
+      'text-color': true,
+      'text-decoration': true,
+      'text-opacity': true,
+      'text-overflow': true,
+      'text-transform': true,
+      'vertical-align': true,
+      'white-space': true,
+      'word-break': true
+    )
+  ),
+  $utilities
+);

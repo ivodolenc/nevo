@@ -1,0 +1,19 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-appearance: () !default;
+$u-appearance: map.deep-merge(
+  (
+    'appearance-none': (
+      'appearance': none
+    )
+  ),
+  $u-appearance
+);
+
+@include mixins.generate-utilities(
+  $map: $u-appearance,
+  $variants: map.get(config.$variants, 'interactivity', 'appearance'),
+  $include: map.get(config.$utilities, 'interactivity', 'appearance')
+);

@@ -1,0 +1,31 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-place-self: () !default;
+$u-place-self: map.deep-merge(
+  (
+    'place-self-auto': (
+      'place-self': auto
+    ),
+    'place-self-start': (
+      'place-self': start
+    ),
+    'place-self-end': (
+      'place-self': end
+    ),
+    'place-self-center': (
+      'place-self': center
+    ),
+    'place-self-stretch': (
+      'place-self': stretch
+    )
+  ),
+  $u-place-self
+);
+
+@include mixins.generate-utilities(
+  $map: $u-place-self,
+  $variants: map.get(config.$variants, 'box-alignment', 'place-self'),
+  $include: map.get(config.$utilities, 'box-alignment', 'place-self')
+);

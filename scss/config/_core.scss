@@ -1,0 +1,13 @@
+@use 'sass:map';
+
+$core: () !default;
+$core: map.deep-merge(
+  (
+    'prefix': null,
+    'separator': \:,
+    'important': false,
+    'breakpoints-media-and': null,
+    'breakpoints-media-type': null
+  ),
+  $core
+);

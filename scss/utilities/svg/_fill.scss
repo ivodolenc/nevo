@@ -1,0 +1,19 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-fill: () !default;
+$u-fill: map.deep-merge(
+  (
+    'fill-current': (
+      'fill': currentColor
+    )
+  ),
+  $u-fill
+);
+
+@include mixins.generate-utilities(
+  $map: $u-fill,
+  $variants: map.get(config.$variants, 'svg', 'fill'),
+  $include: map.get(config.$utilities, 'svg', 'fill')
+);

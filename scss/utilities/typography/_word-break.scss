@@ -1,0 +1,26 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-word-break: () !default;
+$u-word-break: map.deep-merge(
+  (
+    'break-normal': (
+      'overflow-wrap': normal,
+      'word-break': normal
+    ),
+    'break-words': (
+      'overflow-wrap': break-word
+    ),
+    'break-all': (
+      'word-break': break-all
+    )
+  ),
+  $u-word-break
+);
+
+@include mixins.generate-utilities(
+  $map: $u-word-break,
+  $variants: map.get(config.$variants, 'typography', 'word-break'),
+  $include: map.get(config.$utilities, 'typography', 'word-break')
+);

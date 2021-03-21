@@ -1,0 +1,12 @@
+@use 'sass:map';
+@use '../config/theme';
+
+@function theme($keys...) {
+  $map: theme.$theme;
+
+  @each $key in $keys {
+    $map: map.get($map, $key);
+  }
+
+  @return $map;
+}

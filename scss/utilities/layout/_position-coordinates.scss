@@ -1,0 +1,31 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+@include mixins.generate-spacing(
+  $class-name: 'top',
+  $property: 'top',
+  $variants: map.get(config.$variants, 'layout', 'position-coordinates'),
+  $include: map.get(config.$utilities, 'layout', 'position-coordinates')
+);
+
+@include mixins.generate-spacing(
+  $class-name: 'right',
+  $property: 'right',
+  $variants: map.get(config.$variants, 'layout', 'position-coordinates'),
+  $include: map.get(config.$utilities, 'layout', 'position-coordinates')
+);
+
+@include mixins.generate-spacing(
+  $class-name: 'bottom',
+  $property: 'bottom',
+  $variants: map.get(config.$variants, 'layout', 'position-coordinates'),
+  $include: map.get(config.$utilities, 'layout', 'position-coordinates')
+);
+
+@include mixins.generate-spacing(
+  $class-name: 'left',
+  $property: 'left',
+  $variants: map.get(config.$variants, 'layout', 'position-coordinates'),
+  $include: map.get(config.$utilities, 'layout', 'position-coordinates')
+);

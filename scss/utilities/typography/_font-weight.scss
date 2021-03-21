@@ -1,0 +1,11 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+@include mixins.generate-theme(
+  $map: map.get(config.$theme, 'weight'),
+  $class-name: 'weight',
+  $property: 'font-weight',
+  $variants: map.get(config.$variants, 'typography', 'font-weight'),
+  $include: map.get(config.$utilities, 'typography', 'font-weight')
+);

@@ -1,4 +1,4 @@
-@use '../config';
+@use '../functions/get-theme';
 
 html,
 body,
@@ -30,7 +30,7 @@ h6 {
 }
 
 html {
-  font-family: config.theme('family', 'sans');
+  font-family: get-theme.theme('family', 'sans');
   line-height: 1.5;
 }
 
@@ -63,7 +63,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: config.theme('family', 'mono');
+  font-family: get-theme.theme('family', 'mono');
 }
 
 img,

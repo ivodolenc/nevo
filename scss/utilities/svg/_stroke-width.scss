@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-stroke-width: () !default;
+$u-stroke-width: map.deep-merge(
+  (
+    'stroke-0': (
+      'stroke-width': 0
+    ),
+    'stroke-1': (
+      'stroke-width': 1
+    ),
+    'stroke-2': (
+      'stroke-width': 2
+    )
+  ),
+  $u-stroke-width
+);
+
+@include mixins.generate-utilities(
+  $map: $u-stroke-width,
+  $variants: map.get(config.$variants, 'svg', 'stroke-width'),
+  $include: map.get(config.$utilities, 'svg', 'stroke-width')
+);

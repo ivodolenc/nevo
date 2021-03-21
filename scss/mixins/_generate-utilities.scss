@@ -1,8 +1,8 @@
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:meta';
-@use '../functions';
 @use '../config';
+@use '../functions';
 @use 'media-queries';
 
 @mixin _utilities(
@@ -25,10 +25,10 @@
 }
 
 @mixin generate-utilities(
-  $prefix: map.get(config.$config, 'prefix'),
-  $important: map.get(config.$config, 'important'),
-  $variant-separator: map.get(config.$config, 'separator'),
-  $breakpoints-map: map.get(config.$config, 'theme', 'breakpoints'),
+  $prefix: map.get(config.$core, 'prefix'),
+  $important: map.get(config.$core, 'important'),
+  $variant-separator: map.get(config.$core, 'separator'),
+  $breakpoints-map: map.get(config.$theme, 'breakpoints'),
   $pseudo-separator: ':',
   $map: null,
   $variants: null,

@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-list-style-position: () !default;
+$u-list-style-position: map.deep-merge(
+  (
+    'list-inside': (
+      'list-style-position': inside
+    ),
+    'list-outside': (
+      'list-style-position': outside
+    )
+  ),
+  $u-list-style-position
+);
+
+@include mixins.generate-utilities(
+  $map: $u-list-style-position,
+  $variants: map.get(config.$variants, 'typography', 'list-style-position'),
+  $include: map.get(config.$utilities, 'typography', 'list-style-position')
+);

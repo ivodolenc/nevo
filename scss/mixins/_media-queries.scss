@@ -3,9 +3,9 @@
 @use '../config';
 
 @mixin media(
-  $map: map.get(config.$config, 'theme', 'breakpoints'),
-  $type: map.get(config.$config, 'breakpoints-media-type'),
-  $and: map.get(config.$config, 'breakpoints-media-and'),
+  $map: map.get(config.$theme, 'breakpoints'),
+  $type: map.get(config.$core, 'breakpoints-media-type'),
+  $and: map.get(config.$core, 'breakpoints-media-and'),
   $from: null,
   $until: null
 ) {

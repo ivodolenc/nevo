@@ -1,0 +1,31 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-align-items: () !default;
+$u-align-items: map.deep-merge(
+  (
+    'items-start': (
+      'align-items': flex-start
+    ),
+    'items-end': (
+      'align-items': flex-end
+    ),
+    'items-center': (
+      'align-items': center
+    ),
+    'items-baseline': (
+      'align-items': baseline
+    ),
+    'items-stretch': (
+      'align-items': stretch
+    )
+  ),
+  $u-align-items
+);
+
+@include mixins.generate-utilities(
+  $map: $u-align-items,
+  $variants: map.get(config.$variants, 'box-alignment', 'align-items'),
+  $include: map.get(config.$utilities, 'box-alignment', 'align-items')
+);

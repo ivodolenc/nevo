@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '../config';
+@use '../config/theme';
 
 @mixin grid(
   $cols: null,
@@ -22,15 +22,15 @@
   }
 
   @if $gap {
-    gap: map.get(config.$config, 'theme', 'spacing', $gap);
+    gap: map.get(theme.$theme, 'spacing', $gap);
   }
 
   @if $gap-x {
-    column-gap: map.get(config.$config, 'theme', 'spacing', $gap-x);
+    column-gap: map.get(theme.$theme, 'spacing', $gap-x);
   }
 
   @if $gap-y {
-    row-gap: map.get(config.$config, 'theme', 'spacing', $gap-y);
+    row-gap: map.get(theme.$theme, 'spacing', $gap-y);
   }
 
   @if $auto-flow {

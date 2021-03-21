@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-table-layout: () !default;
+$u-table-layout: map.deep-merge(
+  (
+    'table-auto': (
+      'table-layout': auto
+    ),
+    'table-fixed': (
+      'table-layout': fixed
+    )
+  ),
+  $u-table-layout
+);
+
+@include mixins.generate-utilities(
+  $map: $u-table-layout,
+  $variants: map.get(config.$variants, 'tables', 'table-layout'),
+  $include: map.get(config.$utilities, 'tables', 'table-layout')
+);

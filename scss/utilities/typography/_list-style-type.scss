@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-list-style-type: () !default;
+$u-list-style-type: map.deep-merge(
+  (
+    'list-none': (
+      'list-style-type': none
+    ),
+    'list-disc': (
+      'list-style-type': disc
+    ),
+    'list-decimal': (
+      'list-style-type': decimal
+    )
+  ),
+  $u-list-style-type
+);
+
+@include mixins.generate-utilities(
+  $map: $u-list-style-type,
+  $variants: map.get(config.$variants, 'typography', 'list-style-type'),
+  $include: map.get(config.$utilities, 'typography', 'list-style-type')
+);

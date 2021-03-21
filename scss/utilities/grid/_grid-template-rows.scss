@@ -1,0 +1,40 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-grid-template-rows: () !default;
+$u-grid-template-rows: map.deep-merge(
+  (
+    'grid-rows-1': (
+      'grid-template-rows': repeat(1, minmax(0, 1fr))
+    ),
+    'grid-rows-2': (
+      'grid-template-rows': repeat(2, minmax(0, 1fr))
+    ),
+    'grid-rows-3': (
+      'grid-template-rows': repeat(3, minmax(0, 1fr))
+    ),
+    'grid-rows-4': (
+      'grid-template-rows': repeat(4, minmax(0, 1fr))
+    ),
+    'grid-rows-5': (
+      'grid-template-rows': repeat(5, minmax(0, 1fr))
+    ),
+    'grid-rows-6': (
+      'grid-template-rows': repeat(6, minmax(0, 1fr))
+    ),
+    'grid-rows-7': (
+      'grid-template-rows': repeat(7, minmax(0, 1fr))
+    ),
+    'grid-rows-none': (
+      'grid-template-rows': none
+    )
+  ),
+  $u-grid-template-rows
+);
+
+@include mixins.generate-utilities(
+  $map: $u-grid-template-rows,
+  $variants: map.get(config.$variants, 'grid', 'grid-template-rows'),
+  $include: map.get(config.$utilities, 'grid', 'grid-template-rows')
+);

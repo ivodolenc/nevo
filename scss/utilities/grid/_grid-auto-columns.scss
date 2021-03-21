@@ -1,0 +1,28 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-grid-auto-columns: () !default;
+$u-grid-auto-columns: map.deep-merge(
+  (
+    'auto-cols-auto': (
+      'grid-auto-columns': auto
+    ),
+    'auto-cols-min': (
+      'grid-auto-columns': min-content
+    ),
+    'auto-cols-max': (
+      'grid-auto-columns': max-content
+    ),
+    'auto-cols-fr': (
+      'grid-auto-columns': minmax(0, 1fr)
+    )
+  ),
+  $u-grid-auto-columns
+);
+
+@include mixins.generate-utilities(
+  $map: $u-grid-auto-columns,
+  $variants: map.get(config.$variants, 'grid', 'grid-auto-columns'),
+  $include: map.get(config.$utilities, 'grid', 'grid-auto-columns')
+);

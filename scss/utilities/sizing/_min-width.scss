@@ -1,0 +1,31 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-min-width: () !default;
+$u-min-width: map.deep-merge(
+  (
+    'min-w-0': (
+      'min-width': 0
+    ),
+    'min-w-full': (
+      'min-width': 100%
+    ),
+    'min-w-screen': (
+      'min-width': 100vw
+    ),
+    'min-w-min': (
+      'min-width': min-content
+    ),
+    'min-w-max': (
+      'min-width': max-content
+    )
+  ),
+  $u-min-width
+);
+
+@include mixins.generate-utilities(
+  $map: $u-min-width,
+  $variants: map.get(config.$variants, 'sizing', 'min-width'),
+  $include: map.get(config.$utilities, 'sizing', 'min-width')
+);

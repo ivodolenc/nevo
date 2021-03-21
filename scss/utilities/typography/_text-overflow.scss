@@ -1,0 +1,27 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-text-overflow: () !default;
+$u-text-overflow: map.deep-merge(
+  (
+    'truncate': (
+      'overflow': hidden,
+      'text-overflow': ellipsis,
+      'white-space': nowrap
+    ),
+    'overflow-ellipsis': (
+      'text-overflow': ellipsis
+    ),
+    'overflow-clip': (
+      'text-overflow': clip
+    )
+  ),
+  $u-text-overflow
+);
+
+@include mixins.generate-utilities(
+  $map: $u-text-overflow,
+  $variants: map.get(config.$variants, 'typography', 'text-overflow'),
+  $include: map.get(config.$utilities, 'typography', 'text-overflow')
+);

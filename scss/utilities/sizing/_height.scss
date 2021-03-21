@@ -1,0 +1,33 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-height: () !default;
+$u-height: map.deep-merge(
+  (
+    'h-auto': (
+      'height': auto
+    ),
+    'h-full': (
+      'height': 100%
+    ),
+    'h-screen': (
+      'height': 100vh
+    )
+  ),
+  $u-height
+);
+
+@include mixins.generate-utilities(
+  $map: $u-height,
+  $variants: map.get(config.$variants, 'sizing', 'height'),
+  $include: map.get(config.$utilities, 'sizing', 'height')
+);
+
+@include mixins.generate-spacing(
+  $class-name: 'h',
+  $property: 'height',
+  $negative: false,
+  $variants: map.get(config.$variants, 'sizing', 'height'),
+  $include: map.get(config.$utilities, 'sizing', 'height')
+);

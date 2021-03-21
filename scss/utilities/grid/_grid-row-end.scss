@@ -1,0 +1,40 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-grid-row-end: () !default;
+$u-grid-row-end: map.deep-merge(
+  (
+    'row-end-1': (
+      'grid-row-end': 1
+    ),
+    'row-end-2': (
+      'grid-row-end': 2
+    ),
+    'row-end-3': (
+      'grid-row-end': 3
+    ),
+    'row-end-4': (
+      'grid-row-end': 4
+    ),
+    'row-end-5': (
+      'grid-row-end': 5
+    ),
+    'row-end-6': (
+      'grid-row-end': 6
+    ),
+    'row-end-7': (
+      'grid-row-end': 7
+    ),
+    'row-end-auto': (
+      'grid-row-end': auto
+    )
+  ),
+  $u-grid-row-end
+);
+
+@include mixins.generate-utilities(
+  $map: $u-grid-row-end,
+  $variants: map.get(config.$variants, 'grid', 'grid-row-end'),
+  $include: map.get(config.$utilities, 'grid', 'grid-row-end')
+);
