@@ -1,0 +1,43 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$u-transition-property: () !default;
+$u-transition-property: map.deep-merge(
+  (
+    'transition-none': (
+      'transition-property': none
+    ),
+    'transition-all': (
+      'transition-property': all
+    ),
+    'transition-opacity': (
+      'transition-property': opacity
+    ),
+    'transition-transform': (
+      'transition-property': transform
+    ),
+    'transition-shadow': (
+      'transition-property': box-shadow
+    ),
+    'transition': (
+      'transition-property': (
+        background-color,
+        border-color,
+        color,
+        fill,
+        stroke,
+        opacity,
+        box-shadow,
+        transform
+      )
+    )
+  ),
+  $u-transition-property
+);
+
+@include mixins.generate-utilities(
+  $map: $u-transition-property,
+  $variants: map.get(config.$variants, 'transitions', 'transition-property'),
+  $include: map.get(config.$utilities, 'transitions', 'transition-property')
+);

@@ -99,6 +99,12 @@ $variants: map.deep-merge(
       'border-collapse': responsive,
       'table-layout': responsive
     ),
+    'transitions': (
+      'transition-delay': responsive,
+      'transition-duration': responsive,
+      'transition-property': responsive,
+      'transition-timing-function': responsive
+    ),
     'typography': (
       'font-family': responsive,
       'font-size': responsive,
