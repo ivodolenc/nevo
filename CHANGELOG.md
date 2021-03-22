@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/ivodolenc/nevo/compare/v1.0.0...v1.1.0) (2021-03-22)
+
+
+### Features
+
+* add transition utilities ([d9f83f9](https://github.com/ivodolenc/nevo/commit/d9f83f93db3fd34ed245f3d159cb27cb924cd6b6))
+
 ## [1.0.0](https://github.com/ivodolenc/nevo/compare/v0.0.2...v1.0.0) (2021-03-21)
 
 
