@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-border-style: () !default;
-$u-border-style: map.deep-merge(
+$border-style: () !default;
+$border-style: map.deep-merge(
   (
     'border-solid': (
       'border-style': solid
@@ -21,11 +21,11 @@ $u-border-style: map.deep-merge(
       'border-style': none
     )
   ),
-  $u-border-style
+  $border-style
 );
 
 @include mixins.generate-utilities(
-  $map: $u-border-style,
+  $map: $border-style,
   $variants: map.get(config.$variants, 'borders', 'border-style'),
   $include: map.get(config.$utilities, 'borders', 'border-style')
 );

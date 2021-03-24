@@ -3,8 +3,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-width: () !default;
-$u-width: map.deep-merge(
+$width: () !default;
+$width: map.deep-merge(
   (
     'w-auto': (
       'width': auto
@@ -55,11 +55,11 @@ $u-width: map.deep-merge(
       'width': math.percentage(11 / 12)
     )
   ),
-  $u-width
+  $width
 );
 
 @include mixins.generate-utilities(
-  $map: $u-width,
+  $map: $width,
   $variants: map.get(config.$variants, 'sizing', 'width'),
   $include: map.get(config.$utilities, 'sizing', 'width')
 );

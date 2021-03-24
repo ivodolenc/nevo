@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-margin: () !default;
-$u-margin: map.deep-merge(
+$margin: () !default;
+$margin: map.deep-merge(
   (
     'm-auto': (
       'margin': auto
@@ -29,11 +29,11 @@ $u-margin: map.deep-merge(
       'margin-bottom': auto
     )
   ),
-  $u-margin
+  $margin
 );
 
 @include mixins.generate-utilities(
-  $map: $u-margin,
+  $map: $margin,
   $variants: map.get(config.$variants, 'spacing', 'margin'),
   $include: map.get(config.$utilities, 'spacing', 'margin')
 );

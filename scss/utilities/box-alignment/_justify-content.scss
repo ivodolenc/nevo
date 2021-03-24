@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-justify-content: () !default;
-$u-justify-content: map.deep-merge(
+$justify-content: () !default;
+$justify-content: map.deep-merge(
   (
     'content-center': (
       'justify-content': center
@@ -24,11 +24,11 @@ $u-justify-content: map.deep-merge(
       'justify-content': space-evenly
     )
   ),
-  $u-justify-content
+  $justify-content
 );
 
 @include mixins.generate-utilities(
-  $map: $u-justify-content,
+  $map: $justify-content,
   $variants: map.get(config.$variants, 'box-alignment', 'justify-content'),
   $include: map.get(config.$utilities, 'box-alignment', 'justify-content')
 );

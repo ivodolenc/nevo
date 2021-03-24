@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-max-height: () !default;
-$u-max-height: map.deep-merge(
+$max-height: () !default;
+$max-height: map.deep-merge(
   (
     'max-h-0': (
       'max-height': 0
@@ -15,11 +15,11 @@ $u-max-height: map.deep-merge(
       'max-height': 100vh
     )
   ),
-  $u-max-height
+  $max-height
 );
 
 @include mixins.generate-utilities(
-  $map: $u-max-height,
+  $map: $max-height,
   $variants: map.get(config.$variants, 'sizing', 'max-height'),
   $include: map.get(config.$utilities, 'sizing', 'max-height')
 );

@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-vertical-align: () !default;
-$u-vertical-align: map.deep-merge(
+$vertical-align: () !default;
+$vertical-align: map.deep-merge(
   (
     'align-baseline': (
       'vertical-align': baseline
@@ -24,11 +24,11 @@ $u-vertical-align: map.deep-merge(
       'vertical-align': text-bottom
     )
   ),
-  $u-vertical-align
+  $vertical-align
 );
 
 @include mixins.generate-utilities(
-  $map: $u-vertical-align,
+  $map: $vertical-align,
   $variants: map.get(config.$variants, 'typography', 'vertical-align'),
   $include: map.get(config.$utilities, 'typography', 'vertical-align')
 );

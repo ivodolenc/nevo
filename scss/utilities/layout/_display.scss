@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-display: () !default;
-$u-display: map.deep-merge(
+$display: () !default;
+$display: map.deep-merge(
   (
     'block': (
       'display': block
@@ -63,11 +63,11 @@ $u-display: map.deep-merge(
       'display': hidden
     )
   ),
-  $u-display
+  $display
 );
 
 @include mixins.generate-utilities(
-  $map: $u-display,
+  $map: $display,
   $variants: map.get(config.$variants, 'layout', 'display'),
   $include: map.get(config.$utilities, 'layout', 'display')
 );

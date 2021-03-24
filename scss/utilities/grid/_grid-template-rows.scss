@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-grid-template-rows: () !default;
-$u-grid-template-rows: map.deep-merge(
+$grid-template-rows: () !default;
+$grid-template-rows: map.deep-merge(
   (
     'grid-rows-1': (
       'grid-template-rows': repeat(1, minmax(0, 1fr))
@@ -30,11 +30,11 @@ $u-grid-template-rows: map.deep-merge(
       'grid-template-rows': none
     )
   ),
-  $u-grid-template-rows
+  $grid-template-rows
 );
 
 @include mixins.generate-utilities(
-  $map: $u-grid-template-rows,
+  $map: $grid-template-rows,
   $variants: map.get(config.$variants, 'grid', 'grid-template-rows'),
   $include: map.get(config.$utilities, 'grid', 'grid-template-rows')
 );

@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-resize: () !default;
-$u-resize: map.deep-merge(
+$resize: () !default;
+$resize: map.deep-merge(
   (
     'resize-none': (
       'resize': none
@@ -18,11 +18,11 @@ $u-resize: map.deep-merge(
       'resize': both
     )
   ),
-  $u-resize
+  $resize
 );
 
 @include mixins.generate-utilities(
-  $map: $u-resize,
+  $map: $resize,
   $variants: map.get(config.$variants, 'interactivity', 'resize'),
   $include: map.get(config.$utilities, 'interactivity', 'resize')
 );

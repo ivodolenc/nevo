@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-pointer-events: () !default;
-$u-pointer-events: map.deep-merge(
+$pointer-events: () !default;
+$pointer-events: map.deep-merge(
   (
     'pointer-events-none': (
       'pointer-events': none
@@ -12,11 +12,11 @@ $u-pointer-events: map.deep-merge(
       'pointer-events': auto
     )
   ),
-  $u-pointer-events
+  $pointer-events
 );
 
 @include mixins.generate-utilities(
-  $map: $u-pointer-events,
+  $map: $pointer-events,
   $variants: map.get(config.$variants, 'interactivity', 'pointer-events'),
   $include: map.get(config.$utilities, 'interactivity', 'pointer-events')
 );

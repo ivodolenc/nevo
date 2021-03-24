@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-text-decoration: () !default;
-$u-text-decoration: map.deep-merge(
+$text-decoration: () !default;
+$text-decoration: map.deep-merge(
   (
     'underline': (
       'text-decoration': underline
@@ -15,11 +15,11 @@ $u-text-decoration: map.deep-merge(
       'text-decoration': none
     )
   ),
-  $u-text-decoration
+  $text-decoration
 );
 
 @include mixins.generate-utilities(
-  $map: $u-text-decoration,
+  $map: $text-decoration,
   $variants: map.get(config.$variants, 'typography', 'text-decoration'),
   $include: map.get(config.$utilities, 'typography', 'text-decoration')
 );

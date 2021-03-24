@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-background-size: () !default;
-$u-background-size: map.deep-merge(
+$background-size: () !default;
+$background-size: map.deep-merge(
   (
     'bg-auto': (
       'background-size': auto
@@ -15,11 +15,11 @@ $u-background-size: map.deep-merge(
       'background-size': contain
     )
   ),
-  $u-background-size
+  $background-size
 );
 
 @include mixins.generate-utilities(
-  $map: $u-background-size,
+  $map: $background-size,
   $variants: map.get(config.$variants, 'backgrounds', 'background-size'),
   $include: map.get(config.$utilities, 'backgrounds', 'background-size')
 );

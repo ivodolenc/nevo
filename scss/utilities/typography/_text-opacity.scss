@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-text-opacity: () !default;
-$u-text-opacity: map.deep-merge(
+$text-opacity: () !default;
+$text-opacity: map.deep-merge(
   (
     'text-opacity-0': (
       '--text-opacity': 0
@@ -51,11 +51,11 @@ $u-text-opacity: map.deep-merge(
       '--text-opacity': 1
     )
   ),
-  $u-text-opacity
+  $text-opacity
 );
 
 @include mixins.generate-utilities(
-  $map: $u-text-opacity,
+  $map: $text-opacity,
   $variants: map.get(config.$variants, 'typography', 'text-opacity'),
   $include: map.get(config.$utilities, 'typography', 'text-opacity')
 );

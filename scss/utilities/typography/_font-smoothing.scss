@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-font-smoothing: () !default;
-$u-font-smoothing: map.deep-merge(
+$font-smoothing: () !default;
+$font-smoothing: map.deep-merge(
   (
     'antialiased': (
       '-webkit-font-smoothing': antialiased,
@@ -20,11 +20,11 @@ $u-font-smoothing: map.deep-merge(
       'font-style': normal
     )
   ),
-  $u-font-smoothing
+  $font-smoothing
 );
 
 @include mixins.generate-utilities(
-  $map: $u-font-smoothing,
+  $map: $font-smoothing,
   $variants: map.get(config.$variants, 'typography', 'font-smoothing'),
   $include: map.get(config.$utilities, 'typography', 'font-smoothing')
 );

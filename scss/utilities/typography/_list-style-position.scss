@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-list-style-position: () !default;
-$u-list-style-position: map.deep-merge(
+$list-style-position: () !default;
+$list-style-position: map.deep-merge(
   (
     'list-inside': (
       'list-style-position': inside
@@ -12,11 +12,11 @@ $u-list-style-position: map.deep-merge(
       'list-style-position': outside
     )
   ),
-  $u-list-style-position
+  $list-style-position
 );
 
 @include mixins.generate-utilities(
-  $map: $u-list-style-position,
+  $map: $list-style-position,
   $variants: map.get(config.$variants, 'typography', 'list-style-position'),
   $include: map.get(config.$utilities, 'typography', 'list-style-position')
 );

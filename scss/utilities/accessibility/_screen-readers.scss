@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-screen-readers: () !default;
-$u-screen-readers: map.deep-merge(
+$screen-readers: () !default;
+$screen-readers: map.deep-merge(
   (
     'sr-only': (
       'position': absolute,
@@ -27,11 +27,11 @@ $u-screen-readers: map.deep-merge(
       'white-space': normal
     )
   ),
-  $u-screen-readers
+  $screen-readers
 );
 
 @include mixins.generate-utilities(
-  $map: $u-screen-readers,
+  $map: $screen-readers,
   $variants: map.get(config.$variants, 'accessibility', 'screen-readers'),
   $include: map.get(config.$utilities, 'accessibility', 'screen-readers')
 );

@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-max-width: () !default;
-$u-max-width: map.deep-merge(
+$max-width: () !default;
+$max-width: map.deep-merge(
   (
     'max-w-0': (
       'max-width': 0
@@ -24,11 +24,11 @@ $u-max-width: map.deep-merge(
       'max-width': max-content
     )
   ),
-  $u-max-width
+  $max-width
 );
 
 @include mixins.generate-utilities(
-  $map: $u-max-width,
+  $map: $max-width,
   $variants: map.get(config.$variants, 'sizing', 'max-width'),
   $include: map.get(config.$utilities, 'sizing', 'max-width')
 );

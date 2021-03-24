@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-z-index: () !default;
-$u-z-index: map.deep-merge(
+$z-index: () !default;
+$z-index: map.deep-merge(
   (
     'z-0': (
       'z-index': 0
@@ -42,11 +42,11 @@ $u-z-index: map.deep-merge(
       'z-index': auto
     )
   ),
-  $u-z-index
+  $z-index
 );
 
 @include mixins.generate-utilities(
-  $map: $u-z-index,
+  $map: $z-index,
   $variants: map.get(config.$variants, 'layout', 'z-index'),
   $include: map.get(config.$utilities, 'layout', 'z-index')
 );

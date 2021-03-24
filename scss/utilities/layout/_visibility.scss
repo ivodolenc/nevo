@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-visibility: () !default;
-$u-visibility: map.deep-merge(
+$visibility: () !default;
+$visibility: map.deep-merge(
   (
     'visible': (
       'visibility': visible
@@ -12,11 +12,11 @@ $u-visibility: map.deep-merge(
       'visibility': hidden
     )
   ),
-  $u-visibility
+  $visibility
 );
 
 @include mixins.generate-utilities(
-  $map: $u-visibility,
+  $map: $visibility,
   $variants: map.get(config.$variants, 'layout', 'visibility'),
   $include: map.get(config.$utilities, 'layout', 'visibility')
 );

@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-min-width: () !default;
-$u-min-width: map.deep-merge(
+$min-width: () !default;
+$min-width: map.deep-merge(
   (
     'min-w-0': (
       'min-width': 0
@@ -21,11 +21,11 @@ $u-min-width: map.deep-merge(
       'min-width': max-content
     )
   ),
-  $u-min-width
+  $min-width
 );
 
 @include mixins.generate-utilities(
-  $map: $u-min-width,
+  $map: $min-width,
   $variants: map.get(config.$variants, 'sizing', 'min-width'),
   $include: map.get(config.$utilities, 'sizing', 'min-width')
 );

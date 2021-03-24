@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-border-opacity: () !default;
-$u-border-opacity: map.deep-merge(
+$border-opacity: () !default;
+$border-opacity: map.deep-merge(
   (
     'border-opacity-0': (
       '--border-opacity': 0
@@ -51,11 +51,11 @@ $u-border-opacity: map.deep-merge(
       '--border-opacity': 1
     )
   ),
-  $u-border-opacity
+  $border-opacity
 );
 
 @include mixins.generate-utilities(
-  $map: $u-border-opacity,
+  $map: $border-opacity,
   $variants: map.get(config.$variants, 'borders', 'border-opacity'),
   $include: map.get(config.$utilities, 'borders', 'border-opacity')
 );

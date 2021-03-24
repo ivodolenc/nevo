@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-place-content: () !default;
-$u-place-content: map.deep-merge(
+$place-content: () !default;
+$place-content: map.deep-merge(
   (
     'place-content-center': (
       'place-content': center
@@ -27,11 +27,11 @@ $u-place-content: map.deep-merge(
       'place-content': stretch
     )
   ),
-  $u-place-content
+  $place-content
 );
 
 @include mixins.generate-utilities(
-  $map: $u-place-content,
+  $map: $place-content,
   $variants: map.get(config.$variants, 'box-alignment', 'place-content'),
   $include: map.get(config.$utilities, 'box-alignment', 'place-content')
 );

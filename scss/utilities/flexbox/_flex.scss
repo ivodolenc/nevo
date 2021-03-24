@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-flex: () !default;
-$u-flex: map.deep-merge(
+$flex: () !default;
+$flex: map.deep-merge(
   (
     'flex-1': (
       'flex': 1 1 0%
@@ -18,11 +18,11 @@ $u-flex: map.deep-merge(
       'flex': none
     )
   ),
-  $u-flex
+  $flex
 );
 
 @include mixins.generate-utilities(
-  $map: $u-flex,
+  $map: $flex,
   $variants: map.get(config.$variants, 'flexbox', 'flex'),
   $include: map.get(config.$utilities, 'flexbox', 'flex')
 );

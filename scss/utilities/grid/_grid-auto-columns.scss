@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-grid-auto-columns: () !default;
-$u-grid-auto-columns: map.deep-merge(
+$grid-auto-columns: () !default;
+$grid-auto-columns: map.deep-merge(
   (
     'auto-cols-auto': (
       'grid-auto-columns': auto
@@ -18,11 +18,11 @@ $u-grid-auto-columns: map.deep-merge(
       'grid-auto-columns': minmax(0, 1fr)
     )
   ),
-  $u-grid-auto-columns
+  $grid-auto-columns
 );
 
 @include mixins.generate-utilities(
-  $map: $u-grid-auto-columns,
+  $map: $grid-auto-columns,
   $variants: map.get(config.$variants, 'grid', 'grid-auto-columns'),
   $include: map.get(config.$utilities, 'grid', 'grid-auto-columns')
 );

@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-overscroll: () !default;
-$u-overscroll: map.deep-merge(
+$overscroll: () !default;
+$overscroll: map.deep-merge(
   (
     'overscroll-auto': (
       'overscroll-behavior': auto
@@ -33,11 +33,11 @@ $u-overscroll: map.deep-merge(
       'overscroll-behavior-y': none
     )
   ),
-  $u-overscroll
+  $overscroll
 );
 
 @include mixins.generate-utilities(
-  $map: $u-overscroll,
+  $map: $overscroll,
   $variants: map.get(config.$variants, 'layout', 'overscroll'),
   $include: map.get(config.$utilities, 'layout', 'overscroll')
 );

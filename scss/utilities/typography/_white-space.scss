@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-white-space: () !default;
-$u-white-space: map.deep-merge(
+$white-space: () !default;
+$white-space: map.deep-merge(
   (
     'whitespace-normal': (
       'white-space': normal
@@ -21,11 +21,11 @@ $u-white-space: map.deep-merge(
       'white-space': pre-wrap
     )
   ),
-  $u-white-space
+  $white-space
 );
 
 @include mixins.generate-utilities(
-  $map: $u-white-space,
+  $map: $white-space,
   $variants: map.get(config.$variants, 'typography', 'white-space'),
   $include: map.get(config.$utilities, 'typography', 'white-space')
 );

@@ -2,18 +2,18 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-fill: () !default;
-$u-fill: map.deep-merge(
+$fill: () !default;
+$fill: map.deep-merge(
   (
     'fill-current': (
       'fill': currentColor
     )
   ),
-  $u-fill
+  $fill
 );
 
 @include mixins.generate-utilities(
-  $map: $u-fill,
+  $map: $fill,
   $variants: map.get(config.$variants, 'svg', 'fill'),
   $include: map.get(config.$utilities, 'svg', 'fill')
 );

@@ -2,18 +2,18 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-stroke: () !default;
-$u-stroke: map.deep-merge(
+$stroke: () !default;
+$stroke: map.deep-merge(
   (
     'stroke-current': (
       'stroke': currentColor
     )
   ),
-  $u-stroke
+  $stroke
 );
 
 @include mixins.generate-utilities(
-  $map: $u-stroke,
+  $map: $stroke,
   $variants: map.get(config.$variants, 'svg', 'stroke'),
   $include: map.get(config.$utilities, 'svg', 'stroke')
 );

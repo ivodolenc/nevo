@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-letter-spacing: () !default;
-$u-letter-spacing: map.deep-merge(
+$letter-spacing: () !default;
+$letter-spacing: map.deep-merge(
   (
     '-tracking-5': (
       'letter-spacing': map.get(config.$theme, 'tracking', '-5')
@@ -39,11 +39,11 @@ $u-letter-spacing: map.deep-merge(
       'letter-spacing': map.get(config.$theme, 'tracking', '5')
     )
   ),
-  $u-letter-spacing
+  $letter-spacing
 );
 
 @include mixins.generate-utilities(
-  $map: $u-letter-spacing,
+  $map: $letter-spacing,
   $variants: map.get(config.$variants, 'typography', 'letter-spacing'),
   $include: map.get(config.$utilities, 'typography', 'letter-spacing')
 );

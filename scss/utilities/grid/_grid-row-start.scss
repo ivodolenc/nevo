@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-grid-row-start: () !default;
-$u-grid-row-start: map.deep-merge(
+$grid-row-start: () !default;
+$grid-row-start: map.deep-merge(
   (
     'row-start-1': (
       'grid-row-start': 1
@@ -30,11 +30,11 @@ $u-grid-row-start: map.deep-merge(
       'grid-row-start': auto
     )
   ),
-  $u-grid-row-start
+  $grid-row-start
 );
 
 @include mixins.generate-utilities(
-  $map: $u-grid-row-start,
+  $map: $grid-row-start,
   $variants: map.get(config.$variants, 'grid', 'grid-row-start'),
   $include: map.get(config.$utilities, 'grid', 'grid-row-start')
 );

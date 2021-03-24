@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-outline: () !default;
-$u-outline: map.deep-merge(
+$outline: () !default;
+$outline: map.deep-merge(
   (
     'outline-none': (
       'outline': none
@@ -17,11 +17,11 @@ $u-outline: map.deep-merge(
       'outline-offset': 2px
     )
   ),
-  $u-outline
+  $outline
 );
 
 @include mixins.generate-utilities(
-  $map: $u-outline,
+  $map: $outline,
   $variants: map.get(config.$variants, 'interactivity', 'outline'),
   $include: map.get(config.$utilities, 'interactivity', 'outline')
 );

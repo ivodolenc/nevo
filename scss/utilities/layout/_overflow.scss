@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-overflow: () !default;
-$u-overflow: map.deep-merge(
+$overflow: () !default;
+$overflow: map.deep-merge(
   (
     'overflow-auto': (
       'overflow': auto
@@ -42,11 +42,11 @@ $u-overflow: map.deep-merge(
       'overflow-y': scroll
     )
   ),
-  $u-overflow
+  $overflow
 );
 
 @include mixins.generate-utilities(
-  $map: $u-overflow,
+  $map: $overflow,
   $variants: map.get(config.$variants, 'layout', 'overflow'),
   $include: map.get(config.$utilities, 'layout', 'overflow')
 );

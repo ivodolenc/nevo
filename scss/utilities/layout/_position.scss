@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-position: () !default;
-$u-position: map.deep-merge(
+$position: () !default;
+$position: map.deep-merge(
   (
     'static': (
       'position': static
@@ -21,11 +21,11 @@ $u-position: map.deep-merge(
       'position': sticky
     )
   ),
-  $u-position
+  $position
 );
 
 @include mixins.generate-utilities(
-  $map: $u-position,
+  $map: $position,
   $variants: map.get(config.$variants, 'layout', 'position'),
   $include: map.get(config.$utilities, 'layout', 'position')
 );

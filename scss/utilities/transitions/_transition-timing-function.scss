@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-transition-timing-function: () !default;
-$u-transition-timing-function: map.deep-merge(
+$transition-timing-function: () !default;
+$transition-timing-function: map.deep-merge(
   (
     'ease-linear': (
       'transition-timing-function': linear
@@ -18,11 +18,11 @@ $u-transition-timing-function: map.deep-merge(
       'transition-timing-function': cubic-bezier(0.33, 0, 0.177, 1)
     )
   ),
-  $u-transition-timing-function
+  $transition-timing-function
 );
 
 @include mixins.generate-utilities(
-  $map: $u-transition-timing-function,
+  $map: $transition-timing-function,
   $variants:
     map.get(config.$variants, 'transitions', 'transition-timing-function'),
   $include:

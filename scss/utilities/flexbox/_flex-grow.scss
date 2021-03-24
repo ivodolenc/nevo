@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-flex-grow: () !default;
-$u-flex-grow: map.deep-merge(
+$flex-grow: () !default;
+$flex-grow: map.deep-merge(
   (
     'flex-grow-0': (
       'flex-grow': 0
@@ -12,11 +12,11 @@ $u-flex-grow: map.deep-merge(
       'flex-grow': 1
     )
   ),
-  $u-flex-grow
+  $flex-grow
 );
 
 @include mixins.generate-utilities(
-  $map: $u-flex-grow,
+  $map: $flex-grow,
   $variants: map.get(config.$variants, 'flexbox', 'flex-grow'),
   $include: map.get(config.$utilities, 'flexbox', 'flex-grow')
 );

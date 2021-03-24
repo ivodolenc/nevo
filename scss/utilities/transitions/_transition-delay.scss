@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-transition-delay: () !default;
-$u-transition-delay: map.deep-merge(
+$transition-delay: () !default;
+$transition-delay: map.deep-merge(
   (
     'delay-75': (
       'transition-delay': 75ms
@@ -30,11 +30,11 @@ $u-transition-delay: map.deep-merge(
       'transition-delay': 1000ms
     )
   ),
-  $u-transition-delay
+  $transition-delay
 );
 
 @include mixins.generate-utilities(
-  $map: $u-transition-delay,
+  $map: $transition-delay,
   $variants: map.get(config.$variants, 'transitions', 'transition-delay'),
   $include: map.get(config.$utilities, 'transitions', 'transition-delay')
 );

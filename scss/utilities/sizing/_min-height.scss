@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-min-height: () !default;
-$u-min-height: map.deep-merge(
+$min-height: () !default;
+$min-height: map.deep-merge(
   (
     'min-h-0': (
       'min-height': 0
@@ -15,11 +15,11 @@ $u-min-height: map.deep-merge(
       'min-height': 100vh
     )
   ),
-  $u-min-height
+  $min-height
 );
 
 @include mixins.generate-utilities(
-  $map: $u-min-height,
+  $map: $min-height,
   $variants: map.get(config.$variants, 'sizing', 'min-height'),
   $include: map.get(config.$utilities, 'sizing', 'min-height')
 );

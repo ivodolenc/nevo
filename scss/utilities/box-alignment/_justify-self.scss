@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-justify-self: () !default;
-$u-justify-self: map.deep-merge(
+$justify-self: () !default;
+$justify-self: map.deep-merge(
   (
     'justify-self-auto': (
       'justify-self': auto
@@ -21,11 +21,11 @@ $u-justify-self: map.deep-merge(
       'justify-self': stretch
     )
   ),
-  $u-justify-self
+  $justify-self
 );
 
 @include mixins.generate-utilities(
-  $map: $u-justify-self,
+  $map: $justify-self,
   $variants: map.get(config.$variants, 'box-alignment', 'justify-self'),
   $include: map.get(config.$utilities, 'box-alignment', 'justify-self')
 );

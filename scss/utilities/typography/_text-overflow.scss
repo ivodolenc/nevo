@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-text-overflow: () !default;
-$u-text-overflow: map.deep-merge(
+$text-overflow: () !default;
+$text-overflow: map.deep-merge(
   (
     'truncate': (
       'overflow': hidden,
@@ -17,11 +17,11 @@ $u-text-overflow: map.deep-merge(
       'text-overflow': clip
     )
   ),
-  $u-text-overflow
+  $text-overflow
 );
 
 @include mixins.generate-utilities(
-  $map: $u-text-overflow,
+  $map: $text-overflow,
   $variants: map.get(config.$variants, 'typography', 'text-overflow'),
   $include: map.get(config.$utilities, 'typography', 'text-overflow')
 );

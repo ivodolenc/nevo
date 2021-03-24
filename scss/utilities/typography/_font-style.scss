@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-font-style: () !default;
-$u-font-style: map.deep-merge(
+$font-style: () !default;
+$font-style: map.deep-merge(
   (
     'italic': (
       'font-style': italic
@@ -12,11 +12,11 @@ $u-font-style: map.deep-merge(
       'font-style': normal
     )
   ),
-  $u-font-style
+  $font-style
 );
 
 @include mixins.generate-utilities(
-  $map: $u-font-style,
+  $map: $font-style,
   $variants: map.get(config.$variants, 'typography', 'font-style'),
   $include: map.get(config.$utilities, 'typography', 'font-style')
 );

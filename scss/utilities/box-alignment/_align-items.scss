@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-align-items: () !default;
-$u-align-items: map.deep-merge(
+$align-items: () !default;
+$align-items: map.deep-merge(
   (
     'items-start': (
       'align-items': flex-start
@@ -21,11 +21,11 @@ $u-align-items: map.deep-merge(
       'align-items': stretch
     )
   ),
-  $u-align-items
+  $align-items
 );
 
 @include mixins.generate-utilities(
-  $map: $u-align-items,
+  $map: $align-items,
   $variants: map.get(config.$variants, 'box-alignment', 'align-items'),
   $include: map.get(config.$utilities, 'box-alignment', 'align-items')
 );

@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-background-repeat: () !default;
-$u-background-repeat: map.deep-merge(
+$background-repeat: () !default;
+$background-repeat: map.deep-merge(
   (
     'bg-repeat': (
       'background-repeat': repeat
@@ -24,11 +24,11 @@ $u-background-repeat: map.deep-merge(
       'background-repeat': space
     )
   ),
-  $u-background-repeat
+  $background-repeat
 );
 
 @include mixins.generate-utilities(
-  $map: $u-background-repeat,
+  $map: $background-repeat,
   $variants: map.get(config.$variants, 'backgrounds', 'background-repeat'),
   $include: map.get(config.$utilities, 'backgrounds', 'background-repeat')
 );

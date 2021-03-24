@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-grid-row-span: () !default;
-$u-grid-row-span: map.deep-merge(
+$grid-row-span: () !default;
+$grid-row-span: map.deep-merge(
   (
     'row-span-1': (
       'grid-row': span 1 / span 1
@@ -27,11 +27,11 @@ $u-grid-row-span: map.deep-merge(
       'grid-row': span 7 / span 7
     )
   ),
-  $u-grid-row-span
+  $grid-row-span
 );
 
 @include mixins.generate-utilities(
-  $map: $u-grid-row-span,
+  $map: $grid-row-span,
   $variants: map.get(config.$variants, 'grid', 'grid-row-span'),
   $include: map.get(config.$utilities, 'grid', 'grid-row-span')
 );

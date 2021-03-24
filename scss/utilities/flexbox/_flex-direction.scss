@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-flex-direction: () !default;
-$u-flex-direction: map.deep-merge(
+$flex-direction: () !default;
+$flex-direction: map.deep-merge(
   (
     'flex-row': (
       'flex-direction': row
@@ -18,11 +18,11 @@ $u-flex-direction: map.deep-merge(
       'flex-direction': column-reverse
     )
   ),
-  $u-flex-direction
+  $flex-direction
 );
 
 @include mixins.generate-utilities(
-  $map: $u-flex-direction,
+  $map: $flex-direction,
   $variants: map.get(config.$variants, 'flexbox', 'flex-direction'),
   $include: map.get(config.$utilities, 'flexbox', 'flex-direction')
 );

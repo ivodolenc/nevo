@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-object-fit: () !default;
-$u-object-fit: map.deep-merge(
+$object-fit: () !default;
+$object-fit: map.deep-merge(
   (
     'object-contain': (
       'object-fit': contain
@@ -21,11 +21,11 @@ $u-object-fit: map.deep-merge(
       'object-fit': scale-down
     )
   ),
-  $u-object-fit
+  $object-fit
 );
 
 @include mixins.generate-utilities(
-  $map: $u-object-fit,
+  $map: $object-fit,
   $variants: map.get(config.$variants, 'layout', 'object-fit'),
   $include: map.get(config.$utilities, 'layout', 'object-fit')
 );

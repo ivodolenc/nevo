@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-background-clip: () !default;
-$u-background-clip: map.deep-merge(
+$background-clip: () !default;
+$background-clip: map.deep-merge(
   (
     'bg-clip-border': (
       'background-clip': border-box
@@ -18,11 +18,11 @@ $u-background-clip: map.deep-merge(
       'background-clip': text
     )
   ),
-  $u-background-clip
+  $background-clip
 );
 
 @include mixins.generate-utilities(
-  $map: $u-background-clip,
+  $map: $background-clip,
   $variants: map.get(config.$variants, 'backgrounds', 'background-clip'),
   $include: map.get(config.$utilities, 'backgrounds', 'background-clip')
 );

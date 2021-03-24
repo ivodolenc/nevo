@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-grid-column-end: () !default;
-$u-grid-column-end: map.deep-merge(
+$grid-column-end: () !default;
+$grid-column-end: map.deep-merge(
   (
     'col-end-1': (
       'grid-column-end': 1
@@ -45,11 +45,11 @@ $u-grid-column-end: map.deep-merge(
       'grid-column-end': auto
     )
   ),
-  $u-grid-column-end
+  $grid-column-end
 );
 
 @include mixins.generate-utilities(
-  $map: $u-grid-column-end,
+  $map: $grid-column-end,
   $variants: map.get(config.$variants, 'grid', 'grid-column-end'),
   $include: map.get(config.$utilities, 'grid', 'grid-column-end')
 );

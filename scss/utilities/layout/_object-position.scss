@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-object-position: () !default;
-$u-object-position: map.deep-merge(
+$object-position: () !default;
+$object-position: map.deep-merge(
   (
     'object-bottom': (
       'object-position': bottom
@@ -33,11 +33,11 @@ $u-object-position: map.deep-merge(
       'object-position': top
     )
   ),
-  $u-object-position
+  $object-position
 );
 
 @include mixins.generate-utilities(
-  $map: $u-object-position,
+  $map: $object-position,
   $variants: map.get(config.$variants, 'layout', 'object-position'),
   $include: map.get(config.$utilities, 'layout', 'object-position')
 );

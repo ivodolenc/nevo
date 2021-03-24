@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-cursor: () !default;
-$u-cursor: map.deep-merge(
+$cursor: () !default;
+$cursor: map.deep-merge(
   (
     'cursor-auto': (
       'cursor': auto
@@ -30,11 +30,11 @@ $u-cursor: map.deep-merge(
       'cursor': not-allowed
     )
   ),
-  $u-cursor
+  $cursor
 );
 
 @include mixins.generate-utilities(
-  $map: $u-cursor,
+  $map: $cursor,
   $variants: map.get(config.$variants, 'interactivity', 'cursor'),
   $include: map.get(config.$utilities, 'interactivity', 'cursor')
 );

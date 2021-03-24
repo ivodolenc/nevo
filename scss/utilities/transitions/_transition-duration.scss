@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-transition-duration: () !default;
-$u-transition-duration: map.deep-merge(
+$transition-duration: () !default;
+$transition-duration: map.deep-merge(
   (
     'duration-75': (
       'transition-duration': 75ms
@@ -30,11 +30,11 @@ $u-transition-duration: map.deep-merge(
       'transition-duration': 1000ms
     )
   ),
-  $u-transition-duration
+  $transition-duration
 );
 
 @include mixins.generate-utilities(
-  $map: $u-transition-duration,
+  $map: $transition-duration,
   $variants: map.get(config.$variants, 'transitions', 'transition-duration'),
   $include: map.get(config.$utilities, 'transitions', 'transition-duration')
 );

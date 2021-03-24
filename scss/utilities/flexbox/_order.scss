@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-order: () !default;
-$u-order: map.deep-merge(
+$order: () !default;
+$order: map.deep-merge(
   (
     'order-1': (
       'order': 1
@@ -42,11 +42,11 @@ $u-order: map.deep-merge(
       'order': 12
     )
   ),
-  $u-order
+  $order
 );
 
 @include mixins.generate-utilities(
-  $map: $u-order,
+  $map: $order,
   $variants: map.get(config.$variants, 'flexbox', 'order'),
   $include: map.get(config.$utilities, 'flexbox', 'order')
 );

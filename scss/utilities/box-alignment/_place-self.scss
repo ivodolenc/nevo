@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-place-self: () !default;
-$u-place-self: map.deep-merge(
+$place-self: () !default;
+$place-self: map.deep-merge(
   (
     'place-self-auto': (
       'place-self': auto
@@ -21,11 +21,11 @@ $u-place-self: map.deep-merge(
       'place-self': stretch
     )
   ),
-  $u-place-self
+  $place-self
 );
 
 @include mixins.generate-utilities(
-  $map: $u-place-self,
+  $map: $place-self,
   $variants: map.get(config.$variants, 'box-alignment', 'place-self'),
   $include: map.get(config.$utilities, 'box-alignment', 'place-self')
 );

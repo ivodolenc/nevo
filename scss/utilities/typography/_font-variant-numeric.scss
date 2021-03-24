@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-font-variant-numeric: () !default;
-$u-font-variant-numeric: map.deep-merge(
+$font-variant-numeric: () !default;
+$font-variant-numeric: map.deep-merge(
   (
     'normal-nums': (
       'font-variant-numeric': normal
@@ -33,11 +33,11 @@ $u-font-variant-numeric: map.deep-merge(
       'font-variant-numeric': stacked-fractions
     )
   ),
-  $u-font-variant-numeric
+  $font-variant-numeric
 );
 
 @include mixins.generate-utilities(
-  $map: $u-font-variant-numeric,
+  $map: $font-variant-numeric,
   $variants: map.get(config.$variants, 'typography', 'font-variant-numeric'),
   $include: map.get(config.$utilities, 'typography', 'font-variant-numeric')
 );

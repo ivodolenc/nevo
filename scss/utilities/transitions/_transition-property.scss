@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-transition-property: () !default;
-$u-transition-property: map.deep-merge(
+$transition-property: () !default;
+$transition-property: map.deep-merge(
   (
     'transition-none': (
       'transition-property': none
@@ -33,11 +33,11 @@ $u-transition-property: map.deep-merge(
       )
     )
   ),
-  $u-transition-property
+  $transition-property
 );
 
 @include mixins.generate-utilities(
-  $map: $u-transition-property,
+  $map: $transition-property,
   $variants: map.get(config.$variants, 'transitions', 'transition-property'),
   $include: map.get(config.$utilities, 'transitions', 'transition-property')
 );

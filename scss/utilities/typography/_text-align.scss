@@ -2,8 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-text-align: () !default;
-$u-text-align: map.deep-merge(
+$text-align: () !default;
+$text-align: map.deep-merge(
   (
     'text-left': (
       'text-align': left
@@ -18,11 +18,11 @@ $u-text-align: map.deep-merge(
       'text-align': justify
     )
   ),
-  $u-text-align
+  $text-align
 );
 
 @include mixins.generate-utilities(
-  $map: $u-text-align,
+  $map: $text-align,
   $variants: map.get(config.$variants, 'typography', 'text-align'),
   $include: map.get(config.$utilities, 'typography', 'text-align')
 );

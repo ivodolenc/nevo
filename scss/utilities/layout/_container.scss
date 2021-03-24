@@ -2,18 +2,18 @@
 @use '../../config';
 @use '../../mixins';
 
-$u-container: () !default;
-$u-container: map.deep-merge(
+$container: () !default;
+$container: map.deep-merge(
   (
     'container': (
       'width': 100%
     )
   ),
-  $u-container
+  $container
 );
 
 @include mixins.generate-utilities(
-  $map: $u-container,
+  $map: $container,
   $variants: map.get(config.$variants, 'layout', 'container'),
   $include: map.get(config.$utilities, 'layout', 'container')
 );
