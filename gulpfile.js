@@ -9,13 +9,13 @@ const browserSync = require('browser-sync').create()
 
 const config = {
   src: {
-    scss: './scss/**/*.scss'
+    scss: './nevo.scss'
   },
   dist: {
     css: './css/'
   },
   watch: {
-    scss: './scss/**/*.scss',
+    scss: ['./nevo.scss', './scss/**/*.scss'],
     html: './*.html'
   }
 }
