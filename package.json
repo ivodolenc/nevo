@@ -17,9 +17,10 @@
   "bugs": {
     "url": "https://github.com/ivodolenc/nevo/issues"
   },
-  "main": "scss/nevo.scss",
+  "main": "nevo.scss",
   "files": [
-    "scss"
+    "scss",
+    "*.scss"
   ],
   "keywords": [
     "nevo",
@@ -40,8 +41,7 @@
     "dev": "gulp development",
     "generate": "gulp production",
     "lint:stylelint": "stylelint **/*.scss",
-    "lint:all:stylelint": "yarn lint:stylelint --fix",
-    "release": "standard-version && git push --follow-tags && npm publish"
+    "lint:all:stylelint": "yarn lint:stylelint --fix"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.0.1",
