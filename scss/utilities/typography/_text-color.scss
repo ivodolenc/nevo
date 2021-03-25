@@ -6,14 +6,7 @@
   $class-name: 'text',
   $property: 'color',
   $custom-property: '--text-opacity',
-  $variants: map.get(config.$variants, 'typography', 'text-color'),
-  $include: map.get(config.$utilities, 'typography', 'text-color')
-);
-
-@include mixins.generate-colors(
-  $map: map.get(config.$theme, 'colors', 'special'),
-  $class-name: 'text',
-  $property: 'color',
+  $colors_: true,
   $variants: map.get(config.$variants, 'typography', 'text-color'),
   $include: map.get(config.$utilities, 'typography', 'text-color')
 );

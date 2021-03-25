@@ -20,11 +20,11 @@ $theme: map.deep-merge(
       'xl': 1280px,
       'xxl': 1440px
     ),
+    'colors_': (
+      'transparent': transparent,
+      'current': currentColor
+    ),
     'colors': (
-      'special': (
-        'transparent': transparent,
-        'current': currentColor
-      ),
       'black': #000,
       'white': #fff,
       'gray': (

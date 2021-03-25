@@ -6,14 +6,7 @@
   $class-name: 'bg',
   $property: 'background-color',
   $custom-property: '--bg-opacity',
-  $variants: map.get(config.$variants, 'backgrounds', 'background-color'),
-  $include: map.get(config.$utilities, 'backgrounds', 'background-color')
-);
-
-@include mixins.generate-colors(
-  $map: map.get(config.$theme, 'colors', 'special'),
-  $class-name: 'bg',
-  $property: 'background-color',
+  $colors_: true,
   $variants: map.get(config.$variants, 'backgrounds', 'background-color'),
   $include: map.get(config.$utilities, 'backgrounds', 'background-color')
 );

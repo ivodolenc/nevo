@@ -6,14 +6,7 @@
   $class-name: 'border',
   $property: 'border-color',
   $custom-property: '--border-opacity',
-  $variants: map.get(config.$variants, 'borders', 'border-color'),
-  $include: map.get(config.$utilities, 'borders', 'border-color')
-);
-
-@include mixins.generate-colors(
-  $map: map.get(config.$theme, 'colors', 'special'),
-  $class-name: 'border',
-  $property: 'border-color',
+  $colors_: true,
   $variants: map.get(config.$variants, 'borders', 'border-color'),
   $include: map.get(config.$utilities, 'borders', 'border-color')
 );
