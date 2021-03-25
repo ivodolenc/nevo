@@ -67,7 +67,6 @@ $width: map.deep-merge(
 @include mixins.generate-spacing(
   $class-name: 'w',
   $property: 'width',
-  $negative: false,
   $variants: map.get(config.$variants, 'sizing', 'width'),
   $include: map.get(config.$utilities, 'sizing', 'width')
 );

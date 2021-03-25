@@ -5,7 +5,6 @@
 @include mixins.generate-spacing(
   $class-name: 'p',
   $property: 'padding',
-  $negative: false,
   $variants: map.get(config.$variants, 'spacing', 'padding'),
   $include: map.get(config.$utilities, 'spacing', 'padding')
 );
@@ -13,7 +12,6 @@
 @include mixins.generate-spacing(
   $class-name: 'pt',
   $property: 'padding-top',
-  $negative: false,
   $variants: map.get(config.$variants, 'spacing', 'padding'),
   $include: map.get(config.$utilities, 'spacing', 'padding')
 );
@@ -21,7 +19,6 @@
 @include mixins.generate-spacing(
   $class-name: 'pr',
   $property: 'padding-right',
-  $negative: false,
   $variants: map.get(config.$variants, 'spacing', 'padding'),
   $include: map.get(config.$utilities, 'spacing', 'padding')
 );
@@ -29,7 +26,6 @@
 @include mixins.generate-spacing(
   $class-name: 'pb',
   $property: 'padding-bottom',
-  $negative: false,
   $variants: map.get(config.$variants, 'spacing', 'padding'),
   $include: map.get(config.$utilities, 'spacing', 'padding')
 );
@@ -37,7 +33,6 @@
 @include mixins.generate-spacing(
   $class-name: 'pl',
   $property: 'padding-left',
-  $negative: false,
   $variants: map.get(config.$variants, 'spacing', 'padding'),
   $include: map.get(config.$utilities, 'spacing', 'padding')
 );
@@ -45,7 +40,6 @@
 @include mixins.generate-spacing(
   $class-name: 'px',
   $property: padding-right padding-left,
-  $negative: false,
   $variants: map.get(config.$variants, 'spacing', 'padding'),
   $include: map.get(config.$utilities, 'spacing', 'padding')
 );
@@ -53,7 +47,6 @@
 @include mixins.generate-spacing(
   $class-name: 'py',
   $property: padding-top padding-bottom,
-  $negative: false,
   $variants: map.get(config.$variants, 'spacing', 'padding'),
   $include: map.get(config.$utilities, 'spacing', 'padding')
 );

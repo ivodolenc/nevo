@@ -27,7 +27,6 @@ $height: map.deep-merge(
 @include mixins.generate-spacing(
   $class-name: 'h',
   $property: 'height',
-  $negative: false,
   $variants: map.get(config.$variants, 'sizing', 'height'),
   $include: map.get(config.$utilities, 'sizing', 'height')
 );

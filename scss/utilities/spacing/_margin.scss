@@ -41,6 +41,7 @@ $margin: map.deep-merge(
 @include mixins.generate-spacing(
   $class-name: 'm',
   $property: 'margin',
+  $negative: true,
   $variants: map.get(config.$variants, 'spacing', 'margin'),
   $include: map.get(config.$utilities, 'spacing', 'margin')
 );
@@ -48,6 +49,7 @@ $margin: map.deep-merge(
 @include mixins.generate-spacing(
   $class-name: 'mt',
   $property: 'margin-top',
+  $negative: true,
   $variants: map.get(config.$variants, 'spacing', 'margin'),
   $include: map.get(config.$utilities, 'spacing', 'margin')
 );
@@ -55,6 +57,7 @@ $margin: map.deep-merge(
 @include mixins.generate-spacing(
   $class-name: 'mr',
   $property: 'margin-right',
+  $negative: true,
   $variants: map.get(config.$variants, 'spacing', 'margin'),
   $include: map.get(config.$utilities, 'spacing', 'margin')
 );
@@ -62,6 +65,7 @@ $margin: map.deep-merge(
 @include mixins.generate-spacing(
   $class-name: 'mb',
   $property: 'margin-bottom',
+  $negative: true,
   $variants: map.get(config.$variants, 'spacing', 'margin'),
   $include: map.get(config.$utilities, 'spacing', 'margin')
 );
@@ -69,6 +73,7 @@ $margin: map.deep-merge(
 @include mixins.generate-spacing(
   $class-name: 'ml',
   $property: 'margin-left',
+  $negative: true,
   $variants: map.get(config.$variants, 'spacing', 'margin'),
   $include: map.get(config.$utilities, 'spacing', 'margin')
 );
@@ -76,6 +81,7 @@ $margin: map.deep-merge(
 @include mixins.generate-spacing(
   $class-name: 'mx',
   $property: margin-right margin-left,
+  $negative: true,
   $variants: map.get(config.$variants, 'spacing', 'margin'),
   $include: map.get(config.$utilities, 'spacing', 'margin')
 );
@@ -83,6 +89,7 @@ $margin: map.deep-merge(
 @include mixins.generate-spacing(
   $class-name: 'my',
   $property: margin-top margin-bottom,
+  $negative: true,
   $variants: map.get(config.$variants, 'spacing', 'margin'),
   $include: map.get(config.$utilities, 'spacing', 'margin')
 );

@@ -42,8 +42,8 @@
   $property: null,
   $variants: null,
   $pseudo: null,
+  $negative: null,
   $positive: true,
-  $negative: true,
   $include: true
 ) {
   @if $include {
@@ -66,22 +66,6 @@
         $property: $property,
         $important: $important
       );
-
-      @if $variants-type {
-        @each $variant in $variants-list {
-          @include _spacing(
-            $prefix: $prefix,
-            $map: $map,
-            $class-name: $class-name,
-            $property: $property,
-            $variant: $variant,
-            $variant-separator: $variant-separator,
-            $pseudo-separator: $pseudo-separator,
-            $pseudo: $variant,
-            $important: $important
-          );
-        }
-      }
     }
 
     @if $negative {
@@ -93,9 +77,25 @@
         $negative: $negative,
         $important: $important
       );
+    }
 
-      @if $variants-type {
-        @each $variant in $variants-list {
+    @if $variants-type {
+      @each $variant in $variants-list {
+        @if $positive {
+          @include _spacing(
+            $map: $map,
+            $prefix: $prefix,
+            $class-name: $class-name,
+            $property: $property,
+            $variant: $variant,
+            $variant-separator: $variant-separator,
+            $pseudo-separator: $pseudo-separator,
+            $pseudo: $variant,
+            $important: $important
+          );
+        }
+
+        @if $negative {
           @include _spacing(
             $map: $map,
             $prefix: $prefix,
@@ -125,22 +125,6 @@
               $variant-separator: $variant-separator,
               $important: $important
             );
-
-            @if $variants-type {
-              @each $variant in $variants-list {
-                @include _spacing(
-                  $map: $map,
-                  $prefix: $prefix,
-                  $class-name: $class-name,
-                  $property: $property,
-                  $variant: #{$breakpoint}#{$variant-separator}#{$variant},
-                  $variant-separator: $variant-separator,
-                  $pseudo-separator: $pseudo-separator,
-                  $pseudo: $variant,
-                  $important: $important
-                );
-              }
-            }
           }
 
           @if $negative {
@@ -154,9 +138,25 @@
               $variant-separator: $variant-separator,
               $important: $important
             );
+          }
 
-            @if $variants-type {
-              @each $variant in $variants-list {
+          @if $variants-type {
+            @each $variant in $variants-list {
+              @if $positive {
+                @include _spacing(
+                  $map: $map,
+                  $prefix: $prefix,
+                  $class-name: $class-name,
+                  $property: $property,
+                  $variant: #{$breakpoint}#{$variant-separator}#{$variant},
+                  $variant-separator: $variant-separator,
+                  $pseudo-separator: $pseudo-separator,
+                  $pseudo: $variant,
+                  $important: $important
+                );
+              }
+
+              @if $negative {
                 @include _spacing(
                   $map: $map,
                   $prefix: $prefix,
