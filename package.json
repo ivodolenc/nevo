@@ -24,16 +24,8 @@
   ],
   "keywords": [
     "nevo",
-    "nevo-css",
-    "nevo-sass",
-    "nevo-scss",
-    "nevo-framework",
-    "dart-sass-framework",
-    "sass-framework",
-    "dart-sass",
     "framework",
     "sass",
-    "scss",
     "css"
   ],
   "scripts": {
