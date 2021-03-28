@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/ivodolenc/nevo/compare/v1.2.0...v1.3.0) (2021-03-28)
+
+
+### Features
+
+* add 'ease' that generates from theme ([17a6416](https://github.com/ivodolenc/nevo/commit/17a6416b7fc78a47d336cca510d1a57464904f24))
+* extend theme 'leading', 'spacing' and 'text' ([29b1d1d](https://github.com/ivodolenc/nevo/commit/29b1d1deaf238e6395e88b8a53494c50354d5ea5))
+* update color system to simplify use ([598a388](https://github.com/ivodolenc/nevo/commit/598a3887e49ea9e8b6278339b7e04c7f91ed75f7))
+
 ## [1.2.0](https://github.com/ivodolenc/nevo/compare/v1.1.1...v1.2.0) (2021-03-24)
 
 
