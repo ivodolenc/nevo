@@ -9,3 +9,35 @@
   $variants: map.get(config.$variants, 'borders', 'border-radius'),
   $include: map.get(config.$utilities, 'borders', 'border-radius')
 );
+
+@include mixins.generate-theme(
+  $map: map.get(config.$theme, 'rounded'),
+  $class-name: 'rounded-tl',
+  $property: 'border-top-left-radius',
+  $variants: map.get(config.$variants, 'borders', 'border-radius'),
+  $include: map.get(config.$utilities, 'borders', 'border-radius')
+);
+
+@include mixins.generate-theme(
+  $map: map.get(config.$theme, 'rounded'),
+  $class-name: 'rounded-tr',
+  $property: 'border-top-right-radius',
+  $variants: map.get(config.$variants, 'borders', 'border-radius'),
+  $include: map.get(config.$utilities, 'borders', 'border-radius')
+);
+
+@include mixins.generate-theme(
+  $map: map.get(config.$theme, 'rounded'),
+  $class-name: 'rounded-br',
+  $property: 'border-bottom-right-radius',
+  $variants: map.get(config.$variants, 'borders', 'border-radius'),
+  $include: map.get(config.$utilities, 'borders', 'border-radius')
+);
+
+@include mixins.generate-theme(
+  $map: map.get(config.$theme, 'rounded'),
+  $class-name: 'rounded-bl',
+  $property: 'border-bottom-left-radius',
+  $variants: map.get(config.$variants, 'borders', 'border-radius'),
+  $include: map.get(config.$utilities, 'borders', 'border-radius')
+);
