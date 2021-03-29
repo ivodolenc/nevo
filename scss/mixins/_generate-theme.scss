@@ -20,7 +20,7 @@
 ) {
   @each $theme-key, $theme-value in $map {
     #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$class-name}#{$theme-separator}#{$theme-key}#{$pseudo-separator}#{$pseudo} {
-      #{$property}: #{$theme-value} #{if($important, !important, null)};
+      #{$property}: $theme-value #{if($important, !important, null)};
     }
   }
 }
