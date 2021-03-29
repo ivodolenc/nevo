@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.1](https://github.com/ivodolenc/nevo/compare/v1.3.0...v1.3.1) (2021-03-29)
+
+
+### Bug Fixes
+
+* preserve quotes in specific values ([b29d087](https://github.com/ivodolenc/nevo/commit/b29d087c7af7e1cd822ca256eff2398ac3491a6d))
+
 ## [1.3.0](https://github.com/ivodolenc/nevo/compare/v1.2.0...v1.3.0) (2021-03-28)
 
 
