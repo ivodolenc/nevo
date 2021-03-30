@@ -99,6 +99,14 @@ $utilities: map.deep-merge(
       'border-collapse': true,
       'table-layout': true
     ),
+    'transforms': (
+      'rotate': true,
+      'scale': true,
+      'skew': true,
+      'transform-origin': true,
+      'transform': true,
+      'translate': true
+    ),
     'transitions': (
       'transition-delay': true,
       'transition-duration': true,

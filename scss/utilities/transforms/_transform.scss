@@ -1,0 +1,47 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$transform: () !default;
+$transform: map.deep-merge(
+  (
+    'transform': (
+      '--translate-x': 0,
+      '--translate-y': 0,
+      '--rotate': 0,
+      '--skew-x': 0,
+      '--skew-y': 0,
+      '--scale-x': 1,
+      '--scale-y': 1,
+      'transform': (
+        translateX(var(--translate-x)) translateY(var(--translate-y))
+          rotate(var(--rotate)) skewX(var(--skew-x)) skewY(var(--skew-y))
+          scaleX(var(--scale-x)) scaleY(var(--scale-y))
+      )
+    ),
+    'transform-gpu': (
+      '--translate-x': 0,
+      '--translate-y': 0,
+      '--rotate': 0,
+      '--skew-x': 0,
+      '--skew-y': 0,
+      '--scale-x': 1,
+      '--scale-y': 1,
+      'transform': (
+        translate3d(var(--translate-x), var(--translate-y), 0)
+          rotate(var(--rotate)) skewX(var(--skew-x)) skewY(var(--skew-y))
+          scaleX(var(--scale-x)) scaleY(var(--scale-y))
+      )
+    ),
+    'transform-none': (
+      'transform': none
+    )
+  ),
+  $transform
+);
+
+@include mixins.generate-utilities(
+  $map: $transform,
+  $variants: map.get(config.$variants, 'transforms', 'transform'),
+  $include: map.get(config.$utilities, 'transforms', 'transform')
+);

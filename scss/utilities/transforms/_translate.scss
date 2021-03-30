@@ -1,0 +1,44 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$translate: () !default;
+$translate: map.deep-merge(
+  (
+    'translate-x-full': (
+      '--translate-x': 100%
+    ),
+    '-translate-x-full': (
+      '--translate-x': -100%
+    ),
+    'translate-y-full': (
+      '--translate-y': 100%
+    ),
+    '-translate-y-full': (
+      '--translate-y': -100%
+    )
+  ),
+  $translate
+);
+
+@include mixins.generate-utilities(
+  $map: $translate,
+  $variants: map.get(config.$variants, 'transforms', 'translate'),
+  $include: map.get(config.$utilities, 'transforms', 'translate')
+);
+
+@include mixins.generate-spacing(
+  $class-name: 'translate-x',
+  $property: '--translate-x',
+  $negative: true,
+  $variants: map.get(config.$variants, 'transforms', 'translate'),
+  $include: map.get(config.$utilities, 'transforms', 'translate')
+);
+
+@include mixins.generate-spacing(
+  $class-name: 'translate-y',
+  $property: '--translate-y',
+  $negative: true,
+  $variants: map.get(config.$variants, 'transforms', 'translate'),
+  $include: map.get(config.$utilities, 'transforms', 'translate')
+);
