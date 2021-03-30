@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/ivodolenc/nevo/compare/v1.3.1...v1.4.0) (2021-03-30)
+
+
+### Features
+
+* add 'transforms' utilities ([77afa58](https://github.com/ivodolenc/nevo/commit/77afa58f7f6e8697a2bc09c7b23ce42a6e51589c))
+* extend 'border-radius' utilities ([0d35bdf](https://github.com/ivodolenc/nevo/commit/0d35bdf786aabf6023f497d2807d695f7b7c5655))
+* extend 'max-height' utilities ([47e5891](https://github.com/ivodolenc/nevo/commit/47e58914c4300606224192b6a9f4ed6512be5fe5))
+
+
+### Bug Fixes
+
+* remove unnecessary classes ([5f9927d](https://github.com/ivodolenc/nevo/commit/5f9927dc903dcfc97abd7c832ef4414a24a8a48d))
+
 ### [1.3.1](https://github.com/ivodolenc/nevo/compare/v1.3.0...v1.3.1) (2021-03-29)
 
 
