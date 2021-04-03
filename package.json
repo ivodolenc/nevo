@@ -36,8 +36,8 @@
     "lint:all:stylelint": "yarn lint:stylelint --fix"
   },
   "devDependencies": {
-    "@commitlint/cli": "^12.0.1",
-    "@commitlint/config-conventional": "^12.0.1",
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
     "autoprefixer": "^9.8.6",
     "browser-sync": "^2.26.14",
     "cssnano": "^4.1.10",
