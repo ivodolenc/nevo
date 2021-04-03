@@ -21,8 +21,8 @@ $flex: map.deep-merge(
   $flex
 );
 
-@include mixins.generate-utilities(
-  $map: $flex,
+@include mixins.generate-common(
+  $rules: $flex,
   $variants: map.get(config.$variants, 'flexbox', 'flex'),
-  $include: map.get(config.$utilities, 'flexbox', 'flex')
+  $utilities: map.get(config.$utilities, 'flexbox', 'flex')
 );

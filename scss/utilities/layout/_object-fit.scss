@@ -24,8 +24,8 @@ $object-fit: map.deep-merge(
   $object-fit
 );
 
-@include mixins.generate-utilities(
-  $map: $object-fit,
+@include mixins.generate-common(
+  $rules: $object-fit,
   $variants: map.get(config.$variants, 'layout', 'object-fit'),
-  $include: map.get(config.$utilities, 'layout', 'object-fit')
+  $utilities: map.get(config.$utilities, 'layout', 'object-fit')
 );

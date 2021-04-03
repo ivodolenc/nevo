@@ -21,8 +21,8 @@ $grid-auto-rows: map.deep-merge(
   $grid-auto-rows
 );
 
-@include mixins.generate-utilities(
-  $map: $grid-auto-rows,
+@include mixins.generate-common(
+  $rules: $grid-auto-rows,
   $variants: map.get(config.$variants, 'grid', 'grid-auto-rows'),
-  $include: map.get(config.$utilities, 'grid', 'grid-auto-rows')
+  $utilities: map.get(config.$utilities, 'grid', 'grid-auto-rows')
 );

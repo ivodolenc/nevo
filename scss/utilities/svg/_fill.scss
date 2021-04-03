@@ -12,8 +12,8 @@ $fill: map.deep-merge(
   $fill
 );
 
-@include mixins.generate-utilities(
-  $map: $fill,
+@include mixins.generate-common(
+  $rules: $fill,
   $variants: map.get(config.$variants, 'svg', 'fill'),
-  $include: map.get(config.$utilities, 'svg', 'fill')
+  $utilities: map.get(config.$utilities, 'svg', 'fill')
 );

@@ -36,8 +36,8 @@ $overscroll: map.deep-merge(
   $overscroll
 );
 
-@include mixins.generate-utilities(
-  $map: $overscroll,
+@include mixins.generate-common(
+  $rules: $overscroll,
   $variants: map.get(config.$variants, 'layout', 'overscroll'),
-  $include: map.get(config.$utilities, 'layout', 'overscroll')
+  $utilities: map.get(config.$utilities, 'layout', 'overscroll')
 );

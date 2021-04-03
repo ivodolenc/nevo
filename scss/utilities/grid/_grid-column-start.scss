@@ -48,8 +48,8 @@ $grid-column-start: map.deep-merge(
   $grid-column-start
 );
 
-@include mixins.generate-utilities(
-  $map: $grid-column-start,
+@include mixins.generate-common(
+  $rules: $grid-column-start,
   $variants: map.get(config.$variants, 'grid', 'grid-column-start'),
-  $include: map.get(config.$utilities, 'grid', 'grid-column-start')
+  $utilities: map.get(config.$utilities, 'grid', 'grid-column-start')
 );

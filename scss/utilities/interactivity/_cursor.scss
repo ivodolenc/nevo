@@ -33,8 +33,8 @@ $cursor: map.deep-merge(
   $cursor
 );
 
-@include mixins.generate-utilities(
-  $map: $cursor,
+@include mixins.generate-common(
+  $rules: $cursor,
   $variants: map.get(config.$variants, 'interactivity', 'cursor'),
-  $include: map.get(config.$utilities, 'interactivity', 'cursor')
+  $utilities: map.get(config.$utilities, 'interactivity', 'cursor')
 );

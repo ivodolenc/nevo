@@ -18,8 +18,8 @@ $flex-wrap: map.deep-merge(
   $flex-wrap
 );
 
-@include mixins.generate-utilities(
-  $map: $flex-wrap,
+@include mixins.generate-common(
+  $rules: $flex-wrap,
   $variants: map.get(config.$variants, 'flexbox', 'flex-wrap'),
-  $include: map.get(config.$utilities, 'flexbox', 'flex-wrap')
+  $utilities: map.get(config.$utilities, 'flexbox', 'flex-wrap')
 );

@@ -36,8 +36,8 @@ $transition-property: map.deep-merge(
   $transition-property
 );
 
-@include mixins.generate-utilities(
-  $map: $transition-property,
+@include mixins.generate-common(
+  $rules: $transition-property,
   $variants: map.get(config.$variants, 'transitions', 'transition-property'),
-  $include: map.get(config.$utilities, 'transitions', 'transition-property')
+  $utilities: map.get(config.$utilities, 'transitions', 'transition-property')
 );

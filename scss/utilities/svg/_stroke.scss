@@ -12,8 +12,8 @@ $stroke: map.deep-merge(
   $stroke
 );
 
-@include mixins.generate-utilities(
-  $map: $stroke,
+@include mixins.generate-common(
+  $rules: $stroke,
   $variants: map.get(config.$variants, 'svg', 'stroke'),
-  $include: map.get(config.$utilities, 'svg', 'stroke')
+  $utilities: map.get(config.$utilities, 'svg', 'stroke')
 );

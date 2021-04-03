@@ -66,8 +66,8 @@ $display: map.deep-merge(
   $display
 );
 
-@include mixins.generate-utilities(
-  $map: $display,
+@include mixins.generate-common(
+  $rules: $display,
   $variants: map.get(config.$variants, 'layout', 'display'),
-  $include: map.get(config.$utilities, 'layout', 'display')
+  $utilities: map.get(config.$utilities, 'layout', 'display')
 );

@@ -109,8 +109,8 @@ $scale: map.deep-merge(
   $scale
 );
 
-@include mixins.generate-utilities(
-  $map: $scale,
+@include mixins.generate-common(
+  $rules: $scale,
   $variants: map.get(config.$variants, 'transforms', 'scale'),
-  $include: map.get(config.$utilities, 'transforms', 'scale')
+  $utilities: map.get(config.$utilities, 'transforms', 'scale')
 );

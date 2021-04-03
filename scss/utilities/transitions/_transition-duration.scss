@@ -33,8 +33,8 @@ $transition-duration: map.deep-merge(
   $transition-duration
 );
 
-@include mixins.generate-utilities(
-  $map: $transition-duration,
+@include mixins.generate-common(
+  $rules: $transition-duration,
   $variants: map.get(config.$variants, 'transitions', 'transition-duration'),
-  $include: map.get(config.$utilities, 'transitions', 'transition-duration')
+  $utilities: map.get(config.$utilities, 'transitions', 'transition-duration')
 );

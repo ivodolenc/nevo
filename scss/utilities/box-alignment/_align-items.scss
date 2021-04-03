@@ -24,8 +24,8 @@ $align-items: map.deep-merge(
   $align-items
 );
 
-@include mixins.generate-utilities(
-  $map: $align-items,
+@include mixins.generate-common(
+  $rules: $align-items,
   $variants: map.get(config.$variants, 'box-alignment', 'align-items'),
-  $include: map.get(config.$utilities, 'box-alignment', 'align-items')
+  $utilities: map.get(config.$utilities, 'box-alignment', 'align-items')
 );

@@ -27,8 +27,8 @@ $background-repeat: map.deep-merge(
   $background-repeat
 );
 
-@include mixins.generate-utilities(
-  $map: $background-repeat,
+@include mixins.generate-common(
+  $rules: $background-repeat,
   $variants: map.get(config.$variants, 'backgrounds', 'background-repeat'),
-  $include: map.get(config.$utilities, 'backgrounds', 'background-repeat')
+  $utilities: map.get(config.$utilities, 'backgrounds', 'background-repeat')
 );

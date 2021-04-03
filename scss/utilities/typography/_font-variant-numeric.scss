@@ -36,8 +36,8 @@ $font-variant-numeric: map.deep-merge(
   $font-variant-numeric
 );
 
-@include mixins.generate-utilities(
-  $map: $font-variant-numeric,
+@include mixins.generate-common(
+  $rules: $font-variant-numeric,
   $variants: map.get(config.$variants, 'typography', 'font-variant-numeric'),
-  $include: map.get(config.$utilities, 'typography', 'font-variant-numeric')
+  $utilities: map.get(config.$utilities, 'typography', 'font-variant-numeric')
 );

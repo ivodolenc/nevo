@@ -33,8 +33,8 @@ $transition-delay: map.deep-merge(
   $transition-delay
 );
 
-@include mixins.generate-utilities(
-  $map: $transition-delay,
+@include mixins.generate-common(
+  $rules: $transition-delay,
   $variants: map.get(config.$variants, 'transitions', 'transition-delay'),
-  $include: map.get(config.$utilities, 'transitions', 'transition-delay')
+  $utilities: map.get(config.$utilities, 'transitions', 'transition-delay')
 );

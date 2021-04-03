@@ -27,15 +27,17 @@ $max-width: map.deep-merge(
   $max-width
 );
 
-@include mixins.generate-utilities(
-  $map: $max-width,
+@include mixins.generate-common(
+  $rules: $max-width,
   $variants: map.get(config.$variants, 'sizing', 'max-width'),
-  $include: map.get(config.$utilities, 'sizing', 'max-width')
+  $utilities: map.get(config.$utilities, 'sizing', 'max-width')
 );
 
-@include mixins.generate-breakpoints(
-  $class-name: 'max-w-screen',
-  $property: 'max-width',
-  $variants: map.get(config.$variants, 'sizing', 'max-width'),
-  $include: map.get(config.$utilities, 'sizing', 'max-width')
+@include mixins.generate-theme(
+  $set: map.get(config.$theme, 'breakpoints'),
+  $rules: (
+    'max-w-screen': max-width
+  ),
+  $variants: map.get(config.$variants, 'borders', 'border-radius'),
+  $utilities: map.get(config.$utilities, 'borders', 'border-radius')
 );

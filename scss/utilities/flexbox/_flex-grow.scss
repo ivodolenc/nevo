@@ -15,8 +15,8 @@ $flex-grow: map.deep-merge(
   $flex-grow
 );
 
-@include mixins.generate-utilities(
-  $map: $flex-grow,
+@include mixins.generate-common(
+  $rules: $flex-grow,
   $variants: map.get(config.$variants, 'flexbox', 'flex-grow'),
-  $include: map.get(config.$utilities, 'flexbox', 'flex-grow')
+  $utilities: map.get(config.$utilities, 'flexbox', 'flex-grow')
 );

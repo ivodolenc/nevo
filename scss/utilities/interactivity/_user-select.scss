@@ -21,8 +21,8 @@ $user-select: map.deep-merge(
   $user-select
 );
 
-@include mixins.generate-utilities(
-  $map: $user-select,
+@include mixins.generate-common(
+  $rules: $user-select,
   $variants: map.get(config.$variants, 'interactivity', 'user-select'),
-  $include: map.get(config.$utilities, 'interactivity', 'user-select')
+  $utilities: map.get(config.$utilities, 'interactivity', 'user-select')
 );

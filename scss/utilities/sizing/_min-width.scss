@@ -24,8 +24,8 @@ $min-width: map.deep-merge(
   $min-width
 );
 
-@include mixins.generate-utilities(
-  $map: $min-width,
+@include mixins.generate-common(
+  $rules: $min-width,
   $variants: map.get(config.$variants, 'sizing', 'min-width'),
-  $include: map.get(config.$utilities, 'sizing', 'min-width')
+  $utilities: map.get(config.$utilities, 'sizing', 'min-width')
 );

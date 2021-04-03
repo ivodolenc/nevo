@@ -12,10 +12,10 @@ $container: map.deep-merge(
   $container
 );
 
-@include mixins.generate-utilities(
-  $map: $container,
+@include mixins.generate-common(
+  $rules: $container,
   $variants: map.get(config.$variants, 'layout', 'container'),
-  $include: map.get(config.$utilities, 'layout', 'container')
+  $utilities: map.get(config.$utilities, 'layout', 'container')
 );
 
 @if map.get(config.$utilities, 'layout', 'container') {

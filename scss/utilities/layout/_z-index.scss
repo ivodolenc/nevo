@@ -45,8 +45,8 @@ $z-index: map.deep-merge(
   $z-index
 );
 
-@include mixins.generate-utilities(
-  $map: $z-index,
+@include mixins.generate-common(
+  $rules: $z-index,
   $variants: map.get(config.$variants, 'layout', 'z-index'),
-  $include: map.get(config.$utilities, 'layout', 'z-index')
+  $utilities: map.get(config.$utilities, 'layout', 'z-index')
 );

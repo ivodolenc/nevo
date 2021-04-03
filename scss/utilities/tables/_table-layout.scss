@@ -15,8 +15,8 @@ $table-layout: map.deep-merge(
   $table-layout
 );
 
-@include mixins.generate-utilities(
-  $map: $table-layout,
+@include mixins.generate-common(
+  $rules: $table-layout,
   $variants: map.get(config.$variants, 'tables', 'table-layout'),
-  $include: map.get(config.$utilities, 'tables', 'table-layout')
+  $utilities: map.get(config.$utilities, 'tables', 'table-layout')
 );

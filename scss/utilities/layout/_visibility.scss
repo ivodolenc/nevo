@@ -15,8 +15,8 @@ $visibility: map.deep-merge(
   $visibility
 );
 
-@include mixins.generate-utilities(
-  $map: $visibility,
+@include mixins.generate-common(
+  $rules: $visibility,
   $variants: map.get(config.$variants, 'layout', 'visibility'),
-  $include: map.get(config.$utilities, 'layout', 'visibility')
+  $utilities: map.get(config.$utilities, 'layout', 'visibility')
 );

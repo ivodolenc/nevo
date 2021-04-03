@@ -33,8 +33,8 @@ $grid-template-rows: map.deep-merge(
   $grid-template-rows
 );
 
-@include mixins.generate-utilities(
-  $map: $grid-template-rows,
+@include mixins.generate-common(
+  $rules: $grid-template-rows,
   $variants: map.get(config.$variants, 'grid', 'grid-template-rows'),
-  $include: map.get(config.$utilities, 'grid', 'grid-template-rows')
+  $utilities: map.get(config.$utilities, 'grid', 'grid-template-rows')
 );

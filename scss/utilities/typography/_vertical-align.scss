@@ -27,8 +27,8 @@ $vertical-align: map.deep-merge(
   $vertical-align
 );
 
-@include mixins.generate-utilities(
-  $map: $vertical-align,
+@include mixins.generate-common(
+  $rules: $vertical-align,
   $variants: map.get(config.$variants, 'typography', 'vertical-align'),
-  $include: map.get(config.$utilities, 'typography', 'vertical-align')
+  $utilities: map.get(config.$utilities, 'typography', 'vertical-align')
 );

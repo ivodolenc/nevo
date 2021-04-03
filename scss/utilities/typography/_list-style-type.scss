@@ -18,8 +18,8 @@ $list-style-type: map.deep-merge(
   $list-style-type
 );
 
-@include mixins.generate-utilities(
-  $map: $list-style-type,
+@include mixins.generate-common(
+  $rules: $list-style-type,
   $variants: map.get(config.$variants, 'typography', 'list-style-type'),
-  $include: map.get(config.$utilities, 'typography', 'list-style-type')
+  $utilities: map.get(config.$utilities, 'typography', 'list-style-type')
 );

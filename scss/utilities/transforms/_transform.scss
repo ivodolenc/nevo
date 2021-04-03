@@ -40,8 +40,8 @@ $transform: map.deep-merge(
   $transform
 );
 
-@include mixins.generate-utilities(
-  $map: $transform,
+@include mixins.generate-common(
+  $rules: $transform,
   $variants: map.get(config.$variants, 'transforms', 'transform'),
-  $include: map.get(config.$utilities, 'transforms', 'transform')
+  $utilities: map.get(config.$utilities, 'transforms', 'transform')
 );

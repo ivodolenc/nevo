@@ -24,8 +24,8 @@ $justify-items: map.deep-merge(
   $justify-items
 );
 
-@include mixins.generate-utilities(
-  $map: $justify-items,
+@include mixins.generate-common(
+  $rules: $justify-items,
   $variants: map.get(config.$variants, 'box-alignment', 'justify-items'),
-  $include: map.get(config.$utilities, 'box-alignment', 'justify-items')
+  $utilities: map.get(config.$utilities, 'box-alignment', 'justify-items')
 );

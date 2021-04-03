@@ -36,8 +36,8 @@ $object-position: map.deep-merge(
   $object-position
 );
 
-@include mixins.generate-utilities(
-  $map: $object-position,
+@include mixins.generate-common(
+  $rules: $object-position,
   $variants: map.get(config.$variants, 'layout', 'object-position'),
-  $include: map.get(config.$utilities, 'layout', 'object-position')
+  $utilities: map.get(config.$utilities, 'layout', 'object-position')
 );

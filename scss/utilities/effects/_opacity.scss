@@ -54,8 +54,8 @@ $opacity: map.deep-merge(
   $opacity
 );
 
-@include mixins.generate-utilities(
-  $map: $opacity,
+@include mixins.generate-common(
+  $rules: $opacity,
   $variants: map.get(config.$variants, 'effects', 'opacity'),
-  $include: map.get(config.$utilities, 'effects', 'opacity')
+  $utilities: map.get(config.$utilities, 'effects', 'opacity')
 );

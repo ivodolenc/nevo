@@ -20,8 +20,8 @@ $text-overflow: map.deep-merge(
   $text-overflow
 );
 
-@include mixins.generate-utilities(
-  $map: $text-overflow,
+@include mixins.generate-common(
+  $rules: $text-overflow,
   $variants: map.get(config.$variants, 'typography', 'text-overflow'),
-  $include: map.get(config.$utilities, 'typography', 'text-overflow')
+  $utilities: map.get(config.$utilities, 'typography', 'text-overflow')
 );

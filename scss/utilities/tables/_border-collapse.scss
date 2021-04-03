@@ -15,8 +15,8 @@ $border-collapse: map.deep-merge(
   $border-collapse
 );
 
-@include mixins.generate-utilities(
-  $map: $border-collapse,
+@include mixins.generate-common(
+  $rules: $border-collapse,
   $variants: map.get(config.$variants, 'tables', 'border-collapse'),
-  $include: map.get(config.$utilities, 'tables', 'border-collapse')
+  $utilities: map.get(config.$utilities, 'tables', 'border-collapse')
 );

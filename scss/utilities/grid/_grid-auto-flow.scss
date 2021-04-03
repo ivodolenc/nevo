@@ -21,8 +21,8 @@ $grid-auto-flow: map.deep-merge(
   $grid-auto-flow
 );
 
-@include mixins.generate-utilities(
-  $map: $grid-auto-flow,
+@include mixins.generate-common(
+  $rules: $grid-auto-flow,
   $variants: map.get(config.$variants, 'grid', 'grid-auto-flow'),
-  $include: map.get(config.$utilities, 'grid', 'grid-auto-flow')
+  $utilities: map.get(config.$utilities, 'grid', 'grid-auto-flow')
 );

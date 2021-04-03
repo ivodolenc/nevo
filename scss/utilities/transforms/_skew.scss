@@ -75,8 +75,8 @@ $skew: map.deep-merge(
   $skew
 );
 
-@include mixins.generate-utilities(
-  $map: $skew,
+@include mixins.generate-common(
+  $rules: $skew,
   $variants: map.get(config.$variants, 'transforms', 'skew'),
-  $include: map.get(config.$utilities, 'transforms', 'skew')
+  $utilities: map.get(config.$utilities, 'transforms', 'skew')
 );

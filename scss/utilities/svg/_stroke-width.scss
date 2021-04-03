@@ -18,8 +18,8 @@ $stroke-width: map.deep-merge(
   $stroke-width
 );
 
-@include mixins.generate-utilities(
-  $map: $stroke-width,
+@include mixins.generate-common(
+  $rules: $stroke-width,
   $variants: map.get(config.$variants, 'svg', 'stroke-width'),
-  $include: map.get(config.$utilities, 'svg', 'stroke-width')
+  $utilities: map.get(config.$utilities, 'svg', 'stroke-width')
 );

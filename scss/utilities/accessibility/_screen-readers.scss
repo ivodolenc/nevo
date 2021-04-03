@@ -30,8 +30,8 @@ $screen-readers: map.deep-merge(
   $screen-readers
 );
 
-@include mixins.generate-utilities(
-  $map: $screen-readers,
+@include mixins.generate-common(
+  $rules: $screen-readers,
   $variants: map.get(config.$variants, 'accessibility', 'screen-readers'),
-  $include: map.get(config.$utilities, 'accessibility', 'screen-readers')
+  $utilities: map.get(config.$utilities, 'accessibility', 'screen-readers')
 );

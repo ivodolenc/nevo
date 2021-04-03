@@ -18,8 +18,8 @@ $background-size: map.deep-merge(
   $background-size
 );
 
-@include mixins.generate-utilities(
-  $map: $background-size,
+@include mixins.generate-common(
+  $rules: $background-size,
   $variants: map.get(config.$variants, 'backgrounds', 'background-size'),
-  $include: map.get(config.$utilities, 'backgrounds', 'background-size')
+  $utilities: map.get(config.$utilities, 'backgrounds', 'background-size')
 );

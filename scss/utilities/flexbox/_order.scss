@@ -45,8 +45,8 @@ $order: map.deep-merge(
   $order
 );
 
-@include mixins.generate-utilities(
-  $map: $order,
+@include mixins.generate-common(
+  $rules: $order,
   $variants: map.get(config.$variants, 'flexbox', 'order'),
-  $include: map.get(config.$utilities, 'flexbox', 'order')
+  $utilities: map.get(config.$utilities, 'flexbox', 'order')
 );

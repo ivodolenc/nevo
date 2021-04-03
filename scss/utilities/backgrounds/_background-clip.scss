@@ -21,8 +21,8 @@ $background-clip: map.deep-merge(
   $background-clip
 );
 
-@include mixins.generate-utilities(
-  $map: $background-clip,
+@include mixins.generate-common(
+  $rules: $background-clip,
   $variants: map.get(config.$variants, 'backgrounds', 'background-clip'),
-  $include: map.get(config.$utilities, 'backgrounds', 'background-clip')
+  $utilities: map.get(config.$utilities, 'backgrounds', 'background-clip')
 );

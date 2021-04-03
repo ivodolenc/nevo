@@ -12,8 +12,8 @@ $appearance: map.deep-merge(
   $appearance
 );
 
-@include mixins.generate-utilities(
-  $map: $appearance,
+@include mixins.generate-common(
+  $rules: $appearance,
   $variants: map.get(config.$variants, 'interactivity', 'appearance'),
-  $include: map.get(config.$utilities, 'interactivity', 'appearance')
+  $utilities: map.get(config.$utilities, 'interactivity', 'appearance')
 );

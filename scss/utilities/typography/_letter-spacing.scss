@@ -42,8 +42,8 @@ $letter-spacing: map.deep-merge(
   $letter-spacing
 );
 
-@include mixins.generate-utilities(
-  $map: $letter-spacing,
+@include mixins.generate-common(
+  $rules: $letter-spacing,
   $variants: map.get(config.$variants, 'typography', 'letter-spacing'),
-  $include: map.get(config.$utilities, 'typography', 'letter-spacing')
+  $utilities: map.get(config.$utilities, 'typography', 'letter-spacing')
 );

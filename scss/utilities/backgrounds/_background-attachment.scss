@@ -18,8 +18,8 @@ $background-attachment: map.deep-merge(
   $background-attachment
 );
 
-@include mixins.generate-utilities(
-  $map: $background-attachment,
+@include mixins.generate-common(
+  $rules: $background-attachment,
   $variants: map.get(config.$variants, 'backgrounds', 'background-attachment'),
-  $include: map.get(config.$utilities, 'backgrounds', 'background-attachment')
+  $utilities: map.get(config.$utilities, 'backgrounds', 'background-attachment')
 );

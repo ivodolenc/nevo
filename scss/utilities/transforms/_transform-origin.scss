@@ -36,8 +36,8 @@ $transform-origin: map.deep-merge(
   $transform-origin
 );
 
-@include mixins.generate-utilities(
-  $map: $transform-origin,
+@include mixins.generate-common(
+  $rules: $transform-origin,
   $variants: map.get(config.$variants, 'transforms', 'transform-origin'),
-  $include: map.get(config.$utilities, 'transforms', 'transform-origin')
+  $utilities: map.get(config.$utilities, 'transforms', 'transform-origin')
 );

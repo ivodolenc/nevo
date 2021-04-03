@@ -60,8 +60,8 @@ $rotate: map.deep-merge(
   $rotate
 );
 
-@include mixins.generate-utilities(
-  $map: $rotate,
+@include mixins.generate-common(
+  $rules: $rotate,
   $variants: map.get(config.$variants, 'transforms', 'rotate'),
-  $include: map.get(config.$utilities, 'transforms', 'rotate')
+  $utilities: map.get(config.$utilities, 'transforms', 'rotate')
 );

@@ -54,8 +54,8 @@ $text-opacity: map.deep-merge(
   $text-opacity
 );
 
-@include mixins.generate-utilities(
-  $map: $text-opacity,
+@include mixins.generate-common(
+  $rules: $text-opacity,
   $variants: map.get(config.$variants, 'typography', 'text-opacity'),
-  $include: map.get(config.$utilities, 'typography', 'text-opacity')
+  $utilities: map.get(config.$utilities, 'typography', 'text-opacity')
 );

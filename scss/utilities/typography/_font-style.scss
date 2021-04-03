@@ -15,8 +15,8 @@ $font-style: map.deep-merge(
   $font-style
 );
 
-@include mixins.generate-utilities(
-  $map: $font-style,
+@include mixins.generate-common(
+  $rules: $font-style,
   $variants: map.get(config.$variants, 'typography', 'font-style'),
-  $include: map.get(config.$utilities, 'typography', 'font-style')
+  $utilities: map.get(config.$utilities, 'typography', 'font-style')
 );

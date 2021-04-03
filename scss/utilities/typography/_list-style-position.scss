@@ -15,8 +15,8 @@ $list-style-position: map.deep-merge(
   $list-style-position
 );
 
-@include mixins.generate-utilities(
-  $map: $list-style-position,
+@include mixins.generate-common(
+  $rules: $list-style-position,
   $variants: map.get(config.$variants, 'typography', 'list-style-position'),
-  $include: map.get(config.$utilities, 'typography', 'list-style-position')
+  $utilities: map.get(config.$utilities, 'typography', 'list-style-position')
 );

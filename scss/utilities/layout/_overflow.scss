@@ -45,8 +45,8 @@ $overflow: map.deep-merge(
   $overflow
 );
 
-@include mixins.generate-utilities(
-  $map: $overflow,
+@include mixins.generate-common(
+  $rules: $overflow,
   $variants: map.get(config.$variants, 'layout', 'overflow'),
-  $include: map.get(config.$utilities, 'layout', 'overflow')
+  $utilities: map.get(config.$utilities, 'layout', 'overflow')
 );

@@ -30,8 +30,8 @@ $place-content: map.deep-merge(
   $place-content
 );
 
-@include mixins.generate-utilities(
-  $map: $place-content,
+@include mixins.generate-common(
+  $rules: $place-content,
   $variants: map.get(config.$variants, 'box-alignment', 'place-content'),
-  $include: map.get(config.$utilities, 'box-alignment', 'place-content')
+  $utilities: map.get(config.$utilities, 'box-alignment', 'place-content')
 );

@@ -24,8 +24,8 @@ $justify-self: map.deep-merge(
   $justify-self
 );
 
-@include mixins.generate-utilities(
-  $map: $justify-self,
+@include mixins.generate-common(
+  $rules: $justify-self,
   $variants: map.get(config.$variants, 'box-alignment', 'justify-self'),
-  $include: map.get(config.$utilities, 'box-alignment', 'justify-self')
+  $utilities: map.get(config.$utilities, 'box-alignment', 'justify-self')
 );

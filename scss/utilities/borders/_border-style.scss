@@ -24,8 +24,8 @@ $border-style: map.deep-merge(
   $border-style
 );
 
-@include mixins.generate-utilities(
-  $map: $border-style,
+@include mixins.generate-common(
+  $rules: $border-style,
   $variants: map.get(config.$variants, 'borders', 'border-style'),
-  $include: map.get(config.$utilities, 'borders', 'border-style')
+  $utilities: map.get(config.$utilities, 'borders', 'border-style')
 );

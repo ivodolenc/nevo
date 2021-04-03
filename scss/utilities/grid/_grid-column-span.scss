@@ -45,8 +45,8 @@ $grid-column-span: map.deep-merge(
   $grid-column-span
 );
 
-@include mixins.generate-utilities(
-  $map: $grid-column-span,
+@include mixins.generate-common(
+  $rules: $grid-column-span,
   $variants: map.get(config.$variants, 'grid', 'grid-column-span'),
-  $include: map.get(config.$utilities, 'grid', 'grid-column-span')
+  $utilities: map.get(config.$utilities, 'grid', 'grid-column-span')
 );

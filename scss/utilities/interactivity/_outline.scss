@@ -20,8 +20,8 @@ $outline: map.deep-merge(
   $outline
 );
 
-@include mixins.generate-utilities(
-  $map: $outline,
+@include mixins.generate-common(
+  $rules: $outline,
   $variants: map.get(config.$variants, 'interactivity', 'outline'),
-  $include: map.get(config.$utilities, 'interactivity', 'outline')
+  $utilities: map.get(config.$utilities, 'interactivity', 'outline')
 );

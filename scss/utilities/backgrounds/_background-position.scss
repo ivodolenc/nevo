@@ -36,8 +36,8 @@ $background-position: map.deep-merge(
   $background-position
 );
 
-@include mixins.generate-utilities(
-  $map: $background-position,
+@include mixins.generate-common(
+  $rules: $background-position,
   $variants: map.get(config.$variants, 'backgrounds', 'background-position'),
-  $include: map.get(config.$utilities, 'backgrounds', 'background-position')
+  $utilities: map.get(config.$utilities, 'backgrounds', 'background-position')
 );

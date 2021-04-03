@@ -24,8 +24,8 @@ $position: map.deep-merge(
   $position
 );
 
-@include mixins.generate-utilities(
-  $map: $position,
+@include mixins.generate-common(
+  $rules: $position,
   $variants: map.get(config.$variants, 'layout', 'position'),
-  $include: map.get(config.$utilities, 'layout', 'position')
+  $utilities: map.get(config.$utilities, 'layout', 'position')
 );

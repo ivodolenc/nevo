@@ -21,8 +21,8 @@ $flex-direction: map.deep-merge(
   $flex-direction
 );
 
-@include mixins.generate-utilities(
-  $map: $flex-direction,
+@include mixins.generate-common(
+  $rules: $flex-direction,
   $variants: map.get(config.$variants, 'flexbox', 'flex-direction'),
-  $include: map.get(config.$utilities, 'flexbox', 'flex-direction')
+  $utilities: map.get(config.$utilities, 'flexbox', 'flex-direction')
 );

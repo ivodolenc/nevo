@@ -24,8 +24,8 @@ $align-self: map.deep-merge(
   $align-self
 );
 
-@include mixins.generate-utilities(
-  $map: $align-self,
+@include mixins.generate-common(
+  $rules: $align-self,
   $variants: map.get(config.$variants, 'box-alignment', 'align-self'),
-  $include: map.get(config.$utilities, 'box-alignment', 'align-self')
+  $utilities: map.get(config.$utilities, 'box-alignment', 'align-self')
 );

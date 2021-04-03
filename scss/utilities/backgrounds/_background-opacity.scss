@@ -54,8 +54,8 @@ $background-opacity: map.deep-merge(
   $background-opacity
 );
 
-@include mixins.generate-utilities(
-  $map: $background-opacity,
+@include mixins.generate-common(
+  $rules: $background-opacity,
   $variants: map.get(config.$variants, 'backgrounds', 'background-opacity'),
-  $include: map.get(config.$utilities, 'backgrounds', 'background-opacity')
+  $utilities: map.get(config.$utilities, 'backgrounds', 'background-opacity')
 );

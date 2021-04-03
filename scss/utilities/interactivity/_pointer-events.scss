@@ -15,8 +15,8 @@ $pointer-events: map.deep-merge(
   $pointer-events
 );
 
-@include mixins.generate-utilities(
-  $map: $pointer-events,
+@include mixins.generate-common(
+  $rules: $pointer-events,
   $variants: map.get(config.$variants, 'interactivity', 'pointer-events'),
-  $include: map.get(config.$utilities, 'interactivity', 'pointer-events')
+  $utilities: map.get(config.$utilities, 'interactivity', 'pointer-events')
 );

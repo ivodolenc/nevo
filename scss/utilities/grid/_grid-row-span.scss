@@ -30,8 +30,8 @@ $grid-row-span: map.deep-merge(
   $grid-row-span
 );
 
-@include mixins.generate-utilities(
-  $map: $grid-row-span,
+@include mixins.generate-common(
+  $rules: $grid-row-span,
   $variants: map.get(config.$variants, 'grid', 'grid-row-span'),
-  $include: map.get(config.$utilities, 'grid', 'grid-row-span')
+  $utilities: map.get(config.$utilities, 'grid', 'grid-row-span')
 );

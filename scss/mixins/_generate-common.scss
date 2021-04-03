@@ -5,41 +5,38 @@
 @use '../functions';
 @use 'media-queries';
 
-@mixin _breakpoints(
+@mixin _common(
   $selector: '.',
-  $breakpoint-separator: '-',
   $prefix: null,
-  $map: null,
-  $class-name: null,
-  $property: null,
+  $rules: null,
   $variant: null,
-  $variant-separator: null,
-  $pseudo-separator: null,
   $pseudo: null,
-  $important: null
+  $important: null,
+  $variant-separator: null,
+  $pseudo-separator: null
 ) {
-  @each $breakpoint-key, $breakpoint-value in $map {
-    #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$class-name}#{$breakpoint-separator}#{$breakpoint-key}#{$pseudo-separator}#{$pseudo} {
-      #{$property}: #{$breakpoint-value} #{if($important, !important, null)};
+  @each $selector-name, $declaration in $rules {
+    #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$selector-name}#{$pseudo-separator}#{$pseudo} {
+      @each $property, $value in $declaration {
+        #{$property}: #{$value} #{if($important, !important, null)};
+      }
     }
   }
 }
 
-@mixin generate-breakpoints(
+@mixin generate-common(
   $prefix: map.get(config.$core, 'prefix'),
   $important: map.get(config.$core, 'important'),
   $variant-separator: map.get(config.$core, 'separator'),
-  $breakpoints-map: map.get(config.$theme, 'breakpoints'),
-  $map: map.get(config.$theme, 'breakpoints'),
+  $breakpoints: map.get(config.$theme, 'breakpoints'),
   $pseudo-separator: ':',
-  $class-name: null,
-  $property: null,
+  $rules: null,
   $variants: null,
   $pseudo: null,
   $default: true,
-  $include: true
+  $utilities: true
 ) {
-  @if $include {
+  @if $utilities {
     $responsive: list.index($variants, 'responsive');
     $variants-type: meta.type-of($variants) ==
       'string' or
@@ -52,22 +49,18 @@
     );
 
     @if $default {
-      @include _breakpoints(
-        $map: $map,
+      @include _common(
+        $rules: $rules,
         $prefix: $prefix,
-        $class-name: $class-name,
-        $property: $property,
         $important: $important
       );
     }
 
     @if $variants-type {
       @each $variant in $variants-list {
-        @include _breakpoints(
-          $map: $map,
+        @include _common(
           $prefix: $prefix,
-          $class-name: $class-name,
-          $property: $property,
+          $rules: $rules,
           $variant: $variant,
           $variant-separator: $variant-separator,
           $pseudo-separator: $pseudo-separator,
@@ -78,14 +71,12 @@
     }
 
     @if $responsive {
-      @each $breakpoint in map.keys($breakpoints-map) {
+      @each $breakpoint in map.keys($breakpoints) {
         @include media-queries.media($from: $breakpoint) {
           @if $default {
-            @include _breakpoints(
-              $map: $map,
+            @include _common(
               $prefix: $prefix,
-              $class-name: $class-name,
-              $property: $property,
+              $rules: $rules,
               $variant: $breakpoint,
               $variant-separator: $variant-separator,
               $important: $important
@@ -94,11 +85,9 @@
 
           @if $variants-type {
             @each $variant in $variants-list {
-              @include _breakpoints(
-                $map: $map,
+              @include _common(
                 $prefix: $prefix,
-                $class-name: $class-name,
-                $property: $property,
+                $rules: $rules,
                 $variant: #{$breakpoint}#{$variant-separator}#{$variant},
                 $variant-separator: $variant-separator,
                 $pseudo-separator: $pseudo-separator,

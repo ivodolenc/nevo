@@ -21,8 +21,8 @@ $grid-auto-columns: map.deep-merge(
   $grid-auto-columns
 );
 
-@include mixins.generate-utilities(
-  $map: $grid-auto-columns,
+@include mixins.generate-common(
+  $rules: $grid-auto-columns,
   $variants: map.get(config.$variants, 'grid', 'grid-auto-columns'),
-  $include: map.get(config.$utilities, 'grid', 'grid-auto-columns')
+  $utilities: map.get(config.$utilities, 'grid', 'grid-auto-columns')
 );

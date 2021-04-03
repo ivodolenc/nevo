@@ -21,8 +21,8 @@ $resize: map.deep-merge(
   $resize
 );
 
-@include mixins.generate-utilities(
-  $map: $resize,
+@include mixins.generate-common(
+  $rules: $resize,
   $variants: map.get(config.$variants, 'interactivity', 'resize'),
-  $include: map.get(config.$utilities, 'interactivity', 'resize')
+  $utilities: map.get(config.$utilities, 'interactivity', 'resize')
 );
