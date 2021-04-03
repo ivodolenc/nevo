@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/ivodolenc/nevo/compare/v1.4.0...v1.5.0) (2021-04-03)
+
+
+### Features
+
+* improve colors 'system' and 'api' for utilities ([07311e5](https://github.com/ivodolenc/nevo/commit/07311e530667a5a49c8f1f90593f9e8a43d45a89))
+* improve spacing 'api' and optimize output for utilities ([67aab3c](https://github.com/ivodolenc/nevo/commit/67aab3c331b99e56ce449f0bac53d2d8c2e6a8c8))
+* improve theme 'api' and optimize output for utilities ([96a9a07](https://github.com/ivodolenc/nevo/commit/96a9a0769f8a03ff1ce740950b06ee05a880514d))
+* rename mixin and improve 'api' for common utilities ([ce35bcb](https://github.com/ivodolenc/nevo/commit/ce35bcb3a344ad33d67566a0c225dba7c27899b9))
+
 ## [1.4.0](https://github.com/ivodolenc/nevo/compare/v1.3.1...v1.4.0) (2021-03-30)
 
 
