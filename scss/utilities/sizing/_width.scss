@@ -1,5 +1,4 @@
 @use 'sass:map';
-@use 'sass:math';
 @use '../../config';
 @use '../../mixins';
 
@@ -22,51 +21,52 @@ $width: map.deep-merge(
       'width': max-content
     ),
     '#{w-1\/12}': (
-      'width': math.percentage(1 / 12)
+      'width': 8.333333%
     ),
     '#{w-2\/12}': (
-      'width': math.percentage(2 / 12)
+      'width': 16.666667%
     ),
     '#{w-3\/12}': (
-      'width': math.percentage(3 / 12)
+      'width': 25%
     ),
     '#{w-4\/12}': (
-      'width': math.percentage(4 / 12)
+      'width': 33.333333%
     ),
     '#{w-5\/12}': (
-      'width': math.percentage(5 / 12)
+      'width': 41.666667%
     ),
     '#{w-6\/12}': (
-      'width': math.percentage(6 / 12)
+      'width': 50%
     ),
     '#{w-7\/12}': (
-      'width': math.percentage(7 / 12)
+      'width': 58.333333%
     ),
     '#{w-8\/12}': (
-      'width': math.percentage(8 / 12)
+      'width': 66.666667%
     ),
     '#{w-9\/12}': (
-      'width': math.percentage(9 / 12)
+      'width': 75%
     ),
     '#{w-10\/12}': (
-      'width': math.percentage(10 / 12)
+      'width': 83.333333%
     ),
     '#{w-11\/12}': (
-      'width': math.percentage(11 / 12)
+      'width': 91.666667%
     )
   ),
   $width
 );
 
-@include mixins.generate-utilities(
-  $map: $width,
+@include mixins.generate-common(
+  $rules: $width,
   $variants: map.get(config.$variants, 'sizing', 'width'),
-  $include: map.get(config.$utilities, 'sizing', 'width')
+  $utilities: map.get(config.$utilities, 'sizing', 'width')
 );
 
 @include mixins.generate-spacing(
-  $class-name: 'w',
-  $property: 'width',
+  $rules: (
+    'w': width
+  ),
   $variants: map.get(config.$variants, 'sizing', 'width'),
-  $include: map.get(config.$utilities, 'sizing', 'width')
+  $utilities: map.get(config.$utilities, 'sizing', 'width')
 );

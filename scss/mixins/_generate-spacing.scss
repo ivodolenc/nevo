@@ -7,25 +7,26 @@
 
 @mixin _spacing(
   $selector: '.',
-  $spacing-separator: '-',
+  $separator: '-',
   $prefix: null,
-  $map: null,
-  $class-name: null,
-  $property: null,
+  $set: null,
+  $rules: null,
   $variant: null,
-  $variant-separator: null,
-  $pseudo-separator: null,
   $pseudo: null,
   $negative: null,
-  $important: null
+  $important: null,
+  $variant-separator: null,
+  $pseudo-separator: null
 ) {
   $negative-prefix: if($negative, '-', null);
 
-  @each $spacing-key, $spacing-value in $map {
-    #{$selector}#{$variant}#{$variant-separator}#{$negative-prefix}#{$prefix}#{$class-name}#{$spacing-separator}#{$spacing-key}#{$pseudo-separator}#{$pseudo} {
-      @each $key in $property {
-        #{$key}: #{$negative-prefix}#{$spacing-value}
-          #{if($important, !important, null)};
+  @each $selector-name, $declaration in $rules {
+    @each $set-key, $set-value in $set {
+      #{$selector}#{$variant}#{$variant-separator}#{$negative-prefix}#{$prefix}#{$selector-name}#{$separator}#{$set-key}#{$pseudo-separator}#{$pseudo} {
+        @each $property in $declaration {
+          #{$property}: #{$negative-prefix}#{$set-value}
+            #{if($important, !important, null)};
+        }
       }
     }
   }
@@ -35,18 +36,17 @@
   $prefix: map.get(config.$core, 'prefix'),
   $important: map.get(config.$core, 'important'),
   $variant-separator: map.get(config.$core, 'separator'),
-  $breakpoints-map: map.get(config.$theme, 'breakpoints'),
-  $map: map.get(config.$theme, 'spacing'),
+  $breakpoints: map.get(config.$theme, 'breakpoints'),
+  $set: map.get(config.$theme, 'spacing'),
   $pseudo-separator: ':',
-  $class-name: null,
-  $property: null,
+  $rules: null,
   $variants: null,
   $pseudo: null,
   $negative: null,
   $positive: true,
-  $include: true
+  $utilities: true
 ) {
-  @if $include {
+  @if $utilities {
     $responsive: list.index($variants, 'responsive');
     $variants-type: meta.type-of($variants) ==
       'string' or
@@ -60,20 +60,18 @@
 
     @if $positive {
       @include _spacing(
-        $map: $map,
+        $set: $set,
+        $rules: $rules,
         $prefix: $prefix,
-        $class-name: $class-name,
-        $property: $property,
         $important: $important
       );
     }
 
     @if $negative {
       @include _spacing(
-        $map: $map,
+        $set: $set,
+        $rules: $rules,
         $prefix: $prefix,
-        $class-name: $class-name,
-        $property: $property,
         $negative: $negative,
         $important: $important
       );
@@ -83,10 +81,9 @@
       @each $variant in $variants-list {
         @if $positive {
           @include _spacing(
-            $map: $map,
+            $set: $set,
+            $rules: $rules,
             $prefix: $prefix,
-            $class-name: $class-name,
-            $property: $property,
             $variant: $variant,
             $variant-separator: $variant-separator,
             $pseudo-separator: $pseudo-separator,
@@ -97,10 +94,9 @@
 
         @if $negative {
           @include _spacing(
-            $map: $map,
+            $set: $set,
+            $rules: $rules,
             $prefix: $prefix,
-            $class-name: $class-name,
-            $property: $property,
             $negative: $negative,
             $variant: $variant,
             $variant-separator: $variant-separator,
@@ -113,14 +109,13 @@
     }
 
     @if $responsive {
-      @each $breakpoint in map.keys($breakpoints-map) {
+      @each $breakpoint in map.keys($breakpoints) {
         @include media-queries.media($from: $breakpoint) {
           @if $positive {
             @include _spacing(
-              $map: $map,
+              $set: $set,
+              $rules: $rules,
               $prefix: $prefix,
-              $class-name: $class-name,
-              $property: $property,
               $variant: $breakpoint,
               $variant-separator: $variant-separator,
               $important: $important
@@ -129,10 +124,9 @@
 
           @if $negative {
             @include _spacing(
-              $map: $map,
+              $set: $set,
+              $rules: $rules,
               $prefix: $prefix,
-              $class-name: $class-name,
-              $property: $property,
               $negative: $negative,
               $variant: $breakpoint,
               $variant-separator: $variant-separator,
@@ -144,10 +138,9 @@
             @each $variant in $variants-list {
               @if $positive {
                 @include _spacing(
-                  $map: $map,
+                  $set: $set,
+                  $rules: $rules,
                   $prefix: $prefix,
-                  $class-name: $class-name,
-                  $property: $property,
                   $variant: #{$breakpoint}#{$variant-separator}#{$variant},
                   $variant-separator: $variant-separator,
                   $pseudo-separator: $pseudo-separator,
@@ -158,10 +151,9 @@
 
               @if $negative {
                 @include _spacing(
-                  $map: $map,
+                  $set: $set,
+                  $rules: $rules,
                   $prefix: $prefix,
-                  $class-name: $class-name,
-                  $property: $property,
                   $negative: $negative,
                   $variant: #{$breakpoint}#{$variant-separator}#{$variant},
                   $variant-separator: $variant-separator,

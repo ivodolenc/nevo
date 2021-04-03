@@ -21,24 +21,18 @@ $translate: map.deep-merge(
   $translate
 );
 
-@include mixins.generate-utilities(
-  $map: $translate,
+@include mixins.generate-common(
+  $rules: $translate,
   $variants: map.get(config.$variants, 'transforms', 'translate'),
-  $include: map.get(config.$utilities, 'transforms', 'translate')
+  $utilities: map.get(config.$utilities, 'transforms', 'translate')
 );
 
 @include mixins.generate-spacing(
-  $class-name: 'translate-x',
-  $property: '--translate-x',
+  $rules: (
+    'translate-x': --translate-x,
+    'translate-y': --translate-y
+  ),
   $negative: true,
   $variants: map.get(config.$variants, 'transforms', 'translate'),
-  $include: map.get(config.$utilities, 'transforms', 'translate')
-);
-
-@include mixins.generate-spacing(
-  $class-name: 'translate-y',
-  $property: '--translate-y',
-  $negative: true,
-  $variants: map.get(config.$variants, 'transforms', 'translate'),
-  $include: map.get(config.$utilities, 'transforms', 'translate')
+  $utilities: map.get(config.$utilities, 'transforms', 'translate')
 );

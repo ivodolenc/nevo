@@ -18,15 +18,16 @@ $height: map.deep-merge(
   $height
 );
 
-@include mixins.generate-utilities(
-  $map: $height,
+@include mixins.generate-common(
+  $rules: $height,
   $variants: map.get(config.$variants, 'sizing', 'height'),
-  $include: map.get(config.$utilities, 'sizing', 'height')
+  $utilities: map.get(config.$utilities, 'sizing', 'height')
 );
 
 @include mixins.generate-spacing(
-  $class-name: 'h',
-  $property: 'height',
+  $rules: (
+    'h': height
+  ),
   $variants: map.get(config.$variants, 'sizing', 'height'),
-  $include: map.get(config.$utilities, 'sizing', 'height')
+  $utilities: map.get(config.$utilities, 'sizing', 'height')
 );

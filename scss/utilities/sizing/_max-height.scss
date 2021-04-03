@@ -15,15 +15,16 @@ $max-height: map.deep-merge(
   $max-height
 );
 
-@include mixins.generate-utilities(
-  $map: $max-height,
+@include mixins.generate-common(
+  $rules: $max-height,
   $variants: map.get(config.$variants, 'sizing', 'max-height'),
-  $include: map.get(config.$utilities, 'sizing', 'max-height')
+  $utilities: map.get(config.$utilities, 'sizing', 'max-height')
 );
 
 @include mixins.generate-spacing(
-  $class-name: 'max-h',
-  $property: 'max-height',
+  $rules: (
+    'max-h': max-height
+  ),
   $variants: map.get(config.$variants, 'sizing', 'max-height'),
-  $include: map.get(config.$utilities, 'sizing', 'max-height')
+  $utilities: map.get(config.$utilities, 'sizing', 'max-height')
 );
