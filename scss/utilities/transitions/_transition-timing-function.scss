@@ -3,11 +3,12 @@
 @use '../../mixins';
 
 @include mixins.generate-theme(
-  $map: map.get(config.$theme, 'ease'),
-  $class-name: 'ease',
-  $property: 'transition-timing-function',
+  $set: map.get(config.$theme, 'ease'),
+  $rules: (
+    'ease': transition-timing-function
+  ),
   $variants:
     map.get(config.$variants, 'transitions', 'transition-timing-function'),
-  $include:
+  $utilities:
     map.get(config.$utilities, 'transitions', 'transition-timing-function')
 );

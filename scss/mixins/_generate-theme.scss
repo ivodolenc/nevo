@@ -7,20 +7,23 @@
 
 @mixin _theme(
   $selector: '.',
-  $theme-separator: '-',
+  $separator: '-',
   $prefix: null,
-  $map: null,
-  $class-name: null,
-  $property: null,
+  $set: null,
+  $rules: null,
   $variant: null,
-  $variant-separator: null,
-  $pseudo-separator: null,
   $pseudo: null,
-  $important: null
+  $important: null,
+  $pseudo-separator: null,
+  $variant-separator: null
 ) {
-  @each $theme-key, $theme-value in $map {
-    #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$class-name}#{$theme-separator}#{$theme-key}#{$pseudo-separator}#{$pseudo} {
-      #{$property}: $theme-value #{if($important, !important, null)};
+  @each $selector-name, $declaration in $rules {
+    @each $set-key, $set-value in $set {
+      #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$selector-name}#{$separator}#{$set-key}#{$pseudo-separator}#{$pseudo} {
+        @each $property in $declaration {
+          #{$property}: $set-value #{if($important, !important, null)};
+        }
+      }
     }
   }
 }
@@ -29,17 +32,16 @@
   $prefix: map.get(config.$core, 'prefix'),
   $important: map.get(config.$core, 'important'),
   $variant-separator: map.get(config.$core, 'separator'),
-  $breakpoints-map: map.get(config.$theme, 'breakpoints'),
+  $breakpoints: map.get(config.$theme, 'breakpoints'),
   $pseudo-separator: ':',
-  $map: null,
-  $class-name: null,
-  $property: null,
+  $set: null,
+  $rules: null,
   $variants: null,
   $pseudo: null,
   $default: true,
-  $include: true
+  $utilities: true
 ) {
-  @if $include {
+  @if $utilities {
     $responsive: list.index($variants, 'responsive');
     $variants-type: meta.type-of($variants) ==
       'string' or
@@ -53,10 +55,9 @@
 
     @if $default {
       @include _theme(
-        $map: $map,
+        $set: $set,
+        $rules: $rules,
         $prefix: $prefix,
-        $class-name: $class-name,
-        $property: $property,
         $important: $important
       );
     }
@@ -64,10 +65,9 @@
     @if $variants-type {
       @each $variant in $variants-list {
         @include _theme(
-          $map: $map,
+          $set: $set,
+          $rules: $rules,
           $prefix: $prefix,
-          $class-name: $class-name,
-          $property: $property,
           $variant: $variant,
           $variant-separator: $variant-separator,
           $pseudo-separator: $pseudo-separator,
@@ -78,14 +78,13 @@
     }
 
     @if $responsive {
-      @each $breakpoint in map.keys($breakpoints-map) {
+      @each $breakpoint in map.keys($breakpoints) {
         @include media-queries.media($from: $breakpoint) {
           @if $default {
             @include _theme(
-              $map: $map,
+              $set: $set,
+              $rules: $rules,
               $prefix: $prefix,
-              $class-name: $class-name,
-              $property: $property,
               $variant: $breakpoint,
               $variant-separator: $variant-separator,
               $important: $important
@@ -95,10 +94,9 @@
           @if $variants-type {
             @each $variant in $variants-list {
               @include _theme(
-                $map: $map,
+                $set: $set,
+                $rules: $rules,
                 $prefix: $prefix,
-                $class-name: $class-name,
-                $property: $property,
                 $variant: #{$breakpoint}#{$variant-separator}#{$variant},
                 $variant-separator: $variant-separator,
                 $pseudo-separator: $pseudo-separator,

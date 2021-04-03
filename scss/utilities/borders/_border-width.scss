@@ -3,41 +3,14 @@
 @use '../../mixins';
 
 @include mixins.generate-theme(
-  $map: map.get(config.$theme, 'border'),
-  $class-name: 'border',
-  $property: 'border-width',
+  $set: map.get(config.$theme, 'border'),
+  $rules: (
+    'border': border-width,
+    'border-t': border-top-width,
+    'border-r': border-right-width,
+    'border-b': border-bottom-width,
+    'border-l': border-left-width
+  ),
   $variants: map.get(config.$variants, 'borders', 'border-width'),
-  $include: map.get(config.$utilities, 'borders', 'border-width')
-);
-
-@include mixins.generate-theme(
-  $map: map.get(config.$theme, 'border'),
-  $class-name: 'border-t',
-  $property: 'border-top-width',
-  $variants: map.get(config.$variants, 'borders', 'border-width'),
-  $include: map.get(config.$utilities, 'borders', 'border-width')
-);
-
-@include mixins.generate-theme(
-  $map: map.get(config.$theme, 'border'),
-  $class-name: 'border-r',
-  $property: 'border-right-width',
-  $variants: map.get(config.$variants, 'borders', 'border-width'),
-  $include: map.get(config.$utilities, 'borders', 'border-width')
-);
-
-@include mixins.generate-theme(
-  $map: map.get(config.$theme, 'border'),
-  $class-name: 'border-b',
-  $property: 'border-bottom-width',
-  $variants: map.get(config.$variants, 'borders', 'border-width'),
-  $include: map.get(config.$utilities, 'borders', 'border-width')
-);
-
-@include mixins.generate-theme(
-  $map: map.get(config.$theme, 'border'),
-  $class-name: 'border-l',
-  $property: 'border-left-width',
-  $variants: map.get(config.$variants, 'borders', 'border-width'),
-  $include: map.get(config.$utilities, 'borders', 'border-width')
+  $utilities: map.get(config.$utilities, 'borders', 'border-width')
 );

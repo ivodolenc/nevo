@@ -3,9 +3,10 @@
 @use '../../mixins';
 
 @include mixins.generate-theme(
-  $map: map.get(config.$theme, 'leading'),
-  $class-name: 'leading',
-  $property: 'line-height',
+  $set: map.get(config.$theme, 'leading'),
+  $rules: (
+    'leading': line-height
+  ),
   $variants: map.get(config.$variants, 'typography', 'line-height'),
-  $include: map.get(config.$utilities, 'typography', 'line-height')
+  $utilities: map.get(config.$utilities, 'typography', 'line-height')
 );

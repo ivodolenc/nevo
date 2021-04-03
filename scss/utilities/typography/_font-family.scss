@@ -3,9 +3,10 @@
 @use '../../mixins';
 
 @include mixins.generate-theme(
-  $map: map.get(config.$theme, 'family'),
-  $class-name: 'font',
-  $property: 'font-family',
+  $set: map.get(config.$theme, 'family'),
+  $rules: (
+    'font': font-family
+  ),
   $variants: map.get(config.$variants, 'typography', 'font-family'),
-  $include: map.get(config.$utilities, 'typography', 'font-family')
+  $utilities: map.get(config.$utilities, 'typography', 'font-family')
 );
