@@ -3,10 +3,10 @@
 @use '../../mixins';
 
 @include mixins.generate-colors(
-  $class-name: 'text',
-  $property: 'color',
+  $rules: (
+    'text': color
+  ),
   $custom-property: '--text-opacity',
-  $colors_: true,
   $variants: map.get(config.$variants, 'typography', 'text-color'),
-  $include: map.get(config.$utilities, 'typography', 'text-color')
+  $utilities: map.get(config.$utilities, 'typography', 'text-color')
 );

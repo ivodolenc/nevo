@@ -7,45 +7,64 @@
 
 @mixin _colors(
   $selector: '.',
-  $color-separator: '-',
+  $separator: '-',
   $prefix: null,
-  $map: null,
-  $class-name: null,
-  $property: null,
+  $set: null,
+  $rules: null,
   $custom-property: null,
   $variant: null,
-  $variant-separator: null,
-  $pseudo-separator: null,
   $pseudo: null,
-  $important: null
+  $important: null,
+  $variant-separator: null,
+  $pseudo-separator: null
 ) {
-  #{$selector}#{$class-name} {
-    @each $color-key, $color-value in $map {
-      @if meta.type-of($color-value) == 'map' {
-        @each $key, $value in $color-value {
-          @at-root #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$class-name}#{$color-separator}#{$color-key}#{$color-separator}#{$key}#{$pseudo-separator}#{$pseudo} {
-            @if $custom-property {
-              #{$custom-property}: 1;
+  @each $selector-name, $declaration in $rules {
+    #{$selector}#{$selector-name} {
+      @each $set-key, $set-value in $set {
+        @if meta.type-of($set-value) == 'map' {
+          @each $key, $value in $set-value {
+            @at-root #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$selector-name}#{$separator}#{$set-key}#{$separator}#{$key}#{$pseudo-separator}#{$pseudo} {
+              @if meta.type-of($value) == 'color' {
+                @if $custom-property {
+                  #{$custom-property}: 1;
+                }
+
+                @each $property in $declaration {
+                  #{$property}: #{if(
+                      $custom-property,
+                      rgba($value, var(#{$custom-property})),
+                      $value
+                    )}
+                    #{if($important, !important, null)};
+                }
+              } @else {
+                @each $property in $declaration {
+                  #{$property}: #{$value} #{if($important, !important, null)};
+                }
+              }
             }
-
-            #{$property}: #{if(
-                $custom-property,
-                rgba($value, var(#{$custom-property})),
-                $value
-              )} #{if($important, !important, null)};
           }
-        }
-      } @else {
-        @at-root #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$class-name}#{$color-separator}#{$color-key}#{$pseudo-separator}#{$pseudo} {
-          @if $custom-property {
-            #{$custom-property}: 1;
-          }
+        } @else {
+          @at-root #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$selector-name}#{$separator}#{$set-key}#{$pseudo-separator}#{$pseudo} {
+            @if meta.type-of($set-value) == 'color' {
+              @if $custom-property {
+                #{$custom-property}: 1;
+              }
 
-          #{$property}: #{if(
-              $custom-property,
-              rgba($color-value, var(#{$custom-property})),
-              $color-value
-            )} #{if($important, !important, null)};
+              @each $property in $declaration {
+                #{$property}: #{if(
+                    $custom-property,
+                    rgba($set-value, var(#{$custom-property})),
+                    $set-value
+                  )}
+                  #{if($important, !important, null)};
+              }
+            } @else {
+              @each $property in $declaration {
+                #{$property}: #{$set-value} #{if($important, !important, null)};
+              }
+            }
+          }
         }
       }
     }
@@ -56,20 +75,17 @@
   $prefix: map.get(config.$core, 'prefix'),
   $important: map.get(config.$core, 'important'),
   $variant-separator: map.get(config.$core, 'separator'),
-  $breakpoints-map: map.get(config.$theme, 'breakpoints'),
-  $map: map.get(config.$theme, 'colors'),
-  $map_: map.get(config.$theme, 'colors_'),
+  $breakpoints: map.get(config.$theme, 'breakpoints'),
+  $set: map.get(config.$theme, 'colors'),
   $pseudo-separator: ':',
-  $class-name: null,
-  $property: null,
+  $rules: null,
   $custom-property: null,
-  $colors_: null,
   $variants: null,
   $pseudo: null,
-  $colors: true,
-  $include: true
+  $default: true,
+  $utilities: true
 ) {
-  @if $include {
+  @if $utilities {
     $responsive: list.index($variants, 'responsive');
     $variants-type: meta.type-of($variants) ==
       'string' or
@@ -81,82 +97,41 @@
       $variants
     );
 
-    @if $colors {
+    @if $default {
       @include _colors(
-        $map: $map,
+        $set: $set,
+        $rules: $rules,
         $prefix: $prefix,
-        $class-name: $class-name,
-        $property: $property,
         $custom-property: $custom-property,
-        $important: $important
-      );
-    }
-
-    @if $colors_ {
-      @include _colors(
-        $map: $map_,
-        $prefix: $prefix,
-        $class-name: $class-name,
-        $property: $property,
         $important: $important
       );
     }
 
     @if $variants-type {
       @each $variant in $variants-list {
-        @if $colors {
-          @include _colors(
-            $map: $map,
-            $prefix: $prefix,
-            $class-name: $class-name,
-            $property: $property,
-            $custom-property: $custom-property,
-            $variant: $variant,
-            $variant-separator: $variant-separator,
-            $pseudo-separator: $pseudo-separator,
-            $pseudo: $variant,
-            $important: $important
-          );
-        }
-
-        @if $colors_ {
-          @include _colors(
-            $map: $map_,
-            $prefix: $prefix,
-            $class-name: $class-name,
-            $property: $property,
-            $variant: $variant,
-            $variant-separator: $variant-separator,
-            $pseudo-separator: $pseudo-separator,
-            $pseudo: $variant,
-            $important: $important
-          );
-        }
+        @include _colors(
+          $set: $set,
+          $rules: $rules,
+          $prefix: $prefix,
+          $custom-property: $custom-property,
+          $variant: $variant,
+          $variant-separator: $variant-separator,
+          $pseudo-separator: $pseudo-separator,
+          $pseudo: $variant,
+          $important: $important
+        );
       }
     }
 
     @if $responsive {
-      @each $breakpoint in map.keys($breakpoints-map) {
+      @each $breakpoint in map.keys($breakpoints) {
         @include media-queries.media($from: $breakpoint) {
-          @if $colors {
+          @if $default {
             @include _colors(
-              $map: $map,
+              $set: $set,
+              $rules: $rules,
               $prefix: $prefix,
-              $class-name: $class-name,
-              $property: $property,
               $custom-property: $custom-property,
-              $variant: $breakpoint,
-              $variant-separator: $variant-separator,
-              $important: $important
-            );
-          }
-
-          @if $colors_ {
-            @include _colors(
-              $map: $map_,
-              $prefix: $prefix,
-              $class-name: $class-name,
-              $property: $property,
               $variant: $breakpoint,
               $variant-separator: $variant-separator,
               $important: $important
@@ -165,34 +140,17 @@
 
           @if $variants-type {
             @each $variant in $variants-list {
-              @if $colors {
-                @include _colors(
-                  $map: $map,
-                  $prefix: $prefix,
-                  $class-name: $class-name,
-                  $property: $property,
-                  $custom-property: $custom-property,
-                  $variant: #{$breakpoint}#{$variant-separator}#{$variant},
-                  $variant-separator: $variant-separator,
-                  $pseudo-separator: $pseudo-separator,
-                  $pseudo: $variant,
-                  $important: $important
-                );
-              }
-
-              @if $colors_ {
-                @include _colors(
-                  $map: $map_,
-                  $prefix: $prefix,
-                  $class-name: $class-name,
-                  $property: $property,
-                  $variant: #{$breakpoint}#{$variant-separator}#{$variant},
-                  $variant-separator: $variant-separator,
-                  $pseudo-separator: $pseudo-separator,
-                  $pseudo: $variant,
-                  $important: $important
-                );
-              }
+              @include _colors(
+                $set: $set,
+                $rules: $rules,
+                $prefix: $prefix,
+                $custom-property: $custom-property,
+                $variant: #{$breakpoint}#{$variant-separator}#{$variant},
+                $variant-separator: $variant-separator,
+                $pseudo-separator: $pseudo-separator,
+                $pseudo: $variant,
+                $important: $important
+              );
             }
           }
         }

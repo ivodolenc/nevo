@@ -3,10 +3,10 @@
 @use '../../mixins';
 
 @include mixins.generate-colors(
-  $class-name: 'bg',
-  $property: 'background-color',
+  $rules: (
+    'bg': background-color
+  ),
   $custom-property: '--bg-opacity',
-  $colors_: true,
   $variants: map.get(config.$variants, 'backgrounds', 'background-color'),
-  $include: map.get(config.$utilities, 'backgrounds', 'background-color')
+  $utilities: map.get(config.$utilities, 'backgrounds', 'background-color')
 );

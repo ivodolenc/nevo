@@ -3,10 +3,10 @@
 @use '../../mixins';
 
 @include mixins.generate-colors(
-  $class-name: 'border',
-  $property: 'border-color',
+  $rules: (
+    'border': border-color
+  ),
   $custom-property: '--border-opacity',
-  $colors_: true,
   $variants: map.get(config.$variants, 'borders', 'border-color'),
-  $include: map.get(config.$utilities, 'borders', 'border-color')
+  $utilities: map.get(config.$utilities, 'borders', 'border-color')
 );
