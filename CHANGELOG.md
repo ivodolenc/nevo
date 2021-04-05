@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/ivodolenc/nevo/compare/v1.5.0...v1.6.0) (2021-04-05)
+
+
+### Features
+
+* add 'space-between' utilities ([5fe3fea](https://github.com/ivodolenc/nevo/commit/5fe3fea9554393377645e1b052eef46f812def87))
+
+
+### Bug Fixes
+
+* update class names ([881654e](https://github.com/ivodolenc/nevo/commit/881654eada023943fe7f6a1b32e3861bd07fdc63))
+
 ## [1.5.0](https://github.com/ivodolenc/nevo/compare/v1.4.0...v1.5.0) (2021-04-03)
 
 
