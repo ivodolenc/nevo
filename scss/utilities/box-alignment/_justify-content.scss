@@ -5,22 +5,22 @@
 $justify-content: () !default;
 $justify-content: map.deep-merge(
   (
-    'content-center': (
+    'justify-center': (
       'justify-content': center
     ),
-    'content-start': (
+    'justify-start': (
       'justify-content': flex-start
     ),
-    'content-end': (
+    'justify-end': (
       'justify-content': flex-end
     ),
-    'content-between': (
+    'justify-between': (
       'justify-content': space-between
     ),
-    'content-around': (
+    'justify-around': (
       'justify-content': space-around
     ),
-    'content-evenly': (
+    'justify-evenly': (
       'justify-content': space-evenly
     )
   ),
