@@ -88,7 +88,8 @@ $variants: map.deep-merge(
     ),
     'spacing': (
       'margin': responsive,
-      'padding': responsive
+      'padding': responsive,
+      'space-between': responsive
     ),
     'svg': (
       'fill': responsive,

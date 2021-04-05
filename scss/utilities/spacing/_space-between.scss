@@ -1,0 +1,8 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+@include mixins.generate-space-between(
+  $variants: map.get(config.$variants, 'spacing', 'space-between'),
+  $utilities: map.get(config.$utilities, 'spacing', 'space-between')
+);

@@ -1,0 +1,198 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+@use '../config';
+@use '../functions';
+@use 'media-queries';
+
+@mixin _space-between(
+  $selector: '.',
+  $separator: '-',
+  $prefix: null,
+  $set: null,
+  $variant: null,
+  $pseudo: null,
+  $negative: null,
+  $important: null,
+  $variant-separator: null,
+  $pseudo-separator: null
+) {
+  $negative-prefix: if($negative, '-', null);
+
+  @each $set-key, $set-value in $set {
+    #{$selector}#{$variant}#{$variant-separator}#{$negative-prefix}#{$prefix}#{space-y}#{$separator}#{$set-key}#{$pseudo-separator}#{$pseudo} {
+      > :not([hidden]) ~ :not([hidden]) {
+        #{--space-y-reverse}: 0;
+        #{margin-top}: calc(
+            #{$negative-prefix}#{$set-value} *
+              calc(1 - var(#{--space-y-reverse}))
+          )
+          #{if($important, !important, null)};
+        #{margin-bottom}: calc(
+            #{$negative-prefix}#{$set-value} * var(#{--space-y-reverse})
+          )
+          #{if($important, !important, null)};
+      }
+    }
+  }
+
+  @each $set-key, $set-value in $set {
+    #{$selector}#{$variant}#{$variant-separator}#{$negative-prefix}#{$prefix}#{space-x}#{$separator}#{$set-key}#{$pseudo-separator}#{$pseudo} {
+      > :not([hidden]) ~ :not([hidden]) {
+        #{--space-x-reverse}: 0;
+        #{margin-right}: calc(
+            #{$negative-prefix}#{$set-value} * var(#{--space-x-reverse})
+          )
+          #{if($important, !important, null)};
+        #{margin-left}: calc(
+            #{$negative-prefix}#{$set-value} *
+              calc(1 - var(#{--space-x-reverse}))
+          )
+          #{if($important, !important, null)};
+      }
+    }
+  }
+
+  @if not $negative {
+    #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{space-y-reverse}#{$pseudo-separator}#{$pseudo} {
+      > :not([hidden]) ~ :not([hidden]) {
+        #{--space-y-reverse}: 1;
+      }
+    }
+
+    #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{space-x-reverse}#{$pseudo-separator}#{$pseudo} {
+      > :not([hidden]) ~ :not([hidden]) {
+        #{--space-x-reverse}: 1;
+      }
+    }
+  }
+}
+
+@mixin generate-space-between(
+  $prefix: map.get(config.$core, 'prefix'),
+  $important: map.get(config.$core, 'important'),
+  $variant-separator: map.get(config.$core, 'separator'),
+  $breakpoints: map.get(config.$theme, 'breakpoints'),
+  $set: map.get(config.$theme, 'spacing'),
+  $pseudo-separator: ':',
+  $variants: null,
+  $pseudo: null,
+  $positive: true,
+  $negative: true,
+  $utilities: true
+) {
+  @if $utilities {
+    $responsive: list.index($variants, 'responsive');
+    $variants-type: meta.type-of($variants) ==
+      'string' or
+      meta.type-of($variants) ==
+      'list';
+    $variants-list: if(
+      $responsive,
+      functions.remove-value($variants, 'responsive'),
+      $variants
+    );
+
+    @if $positive {
+      @include _space-between(
+        $set: $set,
+        $prefix: $prefix,
+        $important: $important
+      );
+    }
+
+    @if $negative {
+      @include _space-between(
+        $set: $set,
+        $prefix: $prefix,
+        $negative: $negative,
+        $important: $important
+      );
+    }
+
+    @if $variants-type {
+      @each $variant in $variants-list {
+        @if $positive {
+          @include _space-between(
+            $set: $set,
+            $prefix: $prefix,
+            $variant: $variant,
+            $variant-separator: $variant-separator,
+            $pseudo-separator: $pseudo-separator,
+            $pseudo: $variant,
+            $important: $important
+          );
+        }
+
+        @if $negative {
+          @include _space-between(
+            $set: $set,
+            $prefix: $prefix,
+            $negative: $negative,
+            $variant: $variant,
+            $variant-separator: $variant-separator,
+            $pseudo-separator: $pseudo-separator,
+            $pseudo: $variant,
+            $important: $important
+          );
+        }
+      }
+    }
+
+    @if $responsive {
+      @each $breakpoint in map.keys($breakpoints) {
+        @include media-queries.media($from: $breakpoint) {
+          @if $positive {
+            @include _space-between(
+              $set: $set,
+              $prefix: $prefix,
+              $variant: $breakpoint,
+              $variant-separator: $variant-separator,
+              $important: $important
+            );
+          }
+
+          @if $negative {
+            @include _space-between(
+              $set: $set,
+              $prefix: $prefix,
+              $negative: $negative,
+              $variant: $breakpoint,
+              $variant-separator: $variant-separator,
+              $important: $important
+            );
+          }
+
+          @if $variants-type {
+            @each $variant in $variants-list {
+              @if $positive {
+                @include _space-between(
+                  $set: $set,
+                  $prefix: $prefix,
+                  $variant: #{$breakpoint}#{$variant-separator}#{$variant},
+                  $variant-separator: $variant-separator,
+                  $pseudo-separator: $pseudo-separator,
+                  $pseudo: $variant,
+                  $important: $important
+                );
+              }
+
+              @if $negative {
+                @include _space-between(
+                  $set: $set,
+                  $prefix: $prefix,
+                  $negative: $negative,
+                  $variant: #{$breakpoint}#{$variant-separator}#{$variant},
+                  $variant-separator: $variant-separator,
+                  $pseudo-separator: $pseudo-separator,
+                  $pseudo: $variant,
+                  $important: $important
+                );
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
