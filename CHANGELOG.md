@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.1](https://github.com/ivodolenc/nevo/compare/v1.6.0...v1.6.1) (2021-04-08)
+
+
+### Bug Fixes
+
+* add missing styles ([d5e0450](https://github.com/ivodolenc/nevo/commit/d5e0450e6a56afae2d109470d6f4403ea3d75d19))
+
 ## [1.6.0](https://github.com/ivodolenc/nevo/compare/v1.5.0...v1.6.0) (2021-04-05)
 
 
