@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.2](https://github.com/ivodolenc/nevo/compare/v1.6.1...v1.6.2) (2021-04-12)
+
+
+### Bug Fixes
+
+* add missing properties to 'transition' utilities ([845ce2f](https://github.com/ivodolenc/nevo/commit/845ce2fb171b68152cc75af9f91e3197d569ac07))
+* update class value ([88ba293](https://github.com/ivodolenc/nevo/commit/88ba2931f723139e3ab78921782bf3f50a447b16))
+
 ### [1.6.1](https://github.com/ivodolenc/nevo/compare/v1.6.0...v1.6.1) (2021-04-08)
 
 
