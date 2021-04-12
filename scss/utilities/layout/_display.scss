@@ -60,7 +60,7 @@ $display: map.deep-merge(
       'display': contents
     ),
     'hidden': (
-      'display': hidden
+      'display': none
     )
   ),
   $display
