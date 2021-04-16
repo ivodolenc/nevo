@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/ivodolenc/nevo/compare/v1.6.2...v1.7.0) (2021-04-16)
+
+
+### Features
+
+* add 'filters' utilities ([16f3a57](https://github.com/ivodolenc/nevo/commit/16f3a57951fe9700690ed2a0348c8a807b38af29))
+
 ### [1.6.2](https://github.com/ivodolenc/nevo/compare/v1.6.1...v1.6.2) (2021-04-12)
 
 
