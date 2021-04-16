@@ -48,7 +48,7 @@
     "gulp-rename": "^2.0.0",
     "husky": "4.3.8",
     "prettier": "^2.2.1",
-    "standard-version": "^9.1.1",
+    "standard-version": "^9.2.0",
     "stylelint": "^13.12.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^21.0.0",
