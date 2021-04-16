@@ -1,0 +1,40 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$blur: () !default;
+$blur: map.deep-merge(
+  (
+    'blur-0': (
+      --blur: blur(0)
+    ),
+    'blur-1': (
+      --blur: blur(4px)
+    ),
+    'blur-2': (
+      --blur: blur(8px)
+    ),
+    'blur-3': (
+      --blur: blur(12px)
+    ),
+    'blur-4': (
+      --blur: blur(16px)
+    ),
+    'blur-5': (
+      --blur: blur(24px)
+    ),
+    'blur-6': (
+      --blur: blur(40px)
+    ),
+    'blur-7': (
+      --blur: blur(64px)
+    )
+  ),
+  $blur
+);
+
+@include mixins.generate-common(
+  $rules: $blur,
+  $variants: map.get(config.$variants, 'filters', 'blur'),
+  $utilities: map.get(config.$utilities, 'filters', 'blur')
+);

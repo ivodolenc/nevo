@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$filter: () !default;
+$filter: map.deep-merge(
+  (
+    'filter': (
+      'filter': var(--blur)
+    ),
+    'filter-none': (
+      'filter': none
+    )
+  ),
+  $filter
+);
+
+@include mixins.generate-common(
+  $rules: $filter,
+  $variants: map.get(config.$variants, 'filters', 'filter'),
+  $utilities: map.get(config.$utilities, 'filters', 'filter')
+);

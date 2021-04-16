@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$backdrop-filter: () !default;
+$backdrop-filter: map.deep-merge(
+  (
+    'backdrop-filter': (
+      'backdrop-filter': var(--backdrop-blur)
+    ),
+    'backdrop-filter-none': (
+      'backdrop-filter': none
+    )
+  ),
+  $backdrop-filter
+);
+
+@include mixins.generate-common(
+  $rules: $backdrop-filter,
+  $variants: map.get(config.$variants, 'filters', 'backdrop-filter'),
+  $utilities: map.get(config.$utilities, 'filters', 'backdrop-filter')
+);

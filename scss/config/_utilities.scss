@@ -36,6 +36,12 @@ $utilities: map.deep-merge(
     'effects': (
       'opacity': true
     ),
+    'filters': (
+      'backdrop-blur': true,
+      'backdrop-filter': true,
+      'blur': true,
+      'filter': true
+    ),
     'flexbox': (
       'flex-direction': true,
       'flex-grow': true,

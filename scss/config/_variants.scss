@@ -36,6 +36,12 @@ $variants: map.deep-merge(
     'effects': (
       'opacity': responsive focus hover
     ),
+    'filters': (
+      'backdrop-blur': responsive,
+      'backdrop-filter': responsive,
+      'blur': responsive,
+      'filter': responsive
+    ),
     'flexbox': (
       'flex-direction': responsive,
       'flex-grow': responsive,
