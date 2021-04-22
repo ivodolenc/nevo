@@ -1,6 +1,13 @@
+@use 'sass:map';
+@use '../config/core';
 @use '../functions/get-theme';
 
+/*! nevo | MIT License | https://github.com/ivodolenc/nevo */
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+
+@if not map.get(core.$core, 'purge', 'base') {
+  /*! purgecss start ignore */
+}
 
 /*
 Document
@@ -283,4 +290,8 @@ Add the correct display in Chrome and Safari.
 
 summary {
   display: list-item;
+}
+
+@if not map.get(core.$core, 'purge', 'base') {
+  /*! purgecss end ignore */
 }
