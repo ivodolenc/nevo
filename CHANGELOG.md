@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/ivodolenc/nevo/compare/v1.7.0...v1.8.0) (2021-04-22)
+
+
+### Features
+
+* add 'purge' option to 'core' config for base styles ([47e9198](https://github.com/ivodolenc/nevo/commit/47e919860002a66ff1906c5afd92359d954b792e))
+
 ## [1.7.0](https://github.com/ivodolenc/nevo/compare/v1.6.2...v1.7.0) (2021-04-16)
 
 
