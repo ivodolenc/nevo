@@ -36,22 +36,23 @@
     "lint:all:stylelint": "yarn lint:stylelint --fix"
   },
   "devDependencies": {
-    "@commitlint/cli": "^12.1.1",
-    "@commitlint/config-conventional": "^12.1.1",
-    "autoprefixer": "^9.8.6",
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "autoprefixer": "^10.2.5",
     "browser-sync": "^2.26.14",
-    "cssnano": "^4.1.10",
+    "cssnano": "^5.0.4",
     "fibers": "^5.0.0",
     "gulp": "^4.0.2",
     "gulp-dart-sass": "^1.0.2",
     "gulp-postcss": "^9.0.0",
     "gulp-rename": "^2.0.0",
-    "husky": "4.3.8",
-    "prettier": "^2.2.1",
-    "standard-version": "^9.2.0",
-    "stylelint": "^13.12.0",
+    "husky": "^6.0.0",
+    "postcss": "^8.3.0",
+    "prettier": "^2.3.0",
+    "standard-version": "^9.3.0",
+    "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-standard": "^21.0.0",
+    "stylelint-config-standard": "^22.0.0",
     "stylelint-scss": "^3.19.0"
   }
 }
