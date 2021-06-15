@@ -70,6 +70,7 @@ $variants: map.deep-merge(
       'outline': responsive focus,
       'pointer-events': responsive,
       'resize': responsive,
+      'scrollbar': responsive,
       'user-select': responsive
     ),
     'layout': (

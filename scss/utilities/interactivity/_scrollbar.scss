@@ -1,0 +1,23 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$scrollbar: () !default;
+$scrollbar: map.deep-merge(
+  (
+    'scrollbar-hidden': (
+      '-ms-overflow-style': none,
+      'scrollbar-width': none
+    ),
+    'scrollbar-hidden::-webkit-scrollbar': (
+      'display': none
+    )
+  ),
+  $scrollbar
+);
+
+@include mixins.generate-common(
+  $rules: $scrollbar,
+  $variants: map.get(config.$variants, 'interactivity', 'scrollbar'),
+  $utilities: map.get(config.$utilities, 'interactivity', 'scrollbar')
+);
