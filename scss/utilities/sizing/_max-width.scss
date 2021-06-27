@@ -38,6 +38,6 @@ $max-width: map.deep-merge(
   $rules: (
     'max-w-screen': max-width
   ),
-  $variants: map.get(config.$variants, 'borders', 'border-radius'),
-  $utilities: map.get(config.$utilities, 'borders', 'border-radius')
+  $variants: map.get(config.$variants, 'sizing', 'max-width'),
+  $utilities: map.get(config.$utilities, 'sizing', 'max-width')
 );
