@@ -7,12 +7,12 @@
 }
 
 *,
-*::before,
-*::after {
+::before,
+::after {
   box-sizing: border-box;
   border-width: 0;
   border-style: solid;
-  border-color: get-theme.theme('colors', 'current');
+  border-color: currentColor;
 }
 
 html,
@@ -111,6 +111,14 @@ ul {
 a {
   color: inherit;
   text-decoration: inherit;
+}
+
+hr {
+  border-top-width: 1px;
+}
+
+img {
+  border-style: solid;
 }
 
 textarea {
