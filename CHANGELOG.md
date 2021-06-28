@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/ivodolenc/nevo/compare/v1.9.0...v1.10.0) (2021-06-28)
+
+
+### Features
+
+* add 'easing' functions ([7ce997c](https://github.com/ivodolenc/nevo/commit/7ce997c9aa0cf4cb33074d068b9a1870634b8540))
+* add complete 'color' palette ([f328757](https://github.com/ivodolenc/nevo/commit/f328757e44880ce701137af73db67b661d57414b))
+* extend 'height' utilities ([6ac87b1](https://github.com/ivodolenc/nevo/commit/6ac87b15f43e129571fee7e2cd8ce27b2b156847))
+
+
+### Bug Fixes
+
+* update 'transitions' utilities order ([5460fd1](https://github.com/ivodolenc/nevo/commit/5460fd1280d8e478327b95aa0a91508de3645250))
+* update 'variants' and 'utilities' path in mixin options ([58e3ea2](https://github.com/ivodolenc/nevo/commit/58e3ea218a49e9a8b096ef899c49e7716e76a7f3))
+
 ## [1.9.0](https://github.com/ivodolenc/nevo/compare/v1.8.0...v1.9.0) (2021-06-15)
 
 
