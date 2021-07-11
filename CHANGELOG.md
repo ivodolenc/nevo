@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/ivodolenc/nevo/compare/v1.10.1...v1.11.0) (2021-07-11)
+
+
+### Features
+
+* add new 'background-blend-mode' utilities ([4993d8e](https://github.com/ivodolenc/nevo/commit/4993d8eaaa7a37f6f346493483c452d5afa115f1))
+* add new 'box-decoration-break' utilities ([c93f6bf](https://github.com/ivodolenc/nevo/commit/c93f6bfb9bb993fd39816574802a2475baacdc50))
+* add new 'box-sizing' utilities ([81243fc](https://github.com/ivodolenc/nevo/commit/81243fcec66b1ac9eed772b9cef163dac827963c))
+* add new 'clear' utilities ([f1caf90](https://github.com/ivodolenc/nevo/commit/f1caf906b93c4bbaa41f7bf842b26c2364d97f45))
+* add new 'effects' utilities ([78fc1ba](https://github.com/ivodolenc/nevo/commit/78fc1ba22d619a6cf5b189eb0ee6aa92b9dc74fe))
+* add new 'floats' utilities ([37fda06](https://github.com/ivodolenc/nevo/commit/37fda06d90c2f759f207429e360774d70baf8d17))
+* add new 'isolation' utilities ([c65ffa2](https://github.com/ivodolenc/nevo/commit/c65ffa2121cc80512fda4b295523b1ed514a7eb6))
+* add new 'layout' utilities ([7f56a72](https://github.com/ivodolenc/nevo/commit/7f56a7232827962ac76506aeb7832988ebb035ad))
+* add new 'mix-blend-mode' utilities ([632c87a](https://github.com/ivodolenc/nevo/commit/632c87a71c9f9d0a3c4403fe91eecd59d8c96a88))
+* extend 'order' utilities ([84ebb7e](https://github.com/ivodolenc/nevo/commit/84ebb7e01187911c7e914d4c90348bfa4a73d1ab))
+* update 'utilities' and 'variants' for new utils ([58688e7](https://github.com/ivodolenc/nevo/commit/58688e7c0f2802ff9f78bdf44c17d72f2933f82d))
+
+
+### Bug Fixes
+
+* add missing  utilities ([cc493c0](https://github.com/ivodolenc/nevo/commit/cc493c06f69626a6bf57680c906a3ddfef6e339a))
+
 ### [1.10.1](https://github.com/ivodolenc/nevo/compare/v1.10.0...v1.10.1) (2021-06-30)
 
 ## [1.10.0](https://github.com/ivodolenc/nevo/compare/v1.9.0...v1.10.0) (2021-06-28)
