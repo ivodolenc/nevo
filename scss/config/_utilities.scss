@@ -34,7 +34,9 @@ $utilities: map.deep-merge(
       'place-self': true
     ),
     'effects': (
-      'opacity': true
+      'opacity': true,
+      'mix-blend-mode': true,
+      'background-blend-mode': true
     ),
     'filters': (
       'backdrop-blur': true,
@@ -74,8 +76,13 @@ $utilities: map.deep-merge(
       'user-select': true
     ),
     'layout': (
+      'box-decoration-break': true,
+      'box-sizing': true,
+      'clear': true,
       'container': true,
       'display': true,
+      'floats': true,
+      'isolation': true,
       'object-fit': true,
       'object-position': true,
       'overflow': true,

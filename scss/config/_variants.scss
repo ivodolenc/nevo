@@ -34,7 +34,9 @@ $variants: map.deep-merge(
       'place-self': responsive
     ),
     'effects': (
-      'opacity': responsive focus hover
+      'opacity': responsive focus hover,
+      'mix-blend-mode': responsive,
+      'background-blend-mode': responsive
     ),
     'filters': (
       'backdrop-blur': responsive,
@@ -74,8 +76,13 @@ $variants: map.deep-merge(
       'user-select': responsive
     ),
     'layout': (
+      'box-decoration-break': responsive,
+      'box-sizing': responsive,
+      'clear': responsive,
       'container': responsive,
       'display': responsive,
+      'floats': responsive,
+      'isolation': responsive,
       'object-fit': responsive,
       'object-position': responsive,
       'overflow': responsive,
