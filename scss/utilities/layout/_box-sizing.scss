@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$box-sizing: () !default;
+$box-sizing: map.deep-merge(
+  (
+    'box-border': (
+      'box-sizing': border-box
+    ),
+    'box-content': (
+      'box-sizing': content-box
+    )
+  ),
+  $box-sizing
+);
+
+@include mixins.generate-common(
+  $rules: $box-sizing,
+  $variants: map.get(config.$variants, 'layout', 'box-sizing'),
+  $utilities: map.get(config.$utilities, 'layout', 'box-sizing')
+);
