@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$isolation: () !default;
+$isolation: map.deep-merge(
+  (
+    'isolate': (
+      'isolation': isolate
+    ),
+    'isolation-auto': (
+      'isolation': auto
+    )
+  ),
+  $isolation
+);
+
+@include mixins.generate-common(
+  $rules: $isolation,
+  $variants: map.get(config.$variants, 'layout', 'isolation'),
+  $utilities: map.get(config.$utilities, 'layout', 'isolation')
+);
