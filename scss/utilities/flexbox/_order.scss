@@ -5,6 +5,9 @@
 $order: () !default;
 $order: map.deep-merge(
   (
+    'order-0': (
+      'order': 0
+    ),
     'order-1': (
       'order': 1
     ),
@@ -40,6 +43,12 @@ $order: map.deep-merge(
     ),
     'order-12': (
       'order': 12
+    ),
+    'order-first': (
+      'order': -9999
+    ),
+    'order-last': (
+      'order': 9999
     )
   ),
   $order
