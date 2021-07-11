@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$floats: () !default;
+$floats: map.deep-merge(
+  (
+    'float-left': (
+      'float': left
+    ),
+    'float-right': (
+      'float': right
+    ),
+    'float-none': (
+      'float': none
+    )
+  ),
+  $floats
+);
+
+@include mixins.generate-common(
+  $rules: $floats,
+  $variants: map.get(config.$variants, 'layout', 'floats'),
+  $utilities: map.get(config.$utilities, 'layout', 'floats')
+);
