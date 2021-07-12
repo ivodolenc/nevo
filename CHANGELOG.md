@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.12.0](https://github.com/ivodolenc/nevo/compare/v1.11.0...v1.12.0) (2021-07-12)
+
+
+### Features
+
+* add new 'between' option to 'colors' and 'common' mixins ([f1823fa](https://github.com/ivodolenc/nevo/commit/f1823fae6c1c8bc22954181cdd5521fb2399b958))
+* add new 'divide' utilities ([d5da111](https://github.com/ivodolenc/nevo/commit/d5da1113a0a4ed97bec4149ffd693e7db2f0381c))
+
 ## [1.11.0](https://github.com/ivodolenc/nevo/compare/v1.10.1...v1.11.0) (2021-07-11)
 
 
