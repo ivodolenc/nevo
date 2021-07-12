@@ -1,0 +1,32 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$divide-style: () !default;
+$divide-style: map.deep-merge(
+  (
+    'divide-solid': (
+      'border-style': solid
+    ),
+    'divide-dashed': (
+      'border-style': dashed
+    ),
+    'divide-dotted': (
+      'border-style': dotted
+    ),
+    'divide-double': (
+      'border-style': double
+    ),
+    'divide-none': (
+      'border-style': none
+    )
+  ),
+  $divide-style
+);
+
+@include mixins.generate-common(
+  $rules: $divide-style,
+  $between: true,
+  $variants: map.get(config.$variants, 'borders', 'divide-style'),
+  $utilities: map.get(config.$utilities, 'borders', 'divide-style')
+);

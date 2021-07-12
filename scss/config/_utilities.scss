@@ -20,7 +20,11 @@ $utilities: map.deep-merge(
       'border-opacity': true,
       'border-radius': true,
       'border-style': true,
-      'border-width': true
+      'border-width': true,
+      'divide-color': true,
+      'divide-opacity': true,
+      'divide-style': true,
+      'divide-width': true
     ),
     'box-alignment': (
       'align-content': true,

@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+@include mixins.generate-colors(
+  $rules: (
+    'divide': border-color
+  ),
+  $between: true,
+  $custom-property: '--divide-opacity',
+  $variants: map.get(config.$variants, 'borders', 'divide-color'),
+  $utilities: map.get(config.$utilities, 'borders', 'divide-color')
+);

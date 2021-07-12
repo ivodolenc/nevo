@@ -1,0 +1,14 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+@include mixins.generate-between(
+  $set: map.get(config.$theme, 'border'),
+  $selector-name: 'divide',
+  $property-left: 'border-left-width',
+  $property-right: 'border-right-width',
+  $property-top: 'border-top-width',
+  $property-bottom: 'border-bottom-width',
+  $variants: map.get(config.$variants, 'borders', 'divide-width'),
+  $utilities: map.get(config.$utilities, 'borders', 'divide-width')
+);

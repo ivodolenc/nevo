@@ -20,7 +20,11 @@ $variants: map.deep-merge(
       'border-opacity': responsive focus hover,
       'border-radius': responsive,
       'border-style': responsive,
-      'border-width': responsive focus hover
+      'border-width': responsive focus hover,
+      'divide-color': responsive,
+      'divide-opacity': responsive,
+      'divide-style': responsive,
+      'divide-width': responsive
     ),
     'box-alignment': (
       'align-content': responsive,
