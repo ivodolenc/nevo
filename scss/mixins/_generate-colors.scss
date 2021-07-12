@@ -16,14 +16,17 @@
   $pseudo: null,
   $important: null,
   $variant-separator: null,
-  $pseudo-separator: null
+  $pseudo-separator: null,
+  $between: null
 ) {
+  $between: if($between, ' > :not([hidden]) ~ :not([hidden])', null);
+
   @each $selector-name, $declaration in $rules {
     #{$selector}#{$selector-name} {
       @each $set-key, $set-value in $set {
         @if meta.type-of($set-value) == 'map' {
           @each $key, $value in $set-value {
-            @at-root #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$selector-name}#{$separator}#{$set-key}#{$separator}#{$key}#{$pseudo-separator}#{$pseudo} {
+            @at-root #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$selector-name}#{$separator}#{$set-key}#{$separator}#{$key}#{$pseudo-separator}#{$pseudo}#{$between} {
               @if meta.type-of($value) == 'color' {
                 @if $custom-property {
                   #{$custom-property}: 1;
@@ -45,7 +48,7 @@
             }
           }
         } @else {
-          @at-root #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$selector-name}#{$separator}#{$set-key}#{$pseudo-separator}#{$pseudo} {
+          @at-root #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$selector-name}#{$separator}#{$set-key}#{$pseudo-separator}#{$pseudo}#{$between} {
             @if meta.type-of($set-value) == 'color' {
               @if $custom-property {
                 #{$custom-property}: 1;
@@ -83,7 +86,8 @@
   $variants: null,
   $pseudo: null,
   $default: true,
-  $utilities: true
+  $utilities: true,
+  $between: false
 ) {
   @if $utilities {
     $responsive: list.index($variants, 'responsive');
@@ -103,7 +107,8 @@
         $rules: $rules,
         $prefix: $prefix,
         $custom-property: $custom-property,
-        $important: $important
+        $important: $important,
+        $between: $between
       );
     }
 
@@ -118,7 +123,8 @@
           $variant-separator: $variant-separator,
           $pseudo-separator: $pseudo-separator,
           $pseudo: $variant,
-          $important: $important
+          $important: $important,
+          $between: $between
         );
       }
     }
@@ -134,7 +140,8 @@
               $custom-property: $custom-property,
               $variant: $breakpoint,
               $variant-separator: $variant-separator,
-              $important: $important
+              $important: $important,
+              $between: $between
             );
           }
 
@@ -149,7 +156,8 @@
                 $variant-separator: $variant-separator,
                 $pseudo-separator: $pseudo-separator,
                 $pseudo: $variant,
-                $important: $important
+                $important: $important,
+                $between: $between
               );
             }
           }

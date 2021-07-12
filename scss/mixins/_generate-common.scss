@@ -13,10 +13,13 @@
   $pseudo: null,
   $important: null,
   $variant-separator: null,
-  $pseudo-separator: null
+  $pseudo-separator: null,
+  $between: null
 ) {
+  $between: if($between, ' > :not([hidden]) ~ :not([hidden])', null);
+
   @each $selector-name, $declaration in $rules {
-    #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$selector-name}#{$pseudo-separator}#{$pseudo} {
+    #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$selector-name}#{$pseudo-separator}#{$pseudo}#{$between} {
       @each $property, $value in $declaration {
         #{$property}: #{$value} #{if($important, !important, null)};
       }
@@ -34,7 +37,8 @@
   $variants: null,
   $pseudo: null,
   $default: true,
-  $utilities: true
+  $utilities: true,
+  $between: false
 ) {
   @if $utilities {
     $responsive: list.index($variants, 'responsive');
@@ -52,7 +56,8 @@
       @include _common(
         $rules: $rules,
         $prefix: $prefix,
-        $important: $important
+        $important: $important,
+        $between: $between
       );
     }
 
@@ -65,7 +70,8 @@
           $variant-separator: $variant-separator,
           $pseudo-separator: $pseudo-separator,
           $pseudo: $variant,
-          $important: $important
+          $important: $important,
+          $between: $between
         );
       }
     }
@@ -79,7 +85,8 @@
               $rules: $rules,
               $variant: $breakpoint,
               $variant-separator: $variant-separator,
-              $important: $important
+              $important: $important,
+              $between: $between
             );
           }
 
@@ -92,7 +99,8 @@
                 $variant-separator: $variant-separator,
                 $pseudo-separator: $pseudo-separator,
                 $pseudo: $variant,
-                $important: $important
+                $important: $important,
+                $between: $between
               );
             }
           }
