@@ -2,26 +2,13 @@
 @use '../../config';
 @use '../../mixins';
 
-$space-between: () !default;
-$space-between: map.deep-merge(
-  (
-    'space-x-reverse': (
-      '--space-x-reverse': 1
-    ),
-    'space-y-reverse': (
-      '--space-y-reverse': 1
-    )
-  ),
-  $space-between
-);
-
-@include mixins.generate-common(
-  $rules: $space-between,
-  $variants: map.get(config.$variants, 'spacing', 'space-between'),
-  $utilities: map.get(config.$utilities, 'spacing', 'space-between')
-);
-
-@include mixins.generate-space-between(
+@include mixins.generate-between(
+  $set: map.get(config.$theme, 'spacing'),
+  $selector-name: 'space',
+  $property-left: 'margin-left',
+  $property-right: 'margin-right',
+  $property-top: 'margin-top',
+  $property-bottom: 'margin-bottom',
   $variants: map.get(config.$variants, 'spacing', 'space-between'),
   $utilities: map.get(config.$utilities, 'spacing', 'space-between')
 );

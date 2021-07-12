@@ -5,7 +5,7 @@
 @use '../functions';
 @use 'media-queries';
 
-@mixin _space-between(
+@mixin _between(
   $selector: '.',
   $separator: '-',
   $prefix: null,
@@ -15,21 +15,27 @@
   $negative: null,
   $important: null,
   $variant-separator: null,
-  $pseudo-separator: null
+  $pseudo-separator: null,
+  $selector-name: null,
+  $property-left: null,
+  $property-right: null,
+  $property-top: null,
+  $property-bottom: null
 ) {
   $negative-prefix: if($negative, '-', null);
 
   @each $set-key, $set-value in $set {
-    #{$selector}#{$variant}#{$variant-separator}#{$negative-prefix}#{$prefix}#{space-y}#{$separator}#{$set-key}#{$pseudo-separator}#{$pseudo} {
+    #{$selector}#{$variant}#{$variant-separator}#{$negative-prefix}#{$prefix}#{$selector-name}#{-y}#{$separator}#{$set-key}#{$pseudo-separator}#{$pseudo} {
       > :not([hidden]) ~ :not([hidden]) {
-        #{--space-y-reverse}: 0;
-        #{margin-top}: calc(
+        #{--#{$selector-name}-y-reverse}: 0;
+        #{$property-top}: calc(
             #{$negative-prefix}#{$set-value} *
-              calc(1 - var(#{--space-y-reverse}))
+              calc(1 - var(#{--#{$selector-name}-y-reverse}))
           )
           #{if($important, !important, null)};
-        #{margin-bottom}: calc(
-            #{$negative-prefix}#{$set-value} * var(#{--space-y-reverse})
+        #{$property-bottom}: calc(
+            #{$negative-prefix}#{$set-value} *
+              var(#{--#{$selector-name}-y-reverse})
           )
           #{if($important, !important, null)};
       }
@@ -37,16 +43,17 @@
   }
 
   @each $set-key, $set-value in $set {
-    #{$selector}#{$variant}#{$variant-separator}#{$negative-prefix}#{$prefix}#{space-x}#{$separator}#{$set-key}#{$pseudo-separator}#{$pseudo} {
+    #{$selector}#{$variant}#{$variant-separator}#{$negative-prefix}#{$prefix}#{$selector-name}#{-x}#{$separator}#{$set-key}#{$pseudo-separator}#{$pseudo} {
       > :not([hidden]) ~ :not([hidden]) {
-        #{--space-x-reverse}: 0;
-        #{margin-right}: calc(
-            #{$negative-prefix}#{$set-value} * var(#{--space-x-reverse})
+        #{--#{$selector-name}-x-reverse}: 0;
+        #{$property-right}: calc(
+            #{$negative-prefix}#{$set-value} *
+              var(#{--#{$selector-name}-x-reverse})
           )
           #{if($important, !important, null)};
-        #{margin-left}: calc(
+        #{$property-left}: calc(
             #{$negative-prefix}#{$set-value} *
-              calc(1 - var(#{--space-x-reverse}))
+              calc(1 - var(#{--#{$selector-name}-x-reverse}))
           )
           #{if($important, !important, null)};
       }
@@ -54,32 +61,37 @@
   }
 
   @if not $negative {
-    #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{space-y-reverse}#{$pseudo-separator}#{$pseudo} {
+    #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$selector-name}#{-y-reverse}#{$pseudo-separator}#{$pseudo} {
       > :not([hidden]) ~ :not([hidden]) {
-        #{--space-y-reverse}: 1;
+        #{--#{$selector-name}-y-reverse}: 1;
       }
     }
 
-    #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{space-x-reverse}#{$pseudo-separator}#{$pseudo} {
+    #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$selector-name}#{-x-reverse}#{$pseudo-separator}#{$pseudo} {
       > :not([hidden]) ~ :not([hidden]) {
-        #{--space-x-reverse}: 1;
+        #{--#{$selector-name}-x-reverse}: 1;
       }
     }
   }
 }
 
-@mixin generate-space-between(
+@mixin generate-between(
   $prefix: map.get(config.$core, 'prefix'),
   $important: map.get(config.$core, 'important'),
   $variant-separator: map.get(config.$core, 'separator'),
   $breakpoints: map.get(config.$theme, 'breakpoints'),
-  $set: map.get(config.$theme, 'spacing'),
   $pseudo-separator: ':',
+  $set: null,
   $variants: null,
   $pseudo: null,
   $positive: true,
   $negative: true,
-  $utilities: true
+  $utilities: true,
+  $selector-name: null,
+  $property-left: null,
+  $property-right: null,
+  $property-top: null,
+  $property-bottom: null
 ) {
   @if $utilities {
     $responsive: list.index($variants, 'responsive');
@@ -94,38 +106,53 @@
     );
 
     @if $positive {
-      @include _space-between(
+      @include _between(
         $set: $set,
         $prefix: $prefix,
-        $important: $important
+        $important: $important,
+        $selector-name: $selector-name,
+        $property-left: $property-left,
+        $property-right: $property-right,
+        $property-top: $property-top,
+        $property-bottom: $property-bottom
       );
     }
 
     @if $negative {
-      @include _space-between(
+      @include _between(
         $set: $set,
         $prefix: $prefix,
         $negative: $negative,
-        $important: $important
+        $important: $important,
+        $selector-name: $selector-name,
+        $property-left: $property-left,
+        $property-right: $property-right,
+        $property-top: $property-top,
+        $property-bottom: $property-bottom
       );
     }
 
     @if $variants-type {
       @each $variant in $variants-list {
         @if $positive {
-          @include _space-between(
+          @include _between(
             $set: $set,
             $prefix: $prefix,
             $variant: $variant,
             $variant-separator: $variant-separator,
             $pseudo-separator: $pseudo-separator,
             $pseudo: $variant,
-            $important: $important
+            $important: $important,
+            $selector-name: $selector-name,
+            $property-left: $property-left,
+            $property-right: $property-right,
+            $property-top: $property-top,
+            $property-bottom: $property-bottom
           );
         }
 
         @if $negative {
-          @include _space-between(
+          @include _between(
             $set: $set,
             $prefix: $prefix,
             $negative: $negative,
@@ -133,7 +160,12 @@
             $variant-separator: $variant-separator,
             $pseudo-separator: $pseudo-separator,
             $pseudo: $variant,
-            $important: $important
+            $important: $important,
+            $selector-name: $selector-name,
+            $property-left: $property-left,
+            $property-right: $property-right,
+            $property-top: $property-top,
+            $property-bottom: $property-bottom
           );
         }
       }
@@ -143,42 +175,57 @@
       @each $breakpoint in map.keys($breakpoints) {
         @include media-queries.media($from: $breakpoint) {
           @if $positive {
-            @include _space-between(
+            @include _between(
               $set: $set,
               $prefix: $prefix,
               $variant: $breakpoint,
               $variant-separator: $variant-separator,
-              $important: $important
+              $important: $important,
+              $selector-name: $selector-name,
+              $property-left: $property-left,
+              $property-right: $property-right,
+              $property-top: $property-top,
+              $property-bottom: $property-bottom
             );
           }
 
           @if $negative {
-            @include _space-between(
+            @include _between(
               $set: $set,
               $prefix: $prefix,
               $negative: $negative,
               $variant: $breakpoint,
               $variant-separator: $variant-separator,
-              $important: $important
+              $important: $important,
+              $selector-name: $selector-name,
+              $property-left: $property-left,
+              $property-right: $property-right,
+              $property-top: $property-top,
+              $property-bottom: $property-bottom
             );
           }
 
           @if $variants-type {
             @each $variant in $variants-list {
               @if $positive {
-                @include _space-between(
+                @include _between(
                   $set: $set,
                   $prefix: $prefix,
                   $variant: #{$breakpoint}#{$variant-separator}#{$variant},
                   $variant-separator: $variant-separator,
                   $pseudo-separator: $pseudo-separator,
                   $pseudo: $variant,
-                  $important: $important
+                  $important: $important,
+                  $selector-name: $selector-name,
+                  $property-left: $property-left,
+                  $property-right: $property-right,
+                  $property-top: $property-top,
+                  $property-bottom: $property-bottom
                 );
               }
 
               @if $negative {
-                @include _space-between(
+                @include _between(
                   $set: $set,
                   $prefix: $prefix,
                   $negative: $negative,
@@ -186,7 +233,12 @@
                   $variant-separator: $variant-separator,
                   $pseudo-separator: $pseudo-separator,
                   $pseudo: $variant,
-                  $important: $important
+                  $important: $important,
+                  $selector-name: $selector-name,
+                  $property-left: $property-left,
+                  $property-right: $property-right,
+                  $property-top: $property-top,
+                  $property-bottom: $property-bottom
                 );
               }
             }
