@@ -1,5 +1,6 @@
 @use 'sass:list';
 @use 'sass:map';
+@use 'sass:meta';
 @use '../config';
 
 @mixin media(
@@ -10,7 +11,11 @@
   $until: null
 ) {
   @if $from and not $until {
-    $min-width: map.get($map, $from);
+    $min-width: if(
+      meta.type-of($from) != 'number',
+      map.get($map, $from),
+      $from
+    );
     $media-query: '(min-width: #{$min-width})';
 
     @if $type {
@@ -27,7 +32,11 @@
   }
 
   @if $until and not $from {
-    $max-width: map.get($map, $until) - 0.01;
+    $max-width: if(
+      meta.type-of($until) != 'number',
+      map.get($map, $until) - 1,
+      $until
+    );
     $media-query: '(max-width: #{$max-width})';
 
     @if $type {
@@ -44,8 +53,16 @@
   }
 
   @if $from and $until {
-    $min-width: map.get($map, $from);
-    $max-width: map.get($map, $until) - 0.01;
+    $min-width: if(
+      meta.type-of($from) != 'number',
+      map.get($map, $from),
+      $from
+    );
+    $max-width: if(
+      meta.type-of($until) != 'number',
+      map.get($map, $until) - 1,
+      $until
+    );
     $media-query: '(min-width: #{$min-width}) and (max-width: #{$max-width})';
 
     @if $type {
