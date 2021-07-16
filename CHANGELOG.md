@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.13.0](https://github.com/ivodolenc/nevo/compare/v1.12.0...v1.13.0) (2021-07-16)
+
+
+### Features
+
+* add support for custom 'responsive' values ([9e76eae](https://github.com/ivodolenc/nevo/commit/9e76eae242f1187775d7d7f1557007cc9fc2901c))
+
 ## [1.12.0](https://github.com/ivodolenc/nevo/compare/v1.11.0...v1.12.0) (2021-07-12)
 
 
