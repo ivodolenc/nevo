@@ -6,8 +6,8 @@
   $rules: (
     'divide': border-color
   ),
-  $between: true,
   $custom-property: '--divide-opacity',
+  $combinator: ' > :not([hidden]) ~ :not([hidden])',
   $variants: map.get(config.$variants, 'borders', 'divide-color'),
   $utilities: map.get(config.$utilities, 'borders', 'divide-color')
 );

@@ -56,7 +56,7 @@ $divide-opacity: map.deep-merge(
 
 @include mixins.generate-common(
   $rules: $divide-opacity,
-  $between: true,
+  $combinator: ' > :not([hidden]) ~ :not([hidden])',
   $variants: map.get(config.$variants, 'borders', 'divide-opacity'),
   $utilities: map.get(config.$utilities, 'borders', 'divide-opacity')
 );
