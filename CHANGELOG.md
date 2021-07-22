@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/ivodolenc/nevo/compare/v1.13.0...v2.0.0) (2021-07-22)
+
+
+### Features
+
+* add new 'placeholder' utilities ([56ac15c](https://github.com/ivodolenc/nevo/commit/56ac15cb9c52706f5f37d84571ea0f09169952e2))
+* deprecate mixin 'generate-spacing' in favor 'generate-theme' to simplify global usage ([aba137e](https://github.com/ivodolenc/nevo/commit/aba137e4738bdc78856e7bd2dc7cebe2de051c58))
+* update mixin options following 'between -> combinator' renaming ([035bca8](https://github.com/ivodolenc/nevo/commit/035bca8cd5ca498f6ac0fa98636f347fbcbaabee))
+* update mixins and rename option 'between' to 'combinator' to simplify global usage ([4060f78](https://github.com/ivodolenc/nevo/commit/4060f780a553e07bd22f1648bae8bf8f30bff870))
+
 ## [1.13.0](https://github.com/ivodolenc/nevo/compare/v1.12.0...v1.13.0) (2021-07-16)
 
 
