@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+@include mixins.generate-colors(
+  $rules: (
+    'placeholder': color
+  ),
+  $custom-property: '--placeholder-opacity',
+  $combinator: '::placeholder',
+  $variants: map.get(config.$variants, 'typography', 'placeholder-color'),
+  $utilities: map.get(config.$utilities, 'typography', 'placeholder-color')
+);

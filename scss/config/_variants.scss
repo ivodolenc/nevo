@@ -143,6 +143,8 @@ $variants: map.deep-merge(
       'line-height': responsive,
       'list-style-position': responsive,
       'list-style-type': responsive,
+      'placeholder-color': responsive focus,
+      'placeholder-opacity': responsive focus,
       'text-align': responsive,
       'text-color': responsive focus hover,
       'text-decoration': responsive focus hover,

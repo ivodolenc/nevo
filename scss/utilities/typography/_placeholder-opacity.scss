@@ -1,0 +1,61 @@
+@use 'sass:map';
+@use '../../config';
+@use '../../mixins';
+
+$placeholder-opacity: () !default;
+$placeholder-opacity: map.deep-merge(
+  (
+    'placeholder-opacity-0': (
+      '--placeholder-opacity': 0
+    ),
+    'placeholder-opacity-5': (
+      '--placeholder-opacity': 0.05
+    ),
+    'placeholder-opacity-10': (
+      '--placeholder-opacity': 0.1
+    ),
+    'placeholder-opacity-20': (
+      '--placeholder-opacity': 0.2
+    ),
+    'placeholder-opacity-25': (
+      '--placeholder-opacity': 0.25
+    ),
+    'placeholder-opacity-30': (
+      '--placeholder-opacity': 0.3
+    ),
+    'placeholder-opacity-40': (
+      '--placeholder-opacity': 0.4
+    ),
+    'placeholder-opacity-50': (
+      '--placeholder-opacity': 0.5
+    ),
+    'placeholder-opacity-60': (
+      '--placeholder-opacity': 0.6
+    ),
+    'placeholder-opacity-70': (
+      '--placeholder-opacity': 0.7
+    ),
+    'placeholder-opacity-75': (
+      '--placeholder-opacity': 0.75
+    ),
+    'placeholder-opacity-80': (
+      '--placeholder-opacity': 0.8
+    ),
+    'placeholder-opacity-90': (
+      '--placeholder-opacity': 0.9
+    ),
+    'placeholder-opacity-95': (
+      '--placeholder-opacity': 0.95
+    ),
+    'placeholder-opacity-100': (
+      '--placeholder-opacity': 1
+    )
+  ),
+  $placeholder-opacity
+);
+
+@include mixins.generate-common(
+  $rules: $placeholder-opacity,
+  $variants: map.get(config.$variants, 'typography', 'placeholder-opacity'),
+  $utilities: map.get(config.$utilities, 'typography', 'placeholder-opacity')
+);
