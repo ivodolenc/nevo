@@ -95,10 +95,6 @@
 ) {
   @if $utilities {
     $responsive: list.index($variants, 'responsive');
-    $variants-type: meta.type-of($variants) ==
-      'string' or
-      meta.type-of($variants) ==
-      'list';
     $variants-list: if(
       $responsive,
       functions.remove-value($variants, 'responsive'),
@@ -116,25 +112,9 @@
         $property-top: $property-top,
         $property-bottom: $property-bottom
       );
-    }
 
-    @if $negative {
-      @include _between(
-        $set: $set,
-        $prefix: $prefix,
-        $negative: $negative,
-        $important: $important,
-        $selector-name: $selector-name,
-        $property-left: $property-left,
-        $property-right: $property-right,
-        $property-top: $property-top,
-        $property-bottom: $property-bottom
-      );
-    }
-
-    @if $variants-type {
-      @each $variant in $variants-list {
-        @if $positive {
+      @if $variants {
+        @each $variant in $variants-list {
           @include _between(
             $set: $set,
             $prefix: $prefix,
@@ -150,8 +130,24 @@
             $property-bottom: $property-bottom
           );
         }
+      }
+    }
 
-        @if $negative {
+    @if $negative {
+      @include _between(
+        $set: $set,
+        $prefix: $prefix,
+        $negative: $negative,
+        $important: $important,
+        $selector-name: $selector-name,
+        $property-left: $property-left,
+        $property-right: $property-right,
+        $property-top: $property-top,
+        $property-bottom: $property-bottom
+      );
+
+      @if $variants {
+        @each $variant in $variants-list {
           @include _between(
             $set: $set,
             $prefix: $prefix,
@@ -187,6 +183,25 @@
               $property-top: $property-top,
               $property-bottom: $property-bottom
             );
+
+            @if $variants {
+              @each $variant in $variants-list {
+                @include _between(
+                  $set: $set,
+                  $prefix: $prefix,
+                  $variant: #{$breakpoint}#{$variant-separator}#{$variant},
+                  $variant-separator: $variant-separator,
+                  $pseudo-separator: $pseudo-separator,
+                  $pseudo: $variant,
+                  $important: $important,
+                  $selector-name: $selector-name,
+                  $property-left: $property-left,
+                  $property-right: $property-right,
+                  $property-top: $property-top,
+                  $property-bottom: $property-bottom
+                );
+              }
+            }
           }
 
           @if $negative {
@@ -203,28 +218,9 @@
               $property-top: $property-top,
               $property-bottom: $property-bottom
             );
-          }
 
-          @if $variants-type {
-            @each $variant in $variants-list {
-              @if $positive {
-                @include _between(
-                  $set: $set,
-                  $prefix: $prefix,
-                  $variant: #{$breakpoint}#{$variant-separator}#{$variant},
-                  $variant-separator: $variant-separator,
-                  $pseudo-separator: $pseudo-separator,
-                  $pseudo: $variant,
-                  $important: $important,
-                  $selector-name: $selector-name,
-                  $property-left: $property-left,
-                  $property-right: $property-right,
-                  $property-top: $property-top,
-                  $property-bottom: $property-bottom
-                );
-              }
-
-              @if $negative {
+            @if $variants {
+              @each $variant in $variants-list {
                 @include _between(
                   $set: $set,
                   $prefix: $prefix,
