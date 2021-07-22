@@ -21,7 +21,8 @@ $max-height: map.deep-merge(
   $utilities: map.get(config.$utilities, 'sizing', 'max-height')
 );
 
-@include mixins.generate-spacing(
+@include mixins.generate-theme(
+  $set: map.get(config.$theme, 'spacing'),
   $rules: (
     'max-h': max-height
   ),

@@ -38,7 +38,8 @@ $margin: map.deep-merge(
   $utilities: map.get(config.$utilities, 'spacing', 'margin')
 );
 
-@include mixins.generate-spacing(
+@include mixins.generate-theme(
+  $set: map.get(config.$theme, 'spacing'),
   $rules: (
     'm': margin,
     'mt': margin-top,

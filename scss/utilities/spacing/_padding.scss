@@ -2,7 +2,8 @@
 @use '../../config';
 @use '../../mixins';
 
-@include mixins.generate-spacing(
+@include mixins.generate-theme(
+  $set: map.get(config.$theme, 'spacing'),
   $rules: (
     'p': padding,
     'pt': padding-top,

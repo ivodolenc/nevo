@@ -27,7 +27,8 @@ $translate: map.deep-merge(
   $utilities: map.get(config.$utilities, 'transforms', 'translate')
 );
 
-@include mixins.generate-spacing(
+@include mixins.generate-theme(
+  $set: map.get(config.$theme, 'spacing'),
   $rules: (
     'translate-x': --translate-x,
     'translate-y': --translate-y
