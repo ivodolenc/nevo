@@ -17,16 +17,14 @@
   $important: null,
   $variant-separator: null,
   $pseudo-separator: null,
-  $between: null
+  $combinator: null
 ) {
-  $between: if($between, ' > :not([hidden]) ~ :not([hidden])', null);
-
   @each $selector-name, $declaration in $rules {
     #{$selector}#{$selector-name} {
       @each $set-key, $set-value in $set {
         @if meta.type-of($set-value) == 'map' {
           @each $key, $value in $set-value {
-            @at-root #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$selector-name}#{$separator}#{$set-key}#{$separator}#{$key}#{$pseudo-separator}#{$pseudo}#{$between} {
+            @at-root #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$selector-name}#{$separator}#{$set-key}#{$separator}#{$key}#{$pseudo-separator}#{$pseudo}#{$combinator} {
               @if meta.type-of($value) == 'color' {
                 @if $custom-property {
                   #{$custom-property}: 1;
@@ -48,7 +46,7 @@
             }
           }
         } @else {
-          @at-root #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$selector-name}#{$separator}#{$set-key}#{$pseudo-separator}#{$pseudo}#{$between} {
+          @at-root #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$selector-name}#{$separator}#{$set-key}#{$pseudo-separator}#{$pseudo}#{$combinator} {
             @if meta.type-of($set-value) == 'color' {
               @if $custom-property {
                 #{$custom-property}: 1;
@@ -81,38 +79,37 @@
   $breakpoints: map.get(config.$theme, 'breakpoints'),
   $set: map.get(config.$theme, 'colors'),
   $pseudo-separator: ':',
+  $pseudo: null,
   $rules: null,
   $custom-property: null,
+  $combinator: null,
+  $defaults: normal responsive,
   $variants: null,
-  $pseudo: null,
-  $default: true,
-  $utilities: true,
-  $between: false
+  $utilities: true
 ) {
   @if $utilities {
+    $defaults-normal: list.index($defaults, 'normal');
+    $defaults-responsive: list.index($defaults, 'responsive');
+
     $responsive: list.index($variants, 'responsive');
-    $variants-type: meta.type-of($variants) ==
-      'string' or
-      meta.type-of($variants) ==
-      'list';
     $variants-list: if(
       $responsive,
       functions.remove-value($variants, 'responsive'),
       $variants
     );
 
-    @if $default {
+    @if $defaults-normal {
       @include _colors(
         $set: $set,
         $rules: $rules,
         $prefix: $prefix,
         $custom-property: $custom-property,
         $important: $important,
-        $between: $between
+        $combinator: $combinator
       );
     }
 
-    @if $variants-type {
+    @if $variants {
       @each $variant in $variants-list {
         @include _colors(
           $set: $set,
@@ -124,7 +121,7 @@
           $pseudo-separator: $pseudo-separator,
           $pseudo: $variant,
           $important: $important,
-          $between: $between
+          $combinator: $combinator
         );
       }
     }
@@ -132,7 +129,7 @@
     @if $responsive {
       @each $breakpoint in map.keys($breakpoints) {
         @include media-queries.media($from: $breakpoint) {
-          @if $default {
+          @if $defaults-responsive {
             @include _colors(
               $set: $set,
               $rules: $rules,
@@ -141,11 +138,11 @@
               $variant: $breakpoint,
               $variant-separator: $variant-separator,
               $important: $important,
-              $between: $between
+              $combinator: $combinator
             );
           }
 
-          @if $variants-type {
+          @if $variants {
             @each $variant in $variants-list {
               @include _colors(
                 $set: $set,
@@ -157,7 +154,7 @@
                 $pseudo-separator: $pseudo-separator,
                 $pseudo: $variant,
                 $important: $important,
-                $between: $between
+                $combinator: $combinator
               );
             }
           }
