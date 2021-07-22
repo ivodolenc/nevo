@@ -13,15 +13,19 @@
   $rules: null,
   $variant: null,
   $pseudo: null,
+  $negative: null,
   $important: null,
   $pseudo-separator: null,
   $variant-separator: null
 ) {
+  $negative-prefix: if($negative, '-', null);
+
   @each $selector-name, $declaration in $rules {
     @each $set-key, $set-value in $set {
-      #{$selector}#{$variant}#{$variant-separator}#{$prefix}#{$selector-name}#{$separator}#{$set-key}#{$pseudo-separator}#{$pseudo} {
+      #{$selector}#{$variant}#{$variant-separator}#{$negative-prefix}#{$prefix}#{$selector-name}#{$separator}#{$set-key}#{$pseudo-separator}#{$pseudo} {
         @each $property in $declaration {
-          #{$property}: $set-value #{if($important, !important, null)};
+          #{$property}: #{$negative-prefix}#{meta.inspect($set-value)}
+            #{if($important, !important, null)};
         }
       }
     }
@@ -34,75 +38,138 @@
   $variant-separator: map.get(config.$core, 'separator'),
   $breakpoints: map.get(config.$theme, 'breakpoints'),
   $pseudo-separator: ':',
+  $pseudo: null,
   $set: null,
   $rules: null,
+  $positive: true,
+  $negative: false,
+  $defaults: normal responsive,
   $variants: null,
-  $pseudo: null,
-  $default: true,
   $utilities: true
 ) {
   @if $utilities {
+    $defaults-normal: list.index($defaults, 'normal');
+    $defaults-responsive: list.index($defaults, 'responsive');
+
     $responsive: list.index($variants, 'responsive');
-    $variants-type: meta.type-of($variants) ==
-      'string' or
-      meta.type-of($variants) ==
-      'list';
     $variants-list: if(
       $responsive,
       functions.remove-value($variants, 'responsive'),
       $variants
     );
 
-    @if $default {
-      @include _theme(
-        $set: $set,
-        $rules: $rules,
-        $prefix: $prefix,
-        $important: $important
-      );
-    }
-
-    @if $variants-type {
-      @each $variant in $variants-list {
+    @if $positive {
+      @if $defaults-normal {
         @include _theme(
           $set: $set,
           $rules: $rules,
           $prefix: $prefix,
-          $variant: $variant,
-          $variant-separator: $variant-separator,
-          $pseudo-separator: $pseudo-separator,
-          $pseudo: $variant,
           $important: $important
         );
+      }
+
+      @if $variants {
+        @each $variant in $variants-list {
+          @include _theme(
+            $set: $set,
+            $rules: $rules,
+            $prefix: $prefix,
+            $variant: $variant,
+            $variant-separator: $variant-separator,
+            $pseudo-separator: $pseudo-separator,
+            $pseudo: $variant,
+            $important: $important
+          );
+        }
+      }
+    }
+
+    @if $negative {
+      @if $defaults-normal {
+        @include _theme(
+          $set: $set,
+          $rules: $rules,
+          $prefix: $prefix,
+          $negative: $negative,
+          $important: $important
+        );
+      }
+
+      @if $variants {
+        @each $variant in $variants-list {
+          @include _theme(
+            $set: $set,
+            $rules: $rules,
+            $prefix: $prefix,
+            $negative: $negative,
+            $variant: $variant,
+            $variant-separator: $variant-separator,
+            $pseudo-separator: $pseudo-separator,
+            $pseudo: $variant,
+            $important: $important
+          );
+        }
       }
     }
 
     @if $responsive {
       @each $breakpoint in map.keys($breakpoints) {
         @include media-queries.media($from: $breakpoint) {
-          @if $default {
-            @include _theme(
-              $set: $set,
-              $rules: $rules,
-              $prefix: $prefix,
-              $variant: $breakpoint,
-              $variant-separator: $variant-separator,
-              $important: $important
-            );
-          }
-
-          @if $variants-type {
-            @each $variant in $variants-list {
+          @if $positive {
+            @if $defaults-responsive {
               @include _theme(
                 $set: $set,
                 $rules: $rules,
                 $prefix: $prefix,
-                $variant: #{$breakpoint}#{$variant-separator}#{$variant},
+                $variant: $breakpoint,
                 $variant-separator: $variant-separator,
-                $pseudo-separator: $pseudo-separator,
-                $pseudo: $variant,
                 $important: $important
               );
+            }
+
+            @if $variants {
+              @each $variant in $variants-list {
+                @include _theme(
+                  $set: $set,
+                  $rules: $rules,
+                  $prefix: $prefix,
+                  $variant: #{$breakpoint}#{$variant-separator}#{$variant},
+                  $variant-separator: $variant-separator,
+                  $pseudo-separator: $pseudo-separator,
+                  $pseudo: $variant,
+                  $important: $important
+                );
+              }
+            }
+          }
+
+          @if $negative {
+            @if $defaults-responsive {
+              @include _theme(
+                $set: $set,
+                $rules: $rules,
+                $prefix: $prefix,
+                $negative: $negative,
+                $variant: $breakpoint,
+                $variant-separator: $variant-separator,
+                $important: $important
+              );
+            }
+
+            @if $variants {
+              @each $variant in $variants-list {
+                @include _theme(
+                  $set: $set,
+                  $rules: $rules,
+                  $prefix: $prefix,
+                  $negative: $negative,
+                  $variant: #{$breakpoint}#{$variant-separator}#{$variant},
+                  $variant-separator: $variant-separator,
+                  $pseudo-separator: $pseudo-separator,
+                  $pseudo: $variant,
+                  $important: $important
+                );
+              }
             }
           }
         }
