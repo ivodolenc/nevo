@@ -6,28 +6,28 @@ $backdrop-blur: () !default;
 $backdrop-blur: map.deep-merge(
   (
     'backdrop-blur-0': (
-      --backdrop-blur: blur(0)
+      '--backdrop-blur': blur(0)
     ),
     'backdrop-blur-1': (
-      --backdrop-blur: blur(4px)
+      '--backdrop-blur': blur(4px)
     ),
     'backdrop-blur-2': (
-      --backdrop-blur: blur(8px)
+      '--backdrop-blur': blur(8px)
     ),
     'backdrop-blur-3': (
-      --backdrop-blur: blur(12px)
+      '--backdrop-blur': blur(12px)
     ),
     'backdrop-blur-4': (
-      --backdrop-blur: blur(16px)
+      '--backdrop-blur': blur(16px)
     ),
     'backdrop-blur-5': (
-      --backdrop-blur: blur(24px)
+      '--backdrop-blur': blur(24px)
     ),
     'backdrop-blur-6': (
-      --backdrop-blur: blur(40px)
+      '--backdrop-blur': blur(40px)
     ),
     'backdrop-blur-7': (
-      --backdrop-blur: blur(64px)
+      '--backdrop-blur': blur(64px)
     )
   ),
   $backdrop-blur
