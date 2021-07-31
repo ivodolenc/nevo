@@ -6,7 +6,9 @@ $backdrop-filter: () !default;
 $backdrop-filter: map.deep-merge(
   (
     'backdrop-filter': (
-      'backdrop-filter': var(--backdrop-blur)
+      '--backdrop-blur': blur(0),
+      '--backdrop-opacity': opacity(1),
+      'backdrop-filter': var(--backdrop-blur) var(--backdrop-opacity)
     ),
     'backdrop-filter-none': (
       'backdrop-filter': none

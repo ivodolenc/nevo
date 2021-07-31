@@ -45,6 +45,7 @@ $variants: map.deep-merge(
     'filters': (
       'backdrop-blur': responsive,
       'backdrop-filter': responsive,
+      'backdrop-opacity': responsive,
       'blur': responsive,
       'filter': responsive
     ),
