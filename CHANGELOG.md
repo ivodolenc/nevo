@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/ivodolenc/nevo/compare/v2.0.0...v2.1.0) (2021-07-31)
+
+
+### Features
+
+* add new 'backdrop-opacity' utilities and update 'backdrop-filter' custom properties ([1eac278](https://github.com/ivodolenc/nevo/commit/1eac2780a1e47680a973b4e3f46960d467fad265))
+* extend 'z-index' utilities with negative values ([2d61af0](https://github.com/ivodolenc/nevo/commit/2d61af0029e5975ff792e364124ef2977d367de8))
+
 ## [2.0.0](https://github.com/ivodolenc/nevo/compare/v1.13.0...v2.0.0) (2021-07-22)
 
 
